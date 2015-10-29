@@ -6,6 +6,6 @@
 
 install.packages("devtools")
 
-requires(devtools)
+require(devtools)
 
 devtools::install_github("Ronggui/RQDA")
