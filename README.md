@@ -1,6 +1,6 @@
 # RQDA
 
-[RQDA][http://rqda.r-forge.r-project.org/] is computer-aided qualitative data analysis package
+[RQDA](http://rqda.r-forge.r-project.org/) is computer-aided qualitative data analysis package
 
 ## Installation
 
