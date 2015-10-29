@@ -1,0 +1,49 @@
+RQDA 0.2-8
+* improvement of Profile matrix.
+* Facilitator of recoding coded text segment into a new code.
+
+RQDA 0.2-7
+* comdifications for RSQLite 1.0.0.
+* Profile matrix.
+
+RQDA 0.2-6
+* code categores visualisation with d3.
+
+RQDA 0.2-3
+* can import PDF highlights now [Jabref XMP imported as memo, reliant on rjpod - available on r-forge]
+* improvement of "search a word" in the opened file [Files]
+* sort codes according to frequency [Codes]
+* show number of codings [Codes]
+* add "Save as" button [Project]
+* fix bugs related to encoding issues
+* comment out the support for MySQL [perhaps need a seperate package]
+
+RQDA 0.2-2
+* easier to uncode a coding (major change in GUI behaviour)
+* rename of GetAttr to getAttr
+* support MySQL preliminarily
+* export attribute items in pop-up menu
+* new function of codingBySearch, for auto-coding
+* new function of exportCodedFile
+* enchancement related to encoding
+* various bugfixes
+
+RQDA 0.2-1
+* change of the GUI: add two buttons (new and attribute) to the file tab.
+* C2Memo button is removed and right-click of coding label activate the same coding memo widget
+* new function of ViewPlainFile
+* only update the coding database when the code anchor is removed to avoid the ensuing wrong index
+* bugfixes related to highlighting and tooltips (caused by changes of api in up stream packages)
+* other bugfixes
+
+RQDA 0.1-9
+* widgets are enabled only if they are usable.
+* Better code categories management system and various improvements of GUI.
+* Click-handler for second half of code-mark.
+* Better default color scheme for code mark.
+* New function of and().
+* New option "both" in "type of retrieval".
+* New option of subset in GetAtrr().
+* It can handle ' correctly now.
+* Upgrade RGtk2 (>=2.12.12).
+* Various bugfixes.

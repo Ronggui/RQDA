@@ -1,0 +1,17 @@
+citHeader("To cite package 'RQDA' in publications use:")
+     
+     year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
+     vers <- paste("R package version", meta$Version)
+     url  <- meta$URL
+
+     citEntry(entry="Manual",
+              title = "RQDA: R-based Qualitative Data Analysis",
+              author = personList(as.person("Ronggui HUANG")),
+              year = year,
+              note = vers,
+	      url = url,
+
+              textVersion =
+              paste("HUANG, Ronggui. ",
+                    "(",year,"). RQDA: R-based Qualitative Data Analysis. ",
+                    vers, ". URL ", url, ".", sep=""))

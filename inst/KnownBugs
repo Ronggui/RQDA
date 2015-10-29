@@ -1,0 +1,2 @@
+* retreival() has a bug: can not always (sometimes it does) scroll to the right position when click the button of back. It is not reproducible, thus will not be fixed any soon.
+* possible bug in merging two codes.

@@ -1,0 +1,15 @@
+*Todo
+
+Merge *rqda from different coders
+
+inter-coder reliability (Can do re-coding which is store in "coding2". only mark, unmark and edit file can take care of the second coidng now.)
+
+support Image file.
+
+pdelete function for journal table.
+
+dbBeginTransaction(RQDA:::.rqda$qdacon)
+....
+dbRollback(RQDA:::.rqda$qdacon) or dbCommit(RQDA:::.rqda$qdacon)
+
+collect all code memo into a widget with information like date etc.
