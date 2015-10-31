@@ -410,10 +410,13 @@ write.FileList <- function(FileList,encoding=.rqda$encoding,con=.rqda$qdacon,...
 }
 
 addFilesFromDir <- function(dir, pattern = "*.txt$"){
-  Files <- list.files(path = dir, pattern = pattern)
-  Contents <- lapply(Files, function(x) paste(readLines(x), collasep="\n"))
+  oldDir <- getwd()
+  setwd(dir)
+  Files <- list.files(pattern = pattern)
+  Contents <- lapply(Files, function(x) paste(readLines(x, warn = FALSE), collasep = "\n"))
   names(Contents) <- Files
   write.FileList(Contents)
+  on.exit(setwd(oldDir))
 }
 
 ProjectMemoWidget <- function(){

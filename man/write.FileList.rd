@@ -1,5 +1,6 @@
 \name{write.FileList}
 \alias{write.FileList}
+\alias{addFilesFromDir}
 \title{Import a batch of files to the source table}
 \description{
 If import individual file to the project, you can do it by clicking import button in the Files Tab. 
