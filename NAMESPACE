@@ -1,4 +1,4 @@
-export("%and%","%or%","%not%", and, CleanProject,closeProject,codingBySearch,
+export("%and%","%or%","%not%", and, addFilesFromDir, CleanProject,closeProject,codingBySearch,
        crossCodes,crossTwoCodes,exportCodings,
        casesCodedByAnd, casesCodedByOr,casesCodedByNot,
        exportCodedFile, filesByCodes,

@@ -409,8 +409,8 @@ write.FileList <- function(FileList,encoding=.rqda$encoding,con=.rqda$qdacon,...
     } else gmessage("Open a project first.", container=TRUE)
 }
 
-addFilesFromDir <- function(dir, pattern="*.txt$"){
-  Files <- list.files(path=dir, pattern=pattern)
+addFilesFromDir <- function(dir, pattern = "*.txt$"){
+  Files <- list.files(path = dir, pattern = pattern)
   Contents <- lapply(Files, function(x) paste(readLines(x), collasep="\n"))
   names(Contents) <- Files
   write.FileList(Contents)
