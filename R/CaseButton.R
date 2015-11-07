@@ -194,7 +194,7 @@ CaseAttribute_Button <- function(label="Attribute"){
 
 prof_mat_Button <- function(label="prof_mat"){
   profmatB <- gbutton(text=label, handler = function(h, ...) {
-    prof_mat()
+    prof_mat(case_names = gselect.list(.rqda$.CasesNamesWidget[], multiple = TRUE, x= getOption("widgetCoordinate")[1]))
     })
   assign("profmatB", profmatB, envir=button)
   profmatB
