@@ -62,7 +62,7 @@ EditVarWidget <- function(ExistingItems=NULL,container=NULL,title=NULL,ID=NULL,s
   ## create window, etc
   window <- gtkWindowNew("toplevel", show = F)
   Encoding(title) <- 'UTF-8'
-  window$setTitle(paste("Attribute of:",title))
+  window$setTitle(paste(gettext("Attribute of:", domain = "R-RQDA"), title))
   window$setBorderWidth(5)
   vbox <- gtkVBoxNew(FALSE, 5)
   window$add(vbox)
@@ -81,7 +81,7 @@ EditVarWidget <- function(ExistingItems=NULL,container=NULL,title=NULL,ID=NULL,s
   ## some buttons
   hbox <- gtkHBoxNew(TRUE, 4)
   vbox$packStart(hbox, FALSE, FALSE, 0)
-  button <- gtkButtonNewWithLabel("Save and Close")
+  button <- gtkButtonNewWithLabel(gettext("Save and Close", domain = "R-RQDA"))
   gSignalConnect(button, "clicked",saveFUN,list(model,window,ExistingItems,list(...)))
   hbox$packStart(button, TRUE, TRUE, 0)
   window$setDefaultSize(300, 350)
@@ -132,7 +132,7 @@ saveFUN4CaseAttr <- function(button,data){
 
 CaseAttrFun <- function(caseId,title=NULL,attrs=svalue(.rqda$.AttrNamesWidget)){
   if (length(attrs)==0) attrs <-  dbGetQuery(.rqda$qdacon,"select name from attributes where status=1")$name
-  if (is.null(attrs)) gmessage("add attribute in Attrs Tabe first.",container=TRUE) else{
+  if (is.null(attrs)) gmessage(gettext("add attribute in Attrs Table first.", domain = "R-RQDA"),container=TRUE) else{
     attrs2 <- data.frame(variable=attrs,value="NA",stringsAsFactors=FALSE)
     variables <- dbGetQuery(.rqda$qdacon,sprintf("select variable, value from caseAttr where caseID=%i and variable in (%s) and status=1", caseId,paste(shQuote(attrs),collapse=",")))
     if (nrow(variables)!=0){
@@ -186,7 +186,7 @@ saveFUN4FileAttr <- function(button,data){
 
 FileAttrFun <- function(fileId,title=NULL,attrs=svalue(.rqda$.AttrNamesWidget)){
   if (length(attrs)==0) attrs <-  dbGetQuery(.rqda$qdacon,"select name from attributes where status=1")$name
-  if (is.null(attrs)) gmessage("add attribute in Attrs Tabe first.",container=TRUE) else{
+  if (is.null(attrs)) gmessage(gettext("add attribute in Attrs Table first.", domain = "R-RQDA"),container=TRUE) else{
     Encoding(attrs) <- 'UTF-8'
     attrs2 <- data.frame(variable=attrs,value="NA",stringsAsFactors=FALSE)
     variables <- dbGetQuery(.rqda$qdacon,sprintf("select variable, value from fileAttr where fileID=%i and variable in (%s) and status=1",fileId,paste(shQuote(attrs),collapse=",")))
@@ -231,17 +231,17 @@ AddAttrNames <- function(name,...) {
   }
 }
 
-AddAttrButton <- function(label="ADD"){
+AddAttrButton <- function(label=gettext("ADD", domain = "R-RQDA")){
   AddAttB <- gbutton(label,handler=function(h,...) {
-    AttrName <- ginput("Enter new Attr Name. ", icon="info")
+    AttrName <- ginput(gettext("Enter new Attr Name. ", domain = "R-RQDA"), icon="info")
     if (!is.na(AttrName)) {
       Encoding(AttrName) <- "UTF-8"
       invalid <- grepl("'",AttrName)
       if (invalid) {
-        gmessage("Attribute should NOT contain '.",container=TRUE)
+        gmessage(gettext("Attribute should NOT contain '.", domain = "R-RQDA"),container=TRUE)
       } else {
         if (AttrName %in% c("fileID","caseID")) {
-          gmessage("This is a reserved keyword.",container=TRUE)
+          gmessage(gettext("This is a reserved keyword.", domain = "R-RQDA"),container=TRUE)
         } else{
           AddAttrNames(AttrName)
           AttrNamesUpdate()
@@ -256,9 +256,9 @@ AddAttrButton <- function(label="ADD"){
 }
 
 
-DeleteAttrButton <- function(label="Delete"){
+DeleteAttrButton <- function(label=gettext("Delete", domain = "R-RQDA")){
   DelAttB <- gbutton(label,handler=function(h,...) {
-    del <- gconfirm("Really delete the Attribute?",icon="question")
+    del <- gconfirm(gettext("Really delete the Attribute?", domain = "R-RQDA"),icon="question")
     if (isTRUE(del)){
       Selected <- svalue(.rqda$.AttrNamesWidget)
       Selected <- enc(Selected,"UTF-8")
@@ -275,20 +275,20 @@ DeleteAttrButton <- function(label="Delete"){
 }
 
 
-RenameAttrButton <- function(label="Rename"){
+RenameAttrButton <- function(label=gettext("Rename", domain = "R-RQDA")){
   RenAttB <- gbutton(label,handler=function(h,...) {
     selected <- svalue(.rqda$.AttrNamesWidget)
-    NewName <- ginput("Enter new attribute name. ", text=selected, icon="info")
+    NewName <- ginput(gettext("Enter new attribute name. ", domain = "R-RQDA"), text=selected, icon="info")
     if (!is.na(NewName)){
       Encoding(NewName) <- "UTF-8"
       selected <- enc(selected,encoding="UTF-8")
       invalid <- grepl("'",NewName)
       if (invalid) {
-        gmessage("Attribute should NOT contain '.",container=TRUE)
+        gmessage(gettext("Attribute should NOT contain '.", domain = "R-RQDA"),container=TRUE)
       } else {
         exists <- dbGetQuery(.rqda$qdacon, sprintf("select * from attributes where name = '%s' ",NewName))
         if (nrow(exists) > 0 ){
-          gmessage("Name duplicated. Please use anaother name.",cont=TRUE)
+          gmessage(gettext("Name duplicated. Please use another name.", domain = "R-RQDA"),cont=TRUE)
         } else {
           dbGetQuery(.rqda$qdacon, sprintf("update attributes set name = '%s' where name = '%s' ",NewName,selected))
           dbGetQuery(.rqda$qdacon, sprintf("update caseAttr set variable = '%s' where variable = '%s' ",NewName,selected))
@@ -304,9 +304,9 @@ RenameAttrButton <- function(label="Rename"){
   RenAttB
 }
 
-AttrMemoButton <- function(label="Memo"){
+AttrMemoButton <- function(label=gettext("Memo", domain = "R-RQDA")){
   AttMemB <- gbutton(label,handler=function(h,...) {
-    MemoWidget("Attributes",.rqda$.AttrNamesWidget,"attributes")
+    MemoWidget(gettext("Attributes", domain = "R-RQDA"),.rqda$.AttrNamesWidget,"attributes")
   }
                      )
   assign("AttMemB",AttMemB,envir=button)
@@ -384,19 +384,19 @@ GetAttr <- function(type=c("case","file"),attrs=svalue(.rqda$.AttrNamesWidget),s
   if (missing(subset)) DF else {
       r <- eval(substitute(subset),DF)
       if (!is.logical(r))
-          stop("'subset' must evaluate to logical")
+          stop("'subset' must evaluate to logical", domain = "R-RQDA")
       r <- r & !is.na(r)
       DF <- DF[r,,drop=FALSE]
       DF
   }
 }}
 
-SetAttrClsButton <- function(label="Class"){
+SetAttrClsButton <- function(label=gettext("Class", domain = "R-RQDA")){
   ans <- gbutton(label,handler=function(h,...) {
     setAttrType()
   }
                  )
-  gtkWidgetSetTooltipText(getToolkitWidget(ans),"Set class of selected attribute.\nIt can be 'numeric' or 'character'.")
+  gtkWidgetSetTooltipText(getToolkitWidget(ans),gettext("Set class of selected attribute.\nIt can be 'numeric' or 'character'.", domain = "R-RQDA"))
   assign("SetAttClsB",ans,envir=button)
   enabled(ans) <- FALSE
   ans
@@ -417,7 +417,7 @@ setAttrType <- function() {
       items <- c("numeric","character")
       idx <- which (items %in%  oldCls)
     }
-    w <- gwindow("Type of attributes",height=30,width=150)
+    w <- gwindow(gettext("Type of attribute", domain = "R-RQDA"),height=30,width=150)
     gp <- ggroup(horizontal=FALSE,container=w)
     rb <- gradio(items,idx,horizontal=TRUE, container=gp)
     gbutton("OK",container=gp,handler=function(h,...){
@@ -434,10 +434,10 @@ importAttr <- function(data, type='file', filename){
   fn <- getFiles()
   fid <- getFiles(names=F)
   fnuser <- data[,filename]
-  if (!all(fnuser %in% fn)) stop("some files are not in the rqda project.")
+  if (!all(fnuser %in% fn)) stop("some files are not in the rqda project.", domain = "R-RQDA")
   fid <- fid[match(data[[filename]],fn)]
   allAtt <- RQDAQuery("select name from attributes where status=1")$name
-  if (!all(names(dat) %in% allAtt)) stop("some attributes are in not the rqda project.")
+  if (!all(names(dat) %in% allAtt)) stop("some attributes are in not the rqda project.", domain = "R-RQDA")
   for (att in names(dat)) {
     attval <- dat[[att]]
     if (mode(attval) == "character" && Encoding(attval) != "UTF-8") attval <- iconv(attval, to='UTF-8')
@@ -571,7 +571,7 @@ importAttr <- function(data, type='file', filename){
 
 ##   ## create window, etc
 ##   window <- gtkWindowNew("toplevel", show = F)
-##   window$setTitle(paste("Var:",title))
+##   window$setTitle(paste(gettext("Var:", domain = "R-RQDA"),title))
 ##   window$setBorderWidth(5)
 ##   vbox <- gtkVBoxNew(FALSE, 5)
 ##   window$add(vbox)

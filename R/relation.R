@@ -6,10 +6,10 @@ relation <- function(index1,index2){
   ## WhichMax: which argument containts max(c(index1,index2))
   ## Distance: The distance between to index when Relation is proximity
   ## the index of the overlap of index1 and index2.
-  if ( !is.vector(index1) || !is.vector(index1) ) stop("index1 and index2 must be vector.")
+  if ( !is.vector(index1) || !is.vector(index1) ) stop("index1 and index2 must be vector.", domain = "R-RQDA")
   index1 <- as.numeric(index1)
   index2 <- as.numeric(index2)
-  if (any(is.na(c(index1,index2)))) stop("index1 or index2 should not have any NA.")
+  if (any(is.na(c(index1,index2)))) stop("index1 or index2 should not have any NA.", domain = "R-RQDA")
   names(index1) <- names(index2) <- NULL
   if (length(index1)==2 || length(index1)==2){
     Max <- max(c(index1,index2))
@@ -90,7 +90,7 @@ CrossTwo <- function(cid1, cid2,data,relation=c("overlap","inclusion","exact","p
 crossCodes <- CrossCode <- function(relation=c("overlap","inclusion","exact","proximity"),codeList=NULL,data=GetCodingTable(),print=TRUE,...){
 ## codeList is character vector of codes.
   if (nrow(data)==0) {
-    stop("No coding in this project.")
+    stop("No coding in this project.", domain = "R-RQDA")
   } else{
     Cid_Name <- unique(data[,c("cid","codename")])
     if (is.null(codeList)) {
@@ -98,10 +98,10 @@ crossCodes <- CrossCode <- function(relation=c("overlap","inclusion","exact","pr
     } else {
         nList <- length(codeList)
         codeList <- intersect(Cid_Name$codename,codeList)
-        if (nList > length(codeList)) cat("Codes without codings dropped.\n")
+        if (nList > length(codeList)) cat(gettext("Codes without codings dropped.\n", domain = "R-RQDA"))
     }
     if (length(codeList)<2) {
-      stop("The codeList should be a vector of length 2 or abvoe.")
+      stop("The codeList should be a vector of length 2 or greater", domain = "R-RQDA")
     } else {
       cidList <- Cid_Name$cid[match(codeList, Cid_Name$codename)]
       relation <- match.arg(relation)

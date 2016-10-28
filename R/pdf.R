@@ -13,7 +13,7 @@ importPDFHL <- function(file, type=c("Highlight"), engine="rjpod"){
         if (nrow(RQDAQuery(sprintf("select name from source where name='%s'", fileName)))==0) {
             write <- TRUE
         } else {
-            gmessage("A file withe the same name exists in the database!")
+            gmessage(gettext("A file with the same name exists in the database!", domain = "R-RQDA"))
         }
     }
     if (write ) {
