@@ -14,7 +14,7 @@ relation(index1, index2)
     with the first element (index2[1]) less than the second element (index2[2]).}
 }
 \details{
-The relation between two codings can be any of inclusion, overlap, exact
+The relation between two codings can be any one of inclusion, overlap, exact
 (special case of inclusion and overlap) and proximity (Neither overlap
 nor inclusion). It should be noted that two adjacent codings are
 regarded as proximity with distance of 0.

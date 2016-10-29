@@ -14,7 +14,7 @@ crossTwoCodes(cid1,cid2,data,relation=c("overlap","inclusion","exact","proximity
 \arguments{
  \item{relation}{The relation between codes}
  \item{codeList}{A character vector, the codes list on which the inter-code relationship is based}
- \item{data}{Data frame return by \code{getCodingTable},may be subset of the full coding table}
+ \item{data}{Data frame returned by \code{getCodingTable},may be subset of the full coding table}
  \item{print}{When TRUE, print the results automatically}
  \item{cid1}{Length-1 code id. It is numeric.}
  \item{cid2}{Length-1 code id. It is numeric.}
@@ -26,7 +26,7 @@ crossTwoCodes(cid1,cid2,data,relation=c("overlap","inclusion","exact","proximity
 
  Giving the code name list (a character list), \code{crossCodes} returns
  the inter-relationship of 2 or more than 2 codes. \code{crossCodes}
- make heavy use of for loops, so it may takes a while to get the result
+ make heavy use of for loops, so it may take a while to get the result
  when the coding table is large.
 
  \code{crossTwoCodes} returns the summary of inter-codes relationship of two
@@ -37,7 +37,7 @@ crossTwoCodes(cid1,cid2,data,relation=c("overlap","inclusion","exact","proximity
 For \code{crossCodes}, it is a matrix. The upper matrix contains the
 number of codings fitting the relation between the respective two
 codes. the lower matrix is all NA. rownames of the matrix is the name of
-the codes , and the colnames of the matrix is the corresponding id of
+the codes, and the colnames of the matrix is the corresponding id of
 codes.
 
 For \code{crossCodes}, it is a numeric vector.

@@ -36,16 +36,16 @@ undelete(type=c("file","code","case","codecategory","filecategory"),ask=TRUE)
 
 \details{
   By GUI, you can delete file, code, case, code category and file
-  categroy. When click the delete button, the status of related elements
-  (e.g. for file, the elements includ file, related coding, related case
+  category. When you click the delete button, the status of related elements
+  (e.g. for file, the elements including file, related coding, related case
   category and file category) are set from 1 to 0. In this sense,
   deletion from GUI is temporary. After that, you can use
   \code{list.deleted} to show which ones are tagged as deleted.
-  By \code{pdelete}, you can permenantly delete those tagged with
+  By \code{pdelete}, you can permanently delete those tagged with
   temporarily deletion mark. By \code{undelete}, you can undo the
   temporary deletion, the status of related elements are set back to 1.
 
-  When ask is FALSE, it will apply to all the propriate elements of
+  When ask is FALSE, it will apply to all the appropriate elements of
   specific type. When it is TRUE, you can choose the elements of the
   specific type which the action (pdelet or undelete) applies to.
 }

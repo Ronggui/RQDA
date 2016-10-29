@@ -11,17 +11,17 @@
 }
 \details{
 The workhorse function for end-user is the RQDA(), you can use RQDA() to
-start the GUI after library(QRDA). Please Refer to the documentation
+start the GUI after library(RQDA). Please Refer to the documentation
 section of the project homepage for the usage of RQDA.
 
 The position of ViewFile widget can be controlled by "widgetCoordinate"
 options, with default value c(400,2). You can change it by
-options("widgetCoordinate"=c(x,y)), where x and y is integer specifying the
+options("widgetCoordinate"=c(x,y)), where x and y are integers specifying the
 position.
 
 The size of many widgets (e.g. ViewFile widgets) can be controlled by "widgetSize"
 options, with default value c(550,700). You can change it by
-options("widgetSize"=c(x,y)), where x and y is integer specifying width and height.
+options("widgetSize"=c(x,y)), where x and y are integers specifying width and height.
 }
 \author{
   Huang Ronggui

@@ -7,7 +7,7 @@
 Get the Case ID and Case Name.
 }
 \description{
-Return cases  IDs or names which a set of files belong to.
+Return cases IDs or names which a set of files belong to.
 }
 \usage{
 getCaseIds(fid = GetFileId(), nFiles = FALSE)
@@ -45,7 +45,7 @@ getCases(fid, names = TRUE)
   \code{GetCaseName} returns a character vector or NULL if no cases are
   associated with the file IDs.
 
-  \code{getNames} return the names of cases when names is TRUE, id of files when FALSE.
+  \code{getNames} returns the names of cases when names is TRUE, id of files when FALSE.
 }
 \author{
   HUANG Ronggui

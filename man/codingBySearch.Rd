@@ -21,7 +21,7 @@ File id, in the GUI 'File' tab click on file to see its id
 Code id, in the GUI 'Codes' tab click on code to see its id
 }
   \item{seperator}{
-  single character string, specifying the seperator of unit of analysis.
+  single character string, specifying the separator of unit of analysis.
 }
   \item{concatenate}{
   a boolean value, if TRUE then matches in adjacent units (ie only 
@@ -34,10 +34,10 @@ Code id, in the GUI 'Codes' tab click on code to see its id
 }
 }
 \details{
-The function can be used if on is interested in automatically applying a code to 
+The function can be used if one is interested in automatically applying a code to 
 paragraphs in a file based on certain words specified by 'pattern'. 
 
-It first splits the whole text into pieces which depends on the seperator, then match the pattern with each pieces. When a matche is found, tha piece is coded to the code specified by cid. The default seperator defines paragraph as unit of analysis. The seperator is passed to the pattern argument of \link{gregexpr}.
+It first splits the whole text into pieces which depend on the separator, then matches the pattern with each pieces. When a match is found, the piece is coded to the code specified by cid. The default separator defines paragraph as unit of analysis. The separator is passed to the pattern argument of \link{gregexpr}.
 
 This function is also useful for keyword in context (KWIC) analysis.
 }

@@ -32,7 +32,7 @@ that in \code{subset} function.
   For \code{getAttr}, when type is "case", it is a data frame with class
   of "CaseAttr"; when type is "file", it is a data frame with class of
   "FileAttr". For \code{showSubset}, no value is returned, the
-  side-effect is to change the file list or case list in respective
+  side-effect is to change the file list or case list in the respective
   widget.
 }
 \author{HUANG Ronggui}

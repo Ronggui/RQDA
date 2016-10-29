@@ -16,10 +16,10 @@ searchFiles(pattern, content = FALSE, Fid = NULL, Widget = NULL,is.UTF8 = FALSE)
     using \code{svalue} method. One useful value is ".fnames_rqda", so
     the file names will be pushed to the Files Tab of RQDA. Others are
     ".FileofCat" and ".FileofCase".}
-  \item{is.UTF8}{ If the coding of pattern is UTF-8. If you are not sure, always use FLASE.}
+  \item{is.UTF8}{ If the coding of pattern is UTF-8. If you are not sure, always use FALSE.}
 }
 \details{
-This function use select statment of sql to search files (from source database table). The pattern is the WHERE clause (without the keyword WHERE). For more information, please refer to the website of SQLite syntax. All data in *.rqda use UTF-8 encoding, so the encoding of pattern matters. It will be converted to UTF-8 if it is not (is.UTF8=FALSE).
+This function uses select statement of sql to search files (from source database table). The pattern is the WHERE clause (without the keyword WHERE). For more information, please refer to the website of SQLite syntax. All data in *.rqda use UTF-8 encoding, so the encoding of pattern matters. It will be converted to UTF-8 if it is not (is.UTF8=FALSE).
 }
 \value{
 A data frame with variables (which is \code{invisible} and you need to print it explicitly):
@@ -35,10 +35,10 @@ A data frame with variables (which is \code{invisible} and you need to print it 
 searchFiles("file like '\%keyword\%'") 
 ## search for files who contain the word of "keyword"
 searchFiles("file like 'keyword\%'") 
-## search for files whose conent begin with the word of "keyword"
+## search for files whose content begin with the word of "keyword"
 searchFiles("name like '\%keyword'") 
 ## search for files whose name end with the word of "keyword"
 searchFiles("name like '\%keyword one' and file like '\%keyword tow\%'") 
-## combined conidtions
+## combined conditions
 }
 }
