@@ -6,7 +6,7 @@ Date: 2014-10-27
 Author: HUANG Ronggui
 Maintainer: HUANG Ronggui <ronggui.huang@gmail.com>
 Depends: R (>= 2.8.0), RSQLite(>= 1.0.0), gWidgetsRGtk2 (>= 0.0-36)
-Imports: RGtk2 (>= 2.20), DBI, igraph, gWidgets (>= 0.0-31)
+Imports: RGtk2 (>= 2.20), DBI, igraph, gWidgets (>= 0.0-31), methods
 Enhances: tcltk, rjpod, d3Network
 Description: R package for Qualitative Data Analysis. Current version only supports plain text, but it can import PDF highlights if the Enhance package of rjpod, which is available on R-Forge, is installed.
 Additional_repositories: http://r-forge.r-project.org/
@@ -15,4 +15,3 @@ LazyLoad: yes
 SystemRequirements: Java (>= 1.6) for rjpod
 URL: http://rqda.r-forge.r-project.org/
 NeedsCompilation: no
-Packaged: 2015-10-29 12:38:59 UTC; rghuang
