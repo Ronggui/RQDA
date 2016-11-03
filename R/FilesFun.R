@@ -107,7 +107,7 @@ ViewFileFunHelper <- function(FileName,hightlight=TRUE,codingTable=.rqda$codingT
   }
   SelectedFileName <- FileName
   wnh <- size(.rqda$.root_rqdagui) ## size of the main window
-  gw <- gwindow(title = SelectedFileName,parent = wnh, ## .rqda$.root_rqdagui,
+  gw <- gwindow(title = SelectedFileName,parent = c(wnh[1], 2), ## .rqda$.root_rqdagui,
                 width = min(c(gdkScreenWidth()- wnh[1]-20,getOption("widgetSize")[1])),
                 height = min(c(wnh[2],getOption("widgetSize")[2]))
                 )
