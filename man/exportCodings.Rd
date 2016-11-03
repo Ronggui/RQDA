@@ -17,13 +17,13 @@ exportCodings(file = "Exported Codings.html", Fid = NULL,
 Length-one character vector, specify the name of exported file.
 }
   \item{Fid}{
-Integer vector of file id.The retrieved codings are from this subset of files. When is NULL, it means all the files.
+Integer vector of file id. The retrieved codings are from this subset of files. When it is NULL, it means all the files.
 }
   \item{order}{
-Specify the order of retrieved codings. see details for the meanings.
+Specify the order of retrieved codings. See details for the meanings.
 }
   \item{append}{
-Logical, when TRUE the exported codings are appended to the existing file (if exists); otherwise, it overwrites the existing file.
+Logical, when TRUE the exported codings are appended to the existing file (if it exists); otherwise, it overwrites the existing file.
 }
   \item{codingTable}{name of sqlite data table where codings are stored. It should be either "coding" or "coding2"}
 }

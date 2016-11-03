@@ -15,7 +15,7 @@ retrieval(Fid = NULL, order = c("fname", "ftime", "ctime"),
   \item{codingTable}{name of sqlite data table where codings are stored. It should be either "coding" or "coding2"}
 }
 \details{
-  This function retrievs the codings of a selected code from
+  This function retrieves the codings of a selected code from
   \code{CodeNameWidget}, given that all the codings are from a set of
   files which are determined by \code{Fid}.
 }

@@ -30,7 +30,7 @@ Do not change it.
 }
 }
 \details{
-These functions corresponde the internal functions of the "open project" and "close project" buttons.
+These functions correspond to the internal functions of the "open project" and "close project" buttons.
 }
 \value{
 No value is returned. For the side-effect only.

@@ -38,7 +38,7 @@ not(CT1, CT2)
   \item{fid}{}
   \item{filename}{}
   \item{rowid}{}
-  \item{coding}{The codings, or the text segements.}
+  \item{coding}{The codings, or the text segments.}
 }
 \author{
   Ronggui HUANG

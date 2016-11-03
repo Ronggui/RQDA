@@ -6,7 +6,7 @@
   The internal data table structures in rqda file, which is a SQLite data base.
 }
 \details{
-  Table "annotation" contatins file annotations.
+  Table "annotation" contains file annotations.
    \tabular{ll}{
    fid:\tab file id. \cr 
    position:\tab position of annotation.\cr
@@ -17,21 +17,21 @@
    status:\tab 1 for standard status and 0 for temporarily deleted annotation.\cr
    }
 
-  Table "attributes" contatins information about the name list of
+  Table "attributes" contains information about the name list of
   attributes. They are held in the widget of ".AttrNamesWidget".
   \tabular{ll}{
     name:\tab name of attributes. \cr 
     status:\tab 1 for standard status and 0 for a temporarily deleted attribute.\cr 
-    date:\tab created date of as attribute.\cr 
+    date:\tab created date of an attribute.\cr 
     dateM:\tab not used currently.\cr 
     owner:\tab owner of an attribute. \cr 
     memo:\tab memo of an attribute. Useful for definition of attributes.\cr
     class:\tab class of an attribute. It might be "character" or "numeric".\cr
   }
   
-  Table "caseAttr" contatins information about attributes of cases.
+  Table "caseAttr" contains information about attributes of cases.
   \tabular{ll}{
-    variable:\tab name of case attributes, coresponding to name in
+    variable:\tab name of case attributes, corresponding to name in
     attributes table.\cr
     value:\tab variable value.\cr 
     caseID:\tab corresponding case id of a variable value.\cr 
@@ -40,20 +40,20 @@
     owner:\tab creator of the case attribute record.\cr 
   }
   
-  Table "caselinkage" contatins information about the relationship
+  Table "caselinkage" contains information about the relationship
   between case and files of case.
   \tabular{ll}{
     caseid:\tab case id. \cr 
     fid:\tab file id. \cr 
     selfirst:\tab beginning position of a text segment associated with a case. \cr 
-    selend:\tab  ending position of a text segment associated with a case.. \cr 
+    selend:\tab  ending position of a text segment associated with a case. \cr 
     status:\tab 1 for standard status and 0 for temporarily deleted record. \cr 
     owner:\tab creator of the case linkage. \cr 
     date:\tab date of a created case linkage. \cr 
     memo:\tab not used currently. \cr 
   }
   
-  Table "cases" contatins information about case list.
+  Table "cases" contains information about case list.
   \tabular{ll}{
     name:\tab name of a case. \cr 
     memo:\tab case memo. \cr 
@@ -63,7 +63,7 @@
     id:\tab case id. \cr 
     status:\tab 1 for standard status and 0 for temporarily deleted record. \cr }
   
-  Table "codecat" contatins information about upper-level of code list.
+  Table "codecat" contains information about upper-level of code list.
   \tabular{ll}{
     name:\tab name of code category. \cr 
     cid:\tab not used currently. \cr 
@@ -82,7 +82,7 @@
     seltext :\tab a coding, that is the coded text segment.\cr 
     selfirst :\tab beginning position of the coded text segment.\cr 
     selend :\tab ending position of the coded text segment.\cr 
-    status :\tab 1 for standard status. 0 for deleted codeings (for
+    status :\tab 1 for standard status. 0 for deleted codings (for
   example when a code is deleted, the status of all associated codings
   is set to 0) and -1 for unmarked codings.\cr 
     owner :\tab name of coder or creator of a coding. \cr 
@@ -90,9 +90,9 @@
     memo :\tab coding memo.\cr 
   }
 
-  Table "fileAttr" contatins information about attributes of files.
+  Table "fileAttr" contains information about attributes of files.
   \tabular{ll}{
-    variable:\tab charater, name of file attribute, coresponding to name in
+    variable:\tab character, name of file attribute, corresponding to name in
     attributes table \cr 
     value:\tab value of the file attribute. \cr 
     fileID:\tab corresponding file id of the attribute. \cr 
@@ -125,11 +125,11 @@
     color:\tab color for code marker (added in version 0.19)\cr
   }
 
-  Table "image" contatins information about images. It is not used currently.
+  Table "image" contains information about images. It is not used currently.
 
-  Table "imageCoding" contatins images coding. It is not used currently.
+  Table "imageCoding" contains images coding. It is not used currently.
   
-  Table "journal" contatins information about field work
+  Table "journal" contains information about field work
   journal. Journal titles are held in widget of ".JournalNamesWidget".
   \tabular{ll}{
     name:\tab name of a journal. \cr 
@@ -140,14 +140,14 @@
     status:\tab 1 for standard status and 0 for temporarily deleted journal. \cr 
   }
   
-  Table "project" contatins information about the project and *.rqda file.
+  Table "project" contains information about the project and *.rqda file.
   \tabular{ll}{
     encoding:\tab not used currently.\cr 
     databaseversion:\tab version of RQDAtables. \cr 
     date:\tab created date of the project. \cr 
     dateM:\tab not used currently.\cr 
     memo:\tab project memo.\cr 
-    BOM:\tab not used curently.\cr 
+    BOM:\tab not used currently.\cr 
     imageDir:\tab directory of image. Not used currently.\cr
     about:\tab meta information about the rqda file.\cr
   }
@@ -179,7 +179,7 @@
     owner:\tab creator the the treecode.\cr
   }
 
-  Table "treefile" contatins information about file categorization
+  Table "treefile" contains information about file categorization
   (relation between source files and filecat).
   \tabular{ll}{
     fid:\tab file id. \cr 

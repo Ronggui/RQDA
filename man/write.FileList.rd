@@ -3,7 +3,7 @@
 \alias{addFilesFromDir}
 \title{Import a batch of files to the source table}
 \description{
-If import individual file to the project, you can do it by clicking import button in the Files Tab. 
+If importing a single file to the project, you can do it by clicking import button in the Files Tab. 
 Sometimes, you want to import a batch of files quickly, you can do it by command. \code{write.FileList} can 
 be used to import a batch of files into the source table in the *.rqda file. \code{addFilesFromDir} can add
 all files from a directory into *.rqda.
@@ -23,7 +23,7 @@ addFilesFromDir(dir, pattern = "*.txt$")
   \item{\dots}{ \code{\dots} is not used.}
 }
 \details{
-The file content will converted to UTF-8 character before write to 
+The file content will be converted to UTF-8 character before being written to 
 *.rqda. The original content can be in any suitable encoding, so you 
 can inspect the content correctly; In other words,the better 
 practices is to used the corresponding encoding (you can get a hint by 

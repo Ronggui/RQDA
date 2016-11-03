@@ -1,7 +1,7 @@
 \name{exportCodedFile}
 \alias{exportCodedFile}
 \title{
- exported a coded file to HTML fiel
+ exported a coded file to HTML file
 }
 \description{
 Exported a coded file to a HTML file with codings and code labels

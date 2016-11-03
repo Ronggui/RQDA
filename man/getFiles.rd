@@ -33,11 +33,11 @@ getFiles(condition = c("unconditional", "case", "filecategory", "both"),
 
   When \code{condition} is "both", the result is intersection of File Id of "case" and "filecategory".
   	  
-  \code{GetFileId} returns the id of files which fit the combined
+  \code{GetFileId} returns the ids of files which fit the combined
   criterion of \code{condition} and \code{type}.
 }
 \value{
-Normally, it is a numeric vector of file id. If condition is "case" or "filecategory" but no case or file category is selected, it retuns NULL.
+Normally, it is a numeric vector of file id. If condition is "case" or "filecategory" but no case or file category is selected, it returns NULL.
 
 \code{\link{getFiles}} returns a vector of file IDs (with class of "RQDA.vector" and "fileId") when names is FALSE, and a vector of file names ((with class of "RQDA.vector" and "fileName") when names is TRUE.
 }
