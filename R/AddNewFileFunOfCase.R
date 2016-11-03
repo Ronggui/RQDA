@@ -12,14 +12,14 @@ AddNewFileFunOfCase <- function ()
         UpdateFileofCaseWidget()
     }
 
-    gw <- gwindow(title = "Add a new file to selected case", parent = getOption("widgetCoordinate"),
+    gw <- gwindow(title = gettext("Add a new file to selected case", domain = "R-RQDA"), parent = getOption("widgetCoordinate"),
                   width = getOption("widgetSize")[1], height = getOption("widgetSize")[2])
     mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
     gw@widget@widget$SetIconFromFile(mainIcon)
     gp <- gpanedgroup(horizontal = FALSE, container=gw)
 
     saveFileFun <- function() {
-        Ftitle <- ginput("Enter the title", icon = "info")
+        Ftitle <- ginput(gettext("Enter the title", domain = "R-RQDA"), icon = "info")
         if (!is.na(Ftitle)) {
             Ftitle <- enc(Ftitle, "UTF-8")
             if (nrow(dbGetQuery(.rqda$qdacon, sprintf("select name from source where name='%s'", Ftitle))) != 0) {
@@ -45,7 +45,7 @@ AddNewFileFunOfCase <- function ()
     }
 
     gl <- glayout(homogeneous = TRUE, container = gp)
-    AddNewFilBC <- gbutton("Save", handler = function(h, ...) {
+    AddNewFilBC <- gbutton(gettext("Save", domain = "R-RQDA"), handler = function(h, ...) {
         suc <- saveFileFun()
         if (suc)
             dispose(gw)

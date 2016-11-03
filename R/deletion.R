@@ -33,7 +33,7 @@ pdelete <- function(type=c("file","code","case","codecategory","filecategory","c
   codingFun <- function(ask) {
     ## erase deleted coding by unmark button
     if (ask) {
-      del <- gconfirm("Are you sure to clean the coding table?",icon="question")
+      del <- gconfirm(gettext("Are you sure to clean the coding table?", domain = "R-RQDA"),icon="question")
     } else del <- TRUE
     if (del) {
       dbGetQuery(.rqda$qdacon,"delete from coding where status = -1")

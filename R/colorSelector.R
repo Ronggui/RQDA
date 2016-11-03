@@ -2,10 +2,10 @@ setColor <- function(currentColor="gold"){
   currentColor <- gdkColorParse(currentColor)$color
   colorDA <- gtkDrawingAreaNew()
   colorDA$modifyBg("normal", currentColor)
-  g <-glayout(container=gwindow(width=50,height=20,parent=getOption("widgetCoordinate")),homogeneous=TRUE,title="Change color.")
+  g <-glayout(container=gwindow(width=50,height=20,parent=getOption("widgetCoordinate")),homogeneous=TRUE,title=gettext("Change color.", domain = "R-RQDA"))
   g[1,1:3] <- colorDA
-  g[2,1] <- gbutton("Select Color",handler=function(h,...){
-  dialog <- gtkColorSelectionDialogNew("Changing color", show=T)
+  g[2,1] <- gbutton(gettext("Select Color", domain = "R-RQDA"),handler=function(h,...){
+  dialog <- gtkColorSelectionDialogNew(gettext("Changing color", domain = "R-RQDA"), show=T)
   colorsel <- dialog[["colorsel"]]
   colorsel$setPreviousColor(currentColor)
   colorsel$setCurrentColor(currentColor)
@@ -19,8 +19,8 @@ setColor <- function(currentColor="gold"){
     }
   dialog$destroy()
   })
-  g[2,2] <- gbutton("OK",handler=function(h,...) {
+  g[2,2] <- gbutton(gettext("OK", domain = "R-RQDA"),handler=function(h,...) {
    dispose(g)})
-  g[2,3] <- gbutton("Cancle",handler=function(h,...) {
+  g[2,3] <- gbutton(gettext("Cancel", domain = "R-RQDA"),handler=function(h,...) {
    dispose(g)})
 }
