@@ -25,7 +25,7 @@ ImportFile <- function(path,encoding=.rqda$encoding,con=.rqda$qdacon,...){
         ## no duplication file exists, then write.
         write <- TRUE
       } else {
-        gmessage("A file withe the same name exists in the database!")
+        gmessage(gettext("A file with the same name exists in the database!", domain = "R-RQDA"))
       }
     }
     if (write ) {
@@ -94,7 +94,7 @@ ViewFileFun <- function(FileNameWidget,hightlight=TRUE){
     ## FileNameWidget=.rqda$.FileofCat in F-CAT Tab
     if (is_projOpen(envir = .rqda, conName = "qdacon")) {
         if (length(svalue(FileNameWidget)) == 0) {
-            gmessage("Select a file first.", icon = "error",con = TRUE)
+            gmessage(gettext("Select a file first.", domain = "R-RQDA"), icon = "error",con = TRUE)
         } else {
             SelectedFileName <- svalue(FileNameWidget)
             ViewFileFunHelper(SelectedFileName,hightlight=TRUE)
@@ -233,7 +233,7 @@ EditFileFun <- function(FileNameWidget=.rqda$.fnames_rqda){
   if (is_projOpen(envir=.rqda, conName = "qdacon")) {
     SelectedFileName <- svalue(FileNameWidget)
     if (length(svalue(FileNameWidget)) == 0) {
-      gmessage("Select a file first.", icon = "error", con = TRUE)
+      gmessage(gettext("Select a file first.", domain = "R-RQDA"), icon = "error", con = TRUE)
     }
     else {
       tryCatch(dispose(.rqda$.root_edit),error=function(e) {})
@@ -244,7 +244,7 @@ EditFileFun <- function(FileNameWidget=.rqda$.fnames_rqda){
       gw@widget@widget$SetIconFromFile(mainIcon)
       assign(".root_edit",gw,envir=.rqda)
       assign(".root_edit2",gpanedgroup(horizontal = FALSE, container=.rqda$.root_edit),envir=.rqda)
-      EdiFilB <- gbutton("Save File",container=.rqda$.root_edit2,handler=function(h,...){
+      EdiFilB <- gbutton(gettext("Save File", domain = "R-RQDA"),container=.rqda$.root_edit2,handler=function(h,...){
         content <-  svalue(.rqda$.openfile_gui)
         RQDAQuery(sprintf("update source set file='%s', dateM='%s' where name='%s'",
                           enc(content,"UTF-8"),date(),enc(svalue(.rqda$.root_edit),"UTF-8"))) ## update source table
@@ -413,7 +413,7 @@ write.FileList <- function(FileList,encoding=.rqda$encoding,con=.rqda$qdacon,...
       WriteToTable(FileNames[i],FileList[[i]])
     }
     FileNamesUpdate(FileNamesWidget=.rqda$.fnames_rqda)
-    } else gmessage("Open a project first.", container=TRUE)
+    } else gmessage(gettext("Open a project first.", domain = "R-RQDA"), container=TRUE)
 }
 
 addFilesFromDir <- function(dir, pattern = "*.txt$"){
@@ -442,7 +442,7 @@ ProjectMemoWidget <- function(){
     .projmemo <- get(".projmemo",.rqda)
     .projmemo2 <- gpanedgroup(horizontal = FALSE, container=.projmemo)
     ## use .projmemo2, so can add a save button to it.
-    gbutton("Save memo",container=.projmemo2,handler=function(h,...){
+    gbutton(gettext("Save memo", domain = "R-RQDA"),container=.projmemo2,handler=function(h,...){
       ## send the new content of memo back to database
       newcontent <- svalue(W)
       ## Encoding(newcontent) <- "UTF-8"
@@ -539,8 +539,8 @@ GetFileId <- function(condition=c("unconditional","case","filecategory","both"),
       if (length(Selected)==0){
         ans <- NULL
       } else {
-        if (length(Selected)>1) {gmessage("select one file category only.",container=TRUE)
-                                 stop("more than one file categories are selected")
+        if (length(Selected)>1) {gmessage(gettext("select one file category only.", domain = "R-RQDA"),container=TRUE)
+                                 stop("more than one file categories are selected", domain = "R-RQDA")
                                }
         caseid <- RQDAQuery(sprintf("select id from cases where status=1 and name='%s'",
                                     enc(Selected)))$id
@@ -637,7 +637,7 @@ AddToFileCategory <- function(Widget=.rqda$.fnames_rqda,updateWidget=TRUE){
   Encoding(query$file) <- "UTF-8"
   ## select a F-cat name -> F-cat id
   Fcat <- dbGetQuery(.rqda$qdacon,"select catid, name from filecat where status=1")
-  if (nrow(Fcat)==0){gmessage("Add File Categroy first.",container=TRUE)} else{
+  if (nrow(Fcat)==0){gmessage(gettext("Add File Category first.", domain = "R-RQDA"),container=TRUE)} else{
     Encoding(Fcat$name) <- "UTF-8"
     Selecteds <- gselect.list(Fcat$name,multiple=TRUE)
     if (length(Selecteds)>0 && Selecteds!=""){
@@ -654,7 +654,7 @@ AddToFileCategory <- function(Widget=.rqda$.fnames_rqda,updateWidget=TRUE){
           if (success && updateWidget) {
             UpdateFileofCatWidget()
           }
-          if (!success) gmessage(sprintf("Fail to write to file category of %s",Selected))
+          if (!success) gmessage(sprintf(gettext("Fail to write to file category of %s", domain = "R-RQDA"),Selected))
         }
       }
     } else {
@@ -676,7 +676,7 @@ searchWord <- function(str,widget,from=0,col="green", verbose=FALSE){
         buffer$ApplyTagByName(sprintf("%s.background", col),ans$match.start, ans$match.end)
         ans$match.end$GetOffset()
     } else {
-        if (verbose) gmessage("Reach the end.")
+        if (verbose) gmessage(gettext("Reach the end.", domain = "R-RQDA"))
         invisible(NULL)
     }
 }
@@ -686,14 +686,14 @@ SearchButton <- function(widget){
     assign("searchFrom",0,envir=.rqda)
     group <- ggroup(horizontal=FALSE, container=gwindow(width=50,height=20,title="Search a word"))
     kwdW <- gedit("", container=group)
-    gbutton("Search next", container = group,handler=function(h,...){
+    gbutton(gettext("Search next", domain = "R-RQDA"), container = group,handler=function(h,...){
         if (!is.null(.rqda$searchFrom)){
             str <- svalue(h$action)
             Encoding(str) <- "UTF-8"
             res <- searchWord(str,widget=widget,from=.rqda$searchFrom, verbose=TRUE)
             assign("searchFrom",res,envir=.rqda)
         }},action=kwdW)
-     gbutton("Restart", container = group,handler=function(h,...){
+     gbutton(gettext("Restart", domain = "R-RQDA"), container = group,handler=function(h,...){
          assign("searchFrom",0,envir=.rqda)
      })
 }
@@ -703,7 +703,7 @@ SearchButton <- function(widget){
 viewPlainFile <- function(FileNameWidget=.rqda$.fnames_rqda){
     if (is_projOpen(envir= .rqda, conName = "qdacon")) {
         if (length(svalue(FileNameWidget)) == 0) {
-            gmessage("Select a file first.", icon = "error",con = TRUE)
+            gmessage(gettext("Select a file first.", domain = "R-RQDA"), icon = "error",con = TRUE)
         } else {
             SelectedFileName <- svalue(FileNameWidget)
 
