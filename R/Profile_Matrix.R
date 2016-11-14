@@ -14,7 +14,7 @@ prof_mat <- function(unit = c("coding", "file"), case_ids = NULL, case_names = N
     Encoding(codes$name) <- "UTF-8"
     
     wnh <- size(.rqda$.root_rqdagui)  
-    w <- gwindow(title=sprintf("Profile Matrix - %s", unit), height=(gdkScreenHeight()-100), width=500,visible=FALSE, parent = c(wnh[1]+10, 2))
+    w <- gwindow(title=sprintf(gettext("Profile Matrix - %s", domain = "R-RQDA"), unit), height=(gdkScreenHeight()-100), width=500,visible=FALSE, parent = c(wnh[1]+10, 2))
     gf <- ggroup(container=w, use.scrollwindow=TRUE)
     tbl <- glayout(container = gf, expand=FALSE)
 

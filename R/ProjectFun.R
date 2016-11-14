@@ -2,7 +2,7 @@ new_proj <- function(path, conName="qdacon",assignenv=.rqda,...){
   ## sucess <- file.create(tmpNamme <- tempfile(pattern = "file", tmpdir = dirname(path)))
   sucess <- (file.access(names=dirname(path),mode=2)==0)
   if (!sucess) {
-    gmessage("No write permission.",icon="error",container=TRUE)
+    gmessage(gettext("No write permission.", domain = "R-RQDA"),icon="error",container=TRUE)
   }
   else{
     ## unlink(tmpNamme)
@@ -10,10 +10,10 @@ new_proj <- function(path, conName="qdacon",assignenv=.rqda,...){
     override <- FALSE
     if (fexist <- file.exists(path)) {
       ## if there exists a file, should ask; and test if have write access to overwrite it.
-      override <- gconfirm("Over write existing project?",icon="warning")
+      override <- gconfirm(gettext("Overwrite existing project?", domain = "R-RQDA"),icon="warning")
       if (file.access(path, 2) != 0 && override) {
         override <- FALSE
-        gmessage("You have no write permission to overwrite it.",con=TRUE,icon="error")
+        gmessage(gettext("You have no write permission to overwrite it.", domain = "R-RQDA"),con=TRUE,icon="error")
       }
     }
     if (!fexist | override ){
@@ -186,9 +186,9 @@ open_proj <- function(path,conName="qdacon",assignenv=.rqda,...){
   } else if (file.access(path, 4) == 0){
       Encoding(path) <- "unknown"
       assign(conName, dbConnect(drv=dbDriver("SQLite"),dbname=path),envir=assignenv)
-      gmessage("You don't have write access to the *.rqda file. You can only read the project.",container=TRUE,icon="warning")
+      gmessage(gettext("You don't have write access to the *.rqda file. You can only read the project.", domain = "R-RQDA"),container=TRUE,icon="warning")
   } else {
-      gmessage("You don't have read access to the *.rqda file. Fail to open.",container=TRUE,icon="error")
+      gmessage(gettext("You don't have read access to the *.rqda file. Fail to open.", domain = "R-RQDA"),container=TRUE,icon="error")
   }
 }
 
@@ -204,7 +204,7 @@ closeProject <- function(conName="qdacon",assignenv=.rqda,...){
         for (i in WidgetList) tryCatch(dispose(get(i,envir=.rqda)),error=function(e){})
         closeProjBF() ## update all widgets
         if (!dbDisconnect(con)) {
-        gmessage("Closing project failed.",icon="waring",container=TRUE)
+        gmessage(gettext("Closing project failed.", domain = "R-RQDA"),icon="waring",container=TRUE)
       }
     }
   } ,error=function(e){})
@@ -221,7 +221,7 @@ is_projOpen <- function(envir=.rqda,conName="qdacon",message=TRUE){
     Open2 <- getFunction("dbIsValid",where=sprintf("package:%s",pkg))(con)
     open <- open + Open2
     } ,error=function(e){})
-  if (!open & message) gmessage("No Project is Open.",icon="warning",container=TRUE)
+  if (!open & message) gmessage(gettext("No Project is Open.", domain = "R-RQDA"),icon="warning",container=TRUE)
   return(open)
 }
 
@@ -232,9 +232,9 @@ backup_proj <- function(con){
   backupname <- sprintf("%s%s.rqda",gsub("rqda$","",dbname),format(Sys.time(), "%H%M%S%d%m%Y"))
   success <- file.copy(from=dbname, to=backupname , overwrite = FALSE)
   if (success) {
-    gmessage("Succeeded!",container=TRUE,icon="info")
+    gmessage(gettext("Succeeded!", domain = "R-RQDA"),container=TRUE,icon="info")
   } else{
-    gmessage("Fail to back up the project.",container=TRUE,icon="error")
+    gmessage(gettext("Fail to back up the project.", domain = "R-RQDA"),container=TRUE,icon="error")
   }
 }
 
@@ -256,7 +256,7 @@ ProjectMemoWidget <- function(){
     .projmemo <- get(".projmemo",.rqda)
     .projmemo2 <- gpanedgroup(horizontal = FALSE, container=.projmemo)
     ## use .projmemo2, so can add a save button to it.
-    proj_memoB <- gbutton("Save memo",container=.projmemo2,handler=function(h,...){
+    proj_memoB <- gbutton(gettext("Save memo", domain = "R-RQDA"),container=.projmemo2,handler=function(h,...){
       ## send the new content of memo back to database
       newcontent <- svalue(W)
       ## Encoding(newcontent) <- "UTF-8"
@@ -298,7 +298,7 @@ ProjectMemoWidget <- function(){
       InRQDA <- dbGetQuery(.rqda$qdacon, "select memo from project where rowid=1")[1, 1]
       if (isTRUE(all.equal(withinWidget,InRQDA))) {
         return(FALSE) } else {
-          val <- gconfirm("The memo has bee change, Close anyway?",container=TRUE)
+          val <- gconfirm(gettext("The memo has bee change. Close anyway?", domain = "R-RQDA"),container=TRUE)
           return(!val)
         }
     }

@@ -8,7 +8,7 @@ rename <- function(from,to,table=c("source","freecode","cases","codecat","fileca
       exists <- dbGetQuery(.rqda$qdacon, sprintf("select * from %s where name = '%s' ",table, enc(to)))
       ## should check it there is any dupliation in the table
       if (nrow(exists) > 0) {
-          gmessage("The new name is duplicated. Please use another new name.",container=TRUE)
+          gmessage(gettext("The new name is duplicated. Please use another new name.", domain = "R-RQDA"),container=TRUE)
       } else {
           dbGetQuery(.rqda$qdacon, sprintf("update '%s' set name = '%s' where name = '%s' ",table, enc(to), enc(from)))
       }
@@ -85,7 +85,7 @@ MemoWidget <- function(prefix,widget,dbTable){
   if (is_projOpen(envir=.rqda,"qdacon")) {
       Selected <- svalue(widget)
       if (length(Selected)==0){
-        gmessage("Select first.",icon="error",container=TRUE)
+        gmessage(gettext("Select first.", domain = "R-RQDA"),icon="error",container=TRUE)
       }
       else {
           CloseYes <- function(currentCode){
@@ -95,7 +95,7 @@ MemoWidget <- function(prefix,widget,dbTable){
                   return(TRUE) } else {
                       if (is.na(InRQDA) && withinWidget=="")  {
                           return(TRUE) } else {
-                      val <- gconfirm("The memo has been change, Close anyway?",container=TRUE)
+                      val <- gconfirm(gettext("The memo has been changed. Close anyway?", domain = "R-RQDA"),container=TRUE)
                   }
                       return(val)
                   }
@@ -109,7 +109,7 @@ MemoWidget <- function(prefix,widget,dbTable){
               IfCont <- CloseYes(currentCode=prvSelected)}
           if ( inherits(IsOpen,"simpleError") || IfCont){ ## if not open or the same.
               tryCatch(eval(parse(text=sprintf("dispose(.rqda$.%smemo)",prefix))),error=function(e) {})
-              gw <- gwindow(title=sprintf("%s Memo:%s",prefix,Selected),
+              gw <- gwindow(title=sprintf(gettext("%s Memo:%s", domain = "R-RQDA"),prefix,Selected),
                             parent=getOption("widgetCoordinate"),
                             width = getOption("widgetSize")[1],
                             height = getOption("widgetSize")[2]
@@ -120,7 +120,7 @@ MemoWidget <- function(prefix,widget,dbTable){
               assign(sprintf(".%smemo2",prefix),
                      gpanedgroup(horizontal = FALSE, container=get(sprintf(".%smemo",prefix),envir=.rqda)),
                      envir=.rqda)
-              mbut <- gbutton("Save Memo",container=get(sprintf(".%smemo2",prefix),envir=.rqda),handler=function(h,...){
+              mbut <- gbutton(gettext("Save Memo", domain = "R-RQDA"),container=get(sprintf(".%smemo2",prefix),envir=.rqda),handler=function(h,...){
                   newcontent <- svalue(W)
                   newcontent <- enc(newcontent,encoding="UTF-8") ## take care of double quote.
                   dbGetQuery(.rqda$qdacon,sprintf("update %s set memo='%s' where name='%s'",dbTable,newcontent,enc(Selected)))
@@ -157,7 +157,7 @@ getAnnos <- function(type="file"){
         Encoding(annos$name) <- "UTF-8"
     }
     attr(annos,"field.name") <- "annotation"
-    attr(annos,"descr") <- sprintf("%i %s", nrow(annos), ngettext(nrow(annos),"annotation","annotations"))
+    attr(annos,"descr") <- sprintf("%i %s", nrow(annos), ngettext(nrow(annos),"annotation","annotations", domain = "R-RQDA"))
     class(annos) <- c("annotations","Info4Widget", "data.frame")
     annos
 }
@@ -170,7 +170,7 @@ getMemos <- function(type="codes"){
     }
     class(memos) <- c("memos","Info4Widget","data.frame")
     attr(memos,"field.name") <- "memo"
-    attr(memos,"descr") <- sprintf("%i code %s", nrow(memos), ngettext(nrow(memos),"memo","memos"))
+    attr(memos,"descr") <- sprintf("%i code %s", nrow(memos), ngettext(nrow(memos),"memo","memos", domain = "R-RQDA"))
     memos
 }
 
@@ -195,7 +195,7 @@ print.Info4Widget <- function(x, ...){
         CallBackFUN
     }
     if (nrow(x) == 0)
-        gmessage("No Information is collected.", container = TRUE)
+        gmessage(gettext("No Information is collected.", domain = "R-RQDA"), container = TRUE)
     else {
         field.name <-attr(x,"field.name")
         .gw <- gwindow(title = attr(x,"descr"), parent = getOption("widgetCoordinate"),
@@ -217,7 +217,7 @@ print.Info4Widget <- function(x, ...){
             ## anchorcreated <- buffer$createChildAnchor(iter)
             ## iter$BackwardChar()
             ## anchor <- iter$getChildAnchor()
-            ## lab <- gtkLabelNew("Back")
+            ## lab <- gtkLabelNew(gettext("Back", domain = "R-RQDA"))
             ## widget <- gtkEventBoxNew()
             ## widget$Add(lab)
             ## gSignalConnect(widget, "button-press-event", ComputeCallbackFun(x[["filename"]],
@@ -255,7 +255,7 @@ GetCodingTable <- function(){
       Encoding(Codings$codename) <- Encoding(Codings$filename) <- "UTF-8"
     }
    ## if (!all (all.equal(Codings$cid,Codings$cid2),all.equal(Codings$fid,Codings$fid2))){
-   ##   stop("Errors!") ## check to make sure the sql is correct
+   ##   stop("Errors!", domain = "R-RQDA") ## check to make sure the sql is correct
    ## }
     class(Codings) <- c("codingTable","data.frame")
     Codings
@@ -322,9 +322,9 @@ searchFiles <- SearchFiles <- function(pattern,content=FALSE,Fid=NULL,Widget=NUL
             eval(parse(text=sprintf(".rqda$%s[] <- ans$name",Widget)))
             ## eval(substitute(widget[] <- ans$name,list(widget=quote(Widget))))
         }
-        cat(sprintf("%s retrieved file(s).", nrow(ans)))
+        cat(sprintf(gettext("%i retrieved file(s).", domain = "R-RQDA"), nrow(ans)))
         invisible(ans)
-    } else cat("Open a project first.\n")
+    } else cat(gettext("Open a project first.\n", domain = "R-RQDA"))
 }
 
 RunOnSelected <- function(x,multiple=TRUE,expr,enclos=parent.frame(),title=NULL,
@@ -340,10 +340,10 @@ RunOnSelected <- function(x,multiple=TRUE,expr,enclos=parent.frame(),title=NULL,
   ##x1@widget@widget$parent$parent$parent$SetTitle(title)
   ##x1@widget@widget$parent$parent$parent$SetDefaultSize(200, 500)
   x2<-gtable(x,multiple=multiple,container=x1,expand=TRUE)
-  gbutton("Cancel",container=x1,handler=function(h,...){
+  gbutton(gettext("Cancel", domain = "R-RQDA"),container=x1,handler=function(h,...){
     dispose(x1)
   })
-  gbutton("OK",container=x1,handler=function(h,...){
+  gbutton(gettext("OK", domain = "R-RQDA"),container=x1,handler=function(h,...){
     Selected <- svalue(x2)
     if (Selected!=""){
       eval(h$action$expr,envir=pairlist(Selected=Selected),enclos=h$action$enclos)
@@ -351,7 +351,7 @@ RunOnSelected <- function(x,multiple=TRUE,expr,enclos=parent.frame(),title=NULL,
       ## Variable Selected will be found in env
       ## because env is parilist and there are variables not there, which will be found in enclos.
       dispose(g)
-    } else gmessage("Select before Click OK.\n",container=TRUE,icon="error")
+    } else gmessage(gettext("Select before Click OK.\n", domain = "R-RQDA"),container=TRUE,icon="error")
   },
           action=list(expr=substitute(expr),enclos=enclos)
           )
@@ -494,13 +494,13 @@ ShowFileProperty <- function(Fid = GetFileId(,"selected"),focus=TRUE) {
       Case <- RQDAQuery(sprintf("select name from cases where id in (select caseid from caselinkage where fid=%i and status=1) and status=1",Fid))$name
       if (!is.null(Fcat)) Encoding(Fcat) <- "UTF-8"
       if (!is.null(Case)) Encoding(Case) <- "UTF-8"
-      fcat <- paste(strwrap(sprintf("File Category is %s",paste(shQuote(Fcat),collapse=", ")),105,exdent=4),collapse="\n")
+      fcat <- paste(strwrap(sprintf(gettext("File Category is %s", domain = "R-RQDA"),paste(shQuote(Fcat),collapse=", ")),105,exdent=4),collapse="\n")
       Encoding(fcat) <-  "UTF-8"
-      val <- sprintf(" File ID is %i \n %s \nCase is %s",Fid,fcat,paste(shQuote(Case),collapse=", "))
+      val <- sprintf(gettext(" File ID is %i \n %s \nCase is %s", domain = "R-RQDA"),Fid,fcat,paste(shQuote(Case),collapse=", "))
     }
-    if (length(Fid)>1) val <- "Please select one file only."
+    if (length(Fid)>1) val <- gettext("Please select one file only.", domain = "R-RQDA")
     tryCatch(svalue(.rqda$.sfp) <- val,error=function(e){
-      gw <- gwindow("File Property",parent=size(.rqda$.root_rqdagui)+c(19,-50),
+      gw <- gwindow(gettext("File Property", domain = "R-RQDA"),parent=size(.rqda$.root_rqdagui)+c(19,-50),
             width = min(c(gdkScreenWidth() - size(.rqda$.root_rqdagui)[1] -20,getOption("widgetSize")[1])),
             height = 50)
       mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
@@ -542,14 +542,14 @@ filesCodedByNot <- function(cid, codingTable=c("coding","coding2")){
 
 nCodedByTwo <- function(FUN, codeList=NULL, print=TRUE,...){
     ## codeList is character vector of codes.
-    if (!is_projOpen(message=FALSE)) stop("No project is opened.")
+    if (!is_projOpen(message=FALSE)) stop("No project is opened.", domain = "R-RQDA")
     FUN <- match.fun(FUN)
     Cid_Name <- RQDAQuery("select id, name from freecode where status=1")
     if (is.null(codeList)) {
         codeList <- gselect.list(Cid_Name$name,multiple=TRUE)
     }
     if (length(codeList)<2) {
-        stop("The codeList should be a vector of length 2 or abvoe.")
+        stop("The codeList should be a vector of length 2 or greater.", domain = "R-RQDA")
     } else {
         cidList <- Cid_Name$id[match(codeList, Cid_Name$name)]
         ans <- matrix(nrow=length(codeList), ncol=length(codeList),dimnames=list(

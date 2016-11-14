@@ -2,7 +2,7 @@ mergeCodes <- function(cid1,cid2){ ## cid1 and cid2 are two code IDs.
   mergeHelperFUN <- function(From,Exist){ ## from and exist are data frame of codings.
     if (nrow(Exist)==0){## just write to the new code if there is no coding related to that code.
       success <- dbWriteTable(.rqda$qdacon,"coding",From,row.name=FALSE,append=TRUE)
-      if (!success) gmessage("Fail to write to database.")
+      if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
     } else {
       Relations <- apply(Exist[c("selfirst","selend")],1,FUN=function(x) relation(x,c(From$selfirst,From$selend)))
       ## because apply convert data to an array, and Exist containts character -> x is charater rather than numeric
@@ -18,7 +18,7 @@ mergeCodes <- function(cid1,cid2){ ## cid1 and cid2 are two code IDs.
             dis <- sapply(Relations,function(x) x$Distance)
             if (all(dis>0)) {
                 success <- dbWriteTable(.rqda$qdacon,"coding",From,row.name=FALSE,append=TRUE)
-                if (!success) gmessage("Fail to write to database.")
+                if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
             } else {
                 idx0 <- which(dis==0)
                 index3 <- unlist(c(From[,c("selfirst","selend")], Exist[idx0,c("selfirst","selend")]))
@@ -50,7 +50,7 @@ mergeCodes <- function(cid1,cid2){ ## cid1 and cid2 are two code IDs.
                               selfirst=Sel[1],selend=Sel[2],status=1,
                               owner=.rqda$owner,date=date(),memo=memo) ## The new coding to table.
             success <- dbWriteTable(.rqda$qdacon,"coding",DAT,row.name=FALSE,append=TRUE)
-            if (!success) gmessage("Fail to write to database.")
+            if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
           }
         }
       }
@@ -59,7 +59,7 @@ mergeCodes <- function(cid1,cid2){ ## cid1 and cid2 are two code IDs.
 
   Coding1 <-  dbGetQuery(.rqda$qdacon,sprintf("select * from coding where cid=%i and status=1",cid1))
   Coding2 <-  dbGetQuery(.rqda$qdacon,sprintf("select * from coding where cid=%i and status=1",cid2))
-  if (any(c(nrow(Coding1),nrow(Coding2))==0)) stop("One code has empty coding.")
+  if (any(c(nrow(Coding1),nrow(Coding2))==0)) stop("One code has empty coding.", domain = "R-RQDA")
   if (nrow(Coding1) >= nrow(Coding2)) {
     FromDat <- Coding2
     ToDat <- Coding1

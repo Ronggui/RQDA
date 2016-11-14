@@ -1,5 +1,5 @@
 getCodingsByOne <- function(cid, fid=NULL,codingTable=c("coding","coding2")){
-    if (length(cid)!=1) stop("cid should be length-1 integer vector.")
+    if (length(cid)!=1) stop("cid should be length-1 integer vector.", domain = "R-RQDA")
     codingTable <- match.arg(codingTable)
      if (codingTable=="coding"){
     ct <- RQDAQuery(sprintf("select coding.rowid as rowid, coding.cid, coding.fid, freecode.name as codename, source.name as filename, coding.selfirst as index1, coding.selend as index2, coding.seltext as coding, coding.selend - coding.selfirst as CodingLength from coding left join freecode on (coding.cid=freecode.id) left join source on (coding.fid=source.id) where coding.status=1 and source.status=1 and freecode.status=1 and coding.cid=%s",cid))
@@ -37,15 +37,21 @@ print.codingsByOne <- function (x,...)
     }
 
     if (nrow(x) == 0)
-      gmessage("No Codings.", container = TRUE)
+      gmessage(gettext("No Codings.", domain = "R-RQDA"), container = TRUE)
     else {
         x <-x[order(x$fid,x$index1,x$index2),]
         fid <- unique(x$fid)
         Nfiles <- length(fid)
         Ncodings <- nrow(x)
-        title <- sprintf(ngettext(Ncodings, "%i coding from %s %s",
-                                  "%i codings from %s %s"), Ncodings,
-                         Nfiles, ngettext(Nfiles, "file", "files"))
+        if(Ncodings == 1){
+            title <- sprintf(ngettext(Nfiles,
+                                      "1 coding from %i file",
+                                      "1 coding from %i files", domain = "R-RQDA"), Nfiles)
+        } else {
+            title <- sprintf(ngettext(Nfiles,
+                                      "%i codings from %i file",
+                                      "%i codings from %i files", domain = "R-RQDA"), Ncodings, Nfiles)
+        }
         tryCatch(eval(parse(text = sprintf("dispose(.rqda$.codingsOf%s)",
                             "codingsByone"))), error = function(e) {
                             })
@@ -68,7 +74,7 @@ print.codingsByOne <- function (x,...)
             anchorcreated <- buffer$createChildAnchor(iter)
             iter$BackwardChar()
             anchor <- iter$getChildAnchor()
-            lab <- gtkLabelNew("Back")
+            lab <- gtkLabelNew(gettext("Back", domain = "R-RQDA"))
             widget <- gtkEventBoxNew()
             widget$Add(lab)
             gSignalConnect(widget, "button-press-event",
@@ -365,7 +371,7 @@ not <- function (CT1, CT2)
 ##     ans
 ##   } ## end of helper function.
 
-##   if (any(c(nrow(CT1),nrow(CT2))==0)) stop("One code has empty coding.")
+##   if (any(c(nrow(CT1),nrow(CT2))==0)) stop("One code has empty coding.", domain = "R-RQDA")
 ##   CT1 <- CT1[,c("rowid","fid","filename","index1","index2","coding"),drop=FALSE]
 ##   CT2 <- CT2[,c("rowid","fid","filename","index1","index2","coding"),drop=FALSE]
 ##   if (nrow(CT1) >= nrow(CT2)) {
@@ -436,7 +442,7 @@ not <- function (CT1, CT2)
 ##               ## do nothing
 ##             } else {## else4
 ##               over <- Relation %in% c("overlap")
-##               if (sum(over)>2) stop("the same text is coded twice by the same code.")
+##               if (sum(over)>2) stop("the same text is coded twice by the same code.", domain = "R-RQDA")
 
 ##               for (j in which(over)) {
 ##                 if (!is.na(relAll[[j]]$WhichMin) &&  relAll[[j]]$WhichMin==2){

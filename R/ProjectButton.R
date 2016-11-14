@@ -1,6 +1,6 @@
 NewProjectButton <- function(container){
-  gbutton("New Project",container=container,handler=function(h,...){
-    path=gfile(type="save",text = "Type a name for the new project and click OK.")
+  gbutton(gettext("New Project", domain = "R-RQDA"),container=container,handler=function(h,...){
+    path=gfile(type="save",text = gettext("Type a name for the new project and click OK.", domain = "R-RQDA"))
     if (Encoding(path) != "UTF-8") {
         Encoding(path) <- "UTF-8"
     }
@@ -40,9 +40,9 @@ NewProjectButton <- function(container){
 }
 
 OpenProjectButton <- function(container){
-  gbutton("Open Project",container=container,handler=function(h,...){
-    path <- gfile(text = "Select a *.rqda file and click OK.",type="open",
-                  filter=list("rqda"=list(patterns = c("*.rqda")),"All files" = list(patterns = c("*"))))
+  gbutton(gettext("Open Project", domain = "R-RQDA"),container=container,handler=function(h,...){
+    path <- gfile(text = gettext("Select a *.rqda file and click OK.", domain = "R-RQDA"),type="open",
+                  filter=list("rqda"=list(patterns = c("*.rqda")), "All files" = list(patterns = c("*"))))
     if (!is.na(path)){
       Encoding(path) <- "UTF-8"
       openProject(path,updateGUI=TRUE)
@@ -65,7 +65,7 @@ openProject <- function(path,updateGUI=FALSE) {
     ## close currect project before open a new one.
     open_proj(path,assignenv=.rqda)
     if (updateGUI) {
-        svalue(.rqda$.currentProj) <- "Opening ..."
+        svalue(.rqda$.currentProj) <- gettext("Opening ...", domain = "R-RQDA")
         UpgradeTables()
         tryCatch(CodeNamesUpdate(sortByTime=FALSE),error=function(e){})
         tryCatch(FileNamesUpdate(sortByTime=FALSE),error=function(e){})
@@ -107,7 +107,7 @@ openProject <- function(path,updateGUI=FALSE) {
 }
 
 closeProjBF <- function(){
-    svalue(.rqda$.currentProj) <- "Closing ..."
+    svalue(.rqda$.currentProj) <- gettext("Closing ...", domain = "R-RQDA")
     tryCatch(.rqda$.codes_rqda[]<-NULL,error=function(e){})
     tryCatch(.rqda$.fnames_rqda[]<-NULL,error=function(e){})
     tryCatch(.rqda$.CasesNamesWidget[]<-NULL,error=function(e){})
@@ -118,15 +118,15 @@ closeProjBF <- function(){
     tryCatch(.rqda$.FileofCat[]<-NULL,error=function(e){})
     tryCatch(.rqda$.AttrNamesWidget[] <- NULL,error=function(e){})
     tryCatch(.rqda$.JournalNamesWidget[] <- NULL,error=function(e){})
-    svalue(.rqda$.currentProj) <- "No project is open."
-    names(.rqda$.fnames_rqda) <- "Files"
-    names(.rqda$.codes_rqda) <- "Codes List"
-    names(.rqda$.CodeCatWidget)<-"Code Category"
-    names(.rqda$.CodeofCat)<-"Codes of This Category"
-    names(.rqda$.CasesNamesWidget) <- "Cases"
-    names(.rqda$.FileofCase)<-"Files of This Case"
-    names(.rqda$.FileCatWidget)<-"File Category"
-    names(.rqda$.FileofCat)<-"Files of This Category"
+    svalue(.rqda$.currentProj) <- gettext("No project is open.", domain = "R-RQDA")
+    names(.rqda$.fnames_rqda) <- gettext("Files", domain = "R-RQDA")
+    names(.rqda$.codes_rqda) <- gettext("Codes List", domain = "R-RQDA")
+    names(.rqda$.CodeCatWidget)<-gettext("Code Category", domain = "R-RQDA")
+    names(.rqda$.CodeofCat)<-gettext("Codes of This Category", domain = "R-RQDA")
+    names(.rqda$.CasesNamesWidget) <- gettext("Cases", domain = "R-RQDA")
+    names(.rqda$.FileofCase)<-gettext("Files of This Case", domain = "R-RQDA")
+    names(.rqda$.FileCatWidget)<-gettext("File Category", domain = "R-RQDA")
+    names(.rqda$.FileofCat)<-gettext("Files of This Category", domain = "R-RQDA")
     gtkWidgetSetSensitive(.rqda$.fnames_rqda@widget@widget,FALSE)
     enabled(.rqda$.JournalNamesWidget) <- FALSE
     enabled(.rqda$.codes_rqda) <- FALSE
@@ -188,7 +188,7 @@ closeProjBF <- function(){
 }
 
 CloseProjectButton <- function(container){
-  cloprob <- gbutton("Close Project",container=container,handler=function(h,...){
+  cloprob <- gbutton(gettext("Close Project", domain = "R-RQDA"),container=container,handler=function(h,...){
   closeProjBF()
   closeProject(assignenv=.rqda)
   }
@@ -198,7 +198,7 @@ CloseProjectButton <- function(container){
 }
 
 BackupProjectButton <- function(container){
-  BacProjB <- gbutton("Backup Project",container=container,handler=function(h,...){
+  BacProjB <- gbutton(gettext("Backup Project", domain = "R-RQDA"),container=container,handler=function(h,...){
     backup_proj(con=.rqda$qdacon)
   }
                       )
@@ -207,7 +207,7 @@ BackupProjectButton <- function(container){
 }
 
 
-Proj_MemoButton <- function(label="Porject Memo",container,...){
+Proj_MemoButton <- function(label=gettext("Project Memo", domain = "R-RQDA"),container,...){
   ## Each button a separate function -> more easy to debug, and the main function root_gui is shorter.
   ## The memo in dataset is UTF-8
   ## label of button
@@ -221,7 +221,7 @@ Proj_MemoButton <- function(label="Porject Memo",container,...){
 }
 
 
-CleanProjButton <- function(label="Clean Project",container,...){
+CleanProjButton <- function(label=gettext("Clean Project", domain = "R-RQDA"),container,...){
   CleProB <- gbutton(label, container=container, handler=function(h,...) {
     CleanProject(ask=FALSE)
   }
@@ -230,7 +230,7 @@ CleanProjButton <- function(label="Clean Project",container,...){
   gtkWidgetSetSensitive(button$CleProB@widget@widget,FALSE)
 }
 
-CloseAllCodingsButton <- function(label="Close All Codings",container,...){
+CloseAllCodingsButton <- function(label=gettext("Close All Codings", domain = "R-RQDA"),container,...){
   CloAllCodB <- gbutton(label, container=container, handler=function(h,...) {
     close_AllCodings()
   }
@@ -244,12 +244,12 @@ CloseAllCodingsButton <- function(label="Close All Codings",container,...){
 ## defunct functions
 ####################
 ## ProjectInforButton <- function(container){
-## gbutton("Current Project",container=container,handler=function(h,...){
+## gbutton(gettext("Current Project", domain = "R-RQDA"),container=container,handler=function(h,...){
 ##     if (is_projOpen(envir=.rqda,conName="qdacon")) {
 ##       con <- .rqda$qdacon
 ##       dbname <- dbGetInfo(.rqda$qdacon)$dbname
 ##       ##substr(dbname, nchar(dbname)-15,nchar(dbname))
-##       gmessage(dbname,title="Info about current project.",container=TRUE)
+##       gmessage(dbname,title=gettext("Info about current project.", domain = "R-RQDA"),container=TRUE)
 ##     }
 ##   },
 ##                              action=list(env=.rqda,conName="qdacon")
