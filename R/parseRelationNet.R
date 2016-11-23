@@ -4,7 +4,7 @@
      mapStr <- mapStr[!grepl("^#", mapStr)] ## strip comment lines
      mapStr <- mapStr[map!=""] # throw the empty lines
      nrelations <- sapply(gregexpr("->",mapStr), length)
-     if (!all(nrelations==1))  stop("Each line represents one relation only")
+     if (!all(nrelations==1))  stop("Each line represents one relation only", domain = "R-RQDA")
      ix1 <- regexpr("\\[",mapStr)
      ix2 <- regexpr("\\]",mapStr)
      relation <- substr(mapStr,ix1,ix2)

@@ -6,71 +6,84 @@ addSettingGUI <- function(container,width=12){
                   children = list(
                     list(type="fieldset",
                          columns = 2,
-                         label = "Settings",
+                         label = gettext("Settings", domain = "R-RQDA"),
                          label.pos = "top",
                          label.font = c(weight="bold"),
                          children = list(
                            list(name = "owner",
-                                label = "Name of Coder",
+                                label = gettext("Name of Coder", domain = "R-RQDA"),
                                 type = "gedit",width=width,
                                 text = .rqda$owner
                                 ),
                            list(name = "encoding",
-                                label = "File Encoding",
+                                label = gettext("File Encoding", domain = "R-RQDA"),
                                 type = "gedit",width=width,
                                 text = .rqda$encoding
                                 ),
                            list(name = "fore.col",
-                                label = "Color for Coding",
+                                label = gettext("Color for Coding", domain = "R-RQDA"),
                                 ## type = "gedit",width=width,
                                 ## text = .rqda$fore.col
                                 type = "gcombobox",
                                 items=c(.rqda$fore.col,colorsList)
                                 ),
                            list(name = "back.col",
-                                label = "Color for Case",
+                                label = gettext("Color for Case", domain = "R-RQDA"),
                                 ## type = "gedit",width=width,
                                 ## text = .rqda$back.col
                                 type = "gcombobox",
                                 items=c(.rqda$back.col,colorsList)
                                 ),
                            list(name = "codingTable",
-                                label = "Current coding table",
+                                label = gettext("Current coding table", domain = "R-RQDA"),
                                 type = "gcombobox",
                                 items=c(.rqda$codingTable,"coding2")
                                 ),
                            list(name = "BOM",
-                                label = "Byte Order Mark",
+                                label = gettext("Byte Order Mark", domain = "R-RQDA"),
                                 type = "gcombobox",## width=width,
                                 items = c(FALSE, TRUE)
                                 ),
                            list(name = "SFP",
-                                label = "Show File Property",
+                                label = gettext("Show File Property", domain = "R-RQDA"),
                                 type = "gcombobox",## width=width,
                                 items = c(FALSE, TRUE)
                                 ),
                            list(name = "TOR",
                                 type="gcombobox",
-                                label = "Type of Retrieval",
-                                items = c(.rqda$TOR, "case", "filecategory","both")
+                                label = gettext("Type of Retrieval", domain = "R-RQDA"),
+                                items = c(gettext("unconditional", domain = "R-RQDA"),
+                                          gettext("case", domain = "R-RQDA"),
+                                          gettext("filecategory", domain = "R-RQDA"),
+                                          gettext("both", domain = "R-RQDA"))
                                 )
                            )
                          )
                     )
                   )
 
-  ans <- glabel("Click to set font",container = container,handler=function(h,...) setFont(default=.rqda$font))## set font for widget
-  gtkWidgetSetTooltipText(getToolkitWidget(ans),"Set fonts for memo widgets.")
+  ans <- glabel(gettext("Click to set font", domain = "R-RQDA"),container = container,handler=function(h,...) setFont(default=.rqda$font))## set font for widget
+  gtkWidgetSetTooltipText(getToolkitWidget(ans), gettext("Set fonts for memo widgets.", domain = "R-RQDA"))
 
   SettingFL <- gformlayout(Setting, container = container, expand=TRUE)
 
   ButtonContainer <- ggroup(container = container) ##, width=100) ## not necessary to set width here
   addSpring(ButtonContainer)
-  resetButton <- gbutton("Default", container = ButtonContainer)
-  okButton <- gbutton("OK", container = ButtonContainer)
+  resetButton <- gbutton(gettext("Default", domain = "R-RQDA"), container = ButtonContainer)
+  okButton <- gbutton(gettext("OK", domain = "R-RQDA"), container = ButtonContainer)
 
   addHandlerChanged(okButton, function(h,...) {
     out <- svalue(SettingFL)
+    ## Untranslate Type Of Retrieve:
+    if(out["TOR"] == gettext("unconditional", domain = "R-RQDA"))
+        out["TOR"] <- "unconditional"
+    else if(out["TOR"] == gettext("case", domain = "R-RQDA"))
+        out["TOR"] <- "case"
+    else if(out["TOR"] == gettext("filecategory", domain = "R-RQDA"))
+        out["TOR"] <- "filecategory"
+    else if(out["TOR"] == gettext("both", domain = "R-RQDA"))
+        out["TOR"] <- "both"
+
     tryCatch(ClearMark(.rqda$.root_edit,0,nchar(svalue(.rqda$.openfile_gui)),TRUE,TRUE),error=function(e){})
     for (i in names(out)) assign(i,out[[i]],envir=.rqda)
   })
@@ -84,7 +97,7 @@ addSettingGUI <- function(container,width=12){
     tryCatch(svalue(SettingFL[]$back.col) <- "gold",error=function(e){})
     tryCatch(svalue(SettingFL[]$fore.col) <- "blue",error=function(e){})
     tryCatch(svalue(SettingFL[]$codingTable) <- "coding",error=function(e){})
-    tryCatch(svalue(SettingFL[]$TOR) <- "unconditional",error=function(e){})
+    tryCatch(svalue(SettingFL[]$TOR) <- gettext("unconditional", domain = "R-RQDA"),error=function(e){})
     assign("BOM",FALSE,envir=.rqda)
     assign("SFP",FALSE,envir=.rqda)
     assign("encoding","unknown",envir=.rqda)
@@ -92,7 +105,7 @@ addSettingGUI <- function(container,width=12){
     assign("back.col","gold",envir=.rqda)
     assign("fore.col","blue",envir=.rqda)
     assign("codingTable","coding",envir=.rqda)
-    assign("TOR","unconditional",envir=.rqda)
+    assign("TOR", "unconditional",envir=.rqda)
     assign("font","Sans 11",envir=.rqda)
   })}
 

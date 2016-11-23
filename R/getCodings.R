@@ -35,12 +35,20 @@ getCodingsFromFiles <- function(Fid, order=c("fname","ftime","ctime"), codingTab
                     ftime="order by freecode.name, source.id, selfirst, selend ASC",
                     ctime="")
     retrieval <- RQDAQuery(sprintf("select cid, freecode.name as code, fid, selfirst, selend, seltext, %s.rowid, source.name,source.id from %s,source, freecode where %s.status=1 and source.id=fid and freecode.id=%s.cid and fid in (%s) %s", codingTable, codingTable, codingTable, codingTable, paste(Fid,collapse=","), order))
-    if (nrow(retrieval)==0) gmessage("No Coding associated with the selected code.",container=TRUE) else {
+    if (nrow(retrieval)==0) gmessage(gettext("No Coding associated with the selected code.", domain = "R-RQDA"),container=TRUE) else {
         fid <- unique(retrieval$fid)
         Nfiles <- length(fid)
         retrieval$fname <-""
         Ncodings <- nrow(retrieval)
-        title <- sprintf(ngettext(Ncodings,"%i Retrieved coding from %i %s", "%i Retrieved codings from %i %s"),Ncodings, Nfiles, ngettext(Nfiles,"file","files"))
+        if(Ncodings == 1){
+            title <- sprintf(ngettext(Nfiles,
+                                      "1 retrieved coding from %i file",
+                                      "1 retrieved coding from %i files", domain = "R-RQDA"), Nfiles)
+        } else {
+            title <- sprintf(ngettext(Nfiles,
+                                      "%i retrieved codings from %i file",
+                                      "%i retrieved codings from %i files", domain = "R-RQDA"), Ncodings, Nfiles)
+        }
         wnh <- size(.rqda$.root_rqdagui) ## size of the main window
         .gw <- gwindow(title=title, parent=c(wnh[1]+10,2),
                        width = min(c(gdkScreenWidth()- wnh[1]-20,getOption("widgetSize")[1])),
@@ -94,7 +102,7 @@ getCodingsFromFiles <- function(Fid, order=c("fname","ftime","ctime"), codingTab
             anchorcreated <- buffer$createChildAnchor(iter)
             iter$BackwardChar()
             anchor <- iter$getChildAnchor()
-            lab <- gtkLabelNew("Back")
+            lab <- gtkLabelNew(gettext("Back", domain = "R-RQDA"))
             widget <- gtkEventBoxNew()
             widget$Add(lab)
             gSignalConnect(widget, "button-press-event",

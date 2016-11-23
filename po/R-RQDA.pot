@@ -1,0 +1,1001 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: RQDA 0.2-8\n"
+"POT-Creation-Date: 2016-11-14 09:53\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+msgid "Add a new file to selected case"
+msgstr ""
+
+msgid "Enter the title"
+msgstr ""
+
+msgid "Save"
+msgstr ""
+
+msgid "Attribute of:"
+msgstr ""
+
+msgid "Save and Close"
+msgstr ""
+
+msgid "add attribute in Attrs Table first."
+msgstr ""
+
+msgid "ADD"
+msgstr ""
+
+msgid "Enter new Attr Name."
+msgstr ""
+
+msgid "Attribute should NOT contain '."
+msgstr ""
+
+msgid "This is a reserved keyword."
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Really delete the Attribute?"
+msgstr ""
+
+msgid "Rename"
+msgstr ""
+
+msgid "Enter new attribute name."
+msgstr ""
+
+msgid "Name duplicated. Please use another name."
+msgstr ""
+
+msgid "Memo"
+msgstr ""
+
+msgid "Attributes"
+msgstr ""
+
+msgid "'subset' must evaluate to logical"
+msgstr ""
+
+msgid "Class"
+msgstr ""
+
+msgid "Set class of selected attribute.\nIt can be 'numeric' or 'character'."
+msgstr ""
+
+msgid "Type of attribute"
+msgstr ""
+
+msgid "some files are not in the rqda project."
+msgstr ""
+
+msgid "some attributes are in not the rqda project."
+msgstr ""
+
+msgid "cid should be length-1 integer vector."
+msgstr ""
+
+msgid "No Codings."
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Enter new Case Name."
+msgstr ""
+
+msgid "Really delete the Case?"
+msgstr ""
+
+msgid "Enter new Case name."
+msgstr ""
+
+msgid "Mark"
+msgstr ""
+
+msgid "Fail to write to database."
+msgstr ""
+
+msgid "Unmark"
+msgstr ""
+
+msgid "Select a case first."
+msgstr ""
+
+msgid "Attribute"
+msgstr ""
+
+msgid "Add File(s)"
+msgstr ""
+
+msgid "All files are linked with this case."
+msgstr ""
+
+msgid "Add New File to Selected Case"
+msgstr ""
+
+msgid "Case Memo"
+msgstr ""
+
+msgid "Case"
+msgstr ""
+
+msgid "Show Cases with Memo Only"
+msgstr ""
+
+msgid "Add/modify Attributes..."
+msgstr ""
+
+msgid "View Attributes"
+msgstr ""
+
+msgid "Export Case Attributes"
+msgstr ""
+
+msgid "Sort All by Created Time"
+msgstr ""
+
+msgid "Web Search"
+msgstr ""
+
+msgid "Add To File Category ..."
+msgstr ""
+
+msgid "Drop Selected File(s)"
+msgstr ""
+
+msgid "Please select the Files you want to delete."
+msgstr ""
+
+msgid "Delete %i file(s) from this category. Are you sure?"
+msgstr ""
+
+msgid "Delete Selected File(s)"
+msgstr ""
+
+msgid "Edit Selected File"
+msgstr ""
+
+msgid "File Memo"
+msgstr ""
+
+msgid "File"
+msgstr ""
+
+msgid "Rename selected File"
+msgstr ""
+
+msgid "Select a file first."
+msgstr ""
+
+msgid "Enter new file name."
+msgstr ""
+
+msgid "Search Files within Selected Case"
+msgstr ""
+
+msgid "Please input a search pattern."
+msgstr ""
+
+msgid "Error~~~."
+msgstr ""
+
+msgid "Show ..."
+msgstr ""
+
+msgid "Show All by Sorted by Imported Time"
+msgstr ""
+
+msgid "Show Coded Files Only (sorted)"
+msgstr ""
+
+msgid "Show Uncoded Files Only (sorted)"
+msgstr ""
+
+msgid "Show Selected File Property"
+msgstr ""
+
+msgid "Fail to write to database for case with id %i"
+msgstr ""
+
+msgid "Enter new Code Category."
+msgstr ""
+
+msgid "Really delete the Code Category?"
+msgstr ""
+
+msgid "The Category Name is not unique."
+msgstr ""
+
+msgid "Select a Code Category first."
+msgstr ""
+
+msgid "Enter new Category name."
+msgstr ""
+
+msgid "Add To"
+msgstr ""
+
+msgid "No free codes yet."
+msgstr ""
+
+msgid "Add code(s) to the selected code category."
+msgstr ""
+
+msgid "Drop From"
+msgstr ""
+
+msgid "Please select the Codes you want to delete."
+msgstr ""
+
+msgid "Delete %i code(s) from this category. Are you sure?"
+msgstr ""
+
+msgid "Drop selected code(s) from code category."
+msgstr ""
+
+msgid "Code Category"
+msgstr ""
+
+msgid "Add New Code to Selected Category"
+msgstr ""
+
+msgid "Enter new code."
+msgstr ""
+
+msgid "Select a code category first."
+msgstr ""
+
+msgid "Failed to assign code category"
+msgstr ""
+
+msgid "Codings of selected category"
+msgstr ""
+
+msgid "Plot Selected Code Categories"
+msgstr ""
+
+msgid "Plot Selected Code Categories with d3"
+msgstr ""
+
+msgid "Sort by created time"
+msgstr ""
+
+msgid "Rename Selected Code"
+msgstr ""
+
+msgid "Select a code first."
+msgstr ""
+
+msgid "Enter new code name."
+msgstr ""
+
+msgid "Code Memo"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Cannot update Code List in the Widget. Project is closed already."
+msgstr ""
+
+msgid "Save Coding Memo"
+msgstr ""
+
+msgid "No Coding associated with the selected code."
+msgstr ""
+
+msgid "cannot recode this text segment."
+msgstr ""
+
+msgid "Selected code id is %s__%s codings"
+msgstr ""
+
+msgid "Recode"
+msgstr ""
+
+msgid "No Coding associated with the '%s'."
+msgstr ""
+
+msgid "[Annotation]"
+msgstr ""
+
+msgid "Save Annotation"
+msgstr ""
+
+msgid "Open a file first!"
+msgstr ""
+
+msgid "Add Code Category First."
+msgstr ""
+
+msgid "Fail to write to code category of %s"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Really delete the code?"
+msgstr ""
+
+msgid "No codings associated with this code."
+msgstr ""
+
+msgid "Retrieve codings of the selected code."
+msgstr ""
+
+msgid "Open a file first."
+msgstr ""
+
+msgid "Fail to write to data base."
+msgstr ""
+
+msgid "Select a code and one of its codings exactly first."
+msgstr ""
+
+msgid "C-Memo"
+msgstr ""
+
+msgid "code"
+msgstr ""
+
+msgid "Memo for selected code."
+msgstr ""
+
+msgid "C2Memo"
+msgstr ""
+
+msgid "[Coding Memo]"
+msgstr ""
+
+msgid "select a code first."
+msgstr ""
+
+msgid "Select the exact CODING AND the corresponding CODE first."
+msgstr ""
+
+msgid "Memo for a Coding."
+msgstr ""
+
+msgid "Add Anno"
+msgstr ""
+
+msgid "Add new annotation to the open file\nat position of cursor."
+msgstr ""
+
+msgid "Add To Code Category..."
+msgstr ""
+
+msgid "All Code Memos"
+msgstr ""
+
+msgid "All Annotations"
+msgstr ""
+
+msgid "Codings of Multiple Codes"
+msgstr ""
+
+msgid "Export Codings as HTML"
+msgstr ""
+
+msgid "Type a name for the exported codings and click OK."
+msgstr ""
+
+msgid "Highlight All Codings"
+msgstr ""
+
+msgid "Highlight Codings with Memo"
+msgstr ""
+
+msgid "Merge Selected with..."
+msgstr ""
+
+msgid "Show Codes With Codings"
+msgstr ""
+
+msgid "Show Codes Without Codings"
+msgstr ""
+
+msgid "Show Codes With Code Category"
+msgstr ""
+
+msgid "All codes are assigned to code category."
+msgstr ""
+
+msgid "Show Codes Without Code Category"
+msgstr ""
+
+msgid "Show Codes With Memo"
+msgstr ""
+
+msgid "No Code with memo."
+msgstr ""
+
+msgid "Show Codes Without Memo"
+msgstr ""
+
+msgid "Show Codes With Selected File"
+msgstr ""
+
+msgid "Set Coding Mark Color"
+msgstr ""
+
+msgid "Sort: By Created Time"
+msgstr ""
+
+msgid "Sort: Most to Least Frequently Used"
+msgstr ""
+
+msgid "Sort: Least to Most Frequently Used"
+msgstr ""
+
+msgid "Import"
+msgstr ""
+
+msgid "New"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Save To Project"
+msgstr ""
+
+msgid "Save and close"
+msgstr ""
+
+msgid "Add New File ..."
+msgstr ""
+
+msgid "Add To Case ..."
+msgstr ""
+
+msgid "Add/modify Attributes of The Open File..."
+msgstr ""
+
+msgid "Codings of selected file(s)"
+msgstr ""
+
+msgid "No coded file is selected."
+msgstr ""
+
+msgid "Export File Attributes"
+msgstr ""
+
+msgid "Export Coded file as HTML"
+msgstr ""
+
+msgid "File Annotations"
+msgstr ""
+
+msgid "Import PDF Highlights via rjpod (selector)"
+msgstr ""
+
+msgid "Import PDF Highlights via rjpod (file path)"
+msgstr ""
+
+msgid "Enter a pdf file path"
+msgstr ""
+
+msgid "Open Selected File"
+msgstr ""
+
+msgid "Open Previous Coded File"
+msgstr ""
+
+msgid "Search for a Word"
+msgstr ""
+
+msgid "Search all files ..."
+msgstr ""
+
+msgid "Show All Sorted By Imported Time"
+msgstr ""
+
+msgid "Show Coded Files Sorted by Imported time"
+msgstr ""
+
+msgid "Show Uncoded Files Sorted by Imported time"
+msgstr ""
+
+msgid "Show Files With Annotation"
+msgstr ""
+
+msgid "No file with memo."
+msgstr ""
+
+msgid "Show Files Without Annotation"
+msgstr ""
+
+msgid "All files have annotation."
+msgstr ""
+
+msgid "Show Files With Memo"
+msgstr ""
+
+msgid "Show Files Without Memo"
+msgstr ""
+
+msgid "No file is found."
+msgstr ""
+
+msgid "Show Files Without File Category"
+msgstr ""
+
+msgid "All are linked with file category."
+msgstr ""
+
+msgid "Show Files With No Case"
+msgstr ""
+
+msgid "All are linked with cases."
+msgstr ""
+
+msgid "Enter new File Category."
+msgstr ""
+
+msgid "Really delete the File Category?"
+msgstr ""
+
+msgid "File Category"
+msgstr ""
+
+msgid "Memo of file category."
+msgstr ""
+
+msgid "AddTo"
+msgstr ""
+
+msgid "No files Yet."
+msgstr ""
+
+msgid "Add file(s) to the selected file category."
+msgstr ""
+
+msgid "DropFrom"
+msgstr ""
+
+msgid "Drop selected file(s) from file category."
+msgstr ""
+
+msgid "Delete all files of selected category"
+msgstr ""
+
+msgid "Move To File Category ..."
+msgstr ""
+
+msgid "Search Files Within Category"
+msgstr ""
+
+msgid "Delete selected File(s)"
+msgstr ""
+
+msgid "Show All By Imported Time"
+msgstr ""
+
+msgid "A file with the same name exists in the database!"
+msgstr ""
+
+msgid "Save File"
+msgstr ""
+
+msgid "Open a project first."
+msgstr ""
+
+msgid "Save memo"
+msgstr ""
+
+msgid "select one file category only."
+msgstr ""
+
+msgid "more than one file categories are selected"
+msgstr ""
+
+msgid "Add File Category first."
+msgstr ""
+
+msgid "Fail to write to file category of %s"
+msgstr ""
+
+msgid "Reach the end."
+msgstr ""
+
+msgid "Search next"
+msgstr ""
+
+msgid "Restart"
+msgstr ""
+
+msgid "Really delete the journal?"
+msgstr ""
+
+msgid "Enter new journal name."
+msgstr ""
+
+msgid "Save Journal"
+msgstr ""
+
+msgid "Select first."
+msgstr ""
+
+msgid "The Journal has been changed. Close anyway?"
+msgstr ""
+
+msgid "Profile Matrix - %s"
+msgstr ""
+
+msgid "New Project"
+msgstr ""
+
+msgid "Type a name for the new project and click OK."
+msgstr ""
+
+msgid "Open Project"
+msgstr ""
+
+msgid "Select a *.rqda file and click OK."
+msgstr ""
+
+msgid "Opening ..."
+msgstr ""
+
+msgid "Closing ..."
+msgstr ""
+
+msgid "No project is open."
+msgstr ""
+
+msgid "Files"
+msgstr ""
+
+msgid "Codes List"
+msgstr ""
+
+msgid "Codes of This Category"
+msgstr ""
+
+msgid "Cases"
+msgstr ""
+
+msgid "Files of This Case"
+msgstr ""
+
+msgid "Files of This Category"
+msgstr ""
+
+msgid "Close Project"
+msgstr ""
+
+msgid "Backup Project"
+msgstr ""
+
+msgid "Project Memo"
+msgstr ""
+
+msgid "Clean Project"
+msgstr ""
+
+msgid "Close All Codings"
+msgstr ""
+
+msgid "No write permission."
+msgstr ""
+
+msgid "Overwrite existing project?"
+msgstr ""
+
+msgid "You have no write permission to overwrite it."
+msgstr ""
+
+msgid "You don't have write access to the *.rqda file. You can only read the project."
+msgstr ""
+
+msgid "You don't have read access to the *.rqda file. Fail to open."
+msgstr ""
+
+msgid "Closing project failed."
+msgstr ""
+
+msgid "No Project is Open."
+msgstr ""
+
+msgid "Succeeded!"
+msgstr ""
+
+msgid "Fail to back up the project."
+msgstr ""
+
+msgid "The memo has bee change. Close anyway?"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Name of Coder"
+msgstr ""
+
+msgid "File Encoding"
+msgstr ""
+
+msgid "Color for Coding"
+msgstr ""
+
+msgid "Color for Case"
+msgstr ""
+
+msgid "Current coding table"
+msgstr ""
+
+msgid "Byte Order Mark"
+msgstr ""
+
+msgid "Show File Property"
+msgstr ""
+
+msgid "Type of Retrieval"
+msgstr ""
+
+msgid "unconditional"
+msgstr ""
+
+msgid "case"
+msgstr ""
+
+msgid "filecategory"
+msgstr ""
+
+msgid "both"
+msgstr ""
+
+msgid "Click to set font"
+msgstr ""
+
+msgid "Set fonts for memo widgets."
+msgstr ""
+
+msgid "Default"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Change color."
+msgstr ""
+
+msgid "Select Color"
+msgstr ""
+
+msgid "Changing color"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Are you sure to clean the coding table?"
+msgstr ""
+
+msgid "One code has empty coding."
+msgstr ""
+
+msgid "Each line represents one relation only"
+msgstr ""
+
+msgid "index1 and index2 must be vector."
+msgstr ""
+
+msgid "index1 or index2 should not have any NA."
+msgstr ""
+
+msgid "No coding in this project."
+msgstr ""
+
+msgid "Codes without codings dropped."
+msgstr ""
+
+msgid "The codeList should be a vector of length 2 or greater"
+msgstr ""
+
+msgid "RQDA has been launched."
+msgstr ""
+
+msgid "RQDA: Qualitative Data Analysis"
+msgstr ""
+
+msgid "Project"
+msgstr ""
+
+msgid "Save Project As"
+msgstr ""
+
+msgid "Path of current project:"
+msgstr ""
+
+msgid "Author: <ronggui.huang@gmail.com>"
+msgstr ""
+
+msgid "Help: click to join rqda-help mailing list"
+msgstr ""
+
+msgid "License: BSD"
+msgstr ""
+
+msgid "Version:"
+msgstr ""
+
+msgid "Year:"
+msgstr ""
+
+msgid "Please cite this package."
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Codes"
+msgstr ""
+
+msgid "Anno"
+msgstr ""
+
+msgid "Coding"
+msgstr ""
+
+msgid "Code\nCategories"
+msgstr ""
+
+msgid "Please click Update"
+msgstr ""
+
+msgid "UnMark"
+msgstr ""
+
+msgid "Unlink"
+msgstr ""
+
+msgid "Link"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "File\nCategories"
+msgstr ""
+
+msgid "Journals"
+msgstr ""
+
+msgid "Really EXIT?\n\nYou can use RQDA() to start this program again."
+msgstr ""
+
+msgid "Selected File id is %s"
+msgstr ""
+
+msgid "No coding associated with this code."
+msgstr ""
+
+msgid "Selected case id is %i__%i files"
+msgstr ""
+
+msgid "Selected category id is %s"
+msgstr ""
+
+msgid "Selected file id is %s"
+msgstr ""
+
+msgid "Save Project As ..."
+msgstr ""
+
+msgid "Type a new file name and click OK."
+msgstr ""
+
+msgid "Failed to save the project to the new location."
+msgstr ""
+
+msgid "The new name is duplicated. Please use another new name."
+msgstr ""
+
+msgid "The memo has been changed. Close anyway?"
+msgstr ""
+
+msgid "%s Memo:%s"
+msgstr ""
+
+msgid "Save Memo"
+msgstr ""
+
+msgid "No Information is collected."
+msgstr ""
+
+msgid "%i retrieved file(s)."
+msgstr ""
+
+msgid "Select before Click OK."
+msgstr ""
+
+msgid "File Category is %s"
+msgstr ""
+
+msgid "File ID is %i \n %s \nCase is %s"
+msgstr ""
+
+msgid "Please select one file only."
+msgstr ""
+
+msgid "File Property"
+msgstr ""
+
+msgid "No project is opened."
+msgstr ""
+
+msgid "The codeList should be a vector of length 2 or greater."
+msgstr ""
+
+msgid "Use 'RQDA()' to start the programme."
+msgstr ""
+
+msgid        "1 coding from %i file"
+msgid_plural "1 coding from %i files"
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "%i codings from %i file"
+msgid_plural "%i codings from %i files"
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "1 retrieved coding: \"%s\" from %i file"
+msgid_plural "1 retrieved coding: \"%s\" from %i files"
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "%i retrieved codings: \"%s\" from %i file"
+msgid_plural "%i retrieved codings: \"%s\" from %i files"
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "%i Coding of <a id='%s'>\"%s\"</a> from %s file."
+msgid_plural "%i Coding of <a id='%s'>\"%s\"</a> from %s files."
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "%i Codings of <a id='%s'>\"%s\"</a> from %s file."
+msgid_plural "%i Codings of <a id='%s'>\"%s\"</a> from %s files."
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "Annotation"
+msgid_plural "Annotations"
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "Really delete the file?"
+msgid_plural "Really delete the files?"
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "1 retrieved coding from %i file"
+msgid_plural "1 retrieved coding from %i files"
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "%i retrieved codings from %i file"
+msgid_plural "%i retrieved codings from %i files"
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "annotation"
+msgid_plural "annotations"
+msgstr[0]    ""
+msgstr[1]    ""
+
+msgid        "memo"
+msgid_plural "memos"
+msgstr[0]    ""
+msgstr[1]    ""

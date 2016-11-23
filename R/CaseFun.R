@@ -65,7 +65,7 @@ AddFileToCaselinkage <- function(Widget=.rqda$.fnames_rqda){
                   ## write only when the selected file associated with specific case is not in the caselinkage table
                   DAT <- data.frame(caseid=caseid, fid=fid[!fid %in% exist$fid], selfirst=0, selend=selend[!fid %in% exist$fid], status=1,owner=.rqda$owner,data=date(),memo='')
                   success <- dbWriteTable(.rqda$qdacon,"caselinkage",DAT,row.name=FALSE,append=TRUE)
-                  if (!success) gmessage(sprintf("Fail to write to database for case with id %i", i))
+                  if (!success) gmessage(sprintf(gettext("Fail to write to database for case with id %i", domain = "R-RQDA"), i))
               }}
       }
       ## CurrentFrame <- sys.frame(sys.nframe())
@@ -80,7 +80,7 @@ AddFileToCaselinkage <- function(Widget=.rqda$.fnames_rqda){
       ##       DAT <- data.frame(caseid=caseid, fid=fid[!fid %in% exist$fid], selfirst=0, selend=selend[!fid %in% exist$fid], status=1,owner=.rqda$owner,data=date(),memo='')
       ##       success <- dbWriteTable(.rqda$qdacon,"caselinkage",DAT,row.name=FALSE,append=TRUE)
       ##       ## write to caselinkage table
-      ##       if (!success) gmessage("Fail to write to database.")
+      ##       if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
       ##     }
       ##   }
       ## }

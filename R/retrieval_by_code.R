@@ -20,17 +20,24 @@ retrieval_by_code <- function (Fid = NULL, order = c("fname", "ftime", "ctime"),
                 paste(Fid, collapse = ","), order))
         }
         if (nrow(retrieval) == 0) 
-            gmessage("No Coding associated with the selected code.", 
+            gmessage(gettext("No Coding associated with the selected code.", domain = "R-RQDA"), 
                 container = TRUE)
         else {
             fid <- unique(retrieval$fid)
             retrieval$fname <- ""
             Nfiles <- length(fid)
             Ncodings <- nrow(retrieval)
-            title <- sprintf(ngettext(Ncodings, "%i Retrieved coding: \"%s\" from %s %s", 
-                "%i Retrieved codings: \"%s\" from %s %s"), Ncodings, 
-                currentCode2, Nfiles, ngettext(Nfiles, "file", 
-                  "files"))
+            if(Ncodings == 1){
+                title <- sprintf(ngettext(Nfiles,
+                                          "1 retrieved coding: \"%s\" from %i file", 
+                                          "1 retrieved coding: \"%s\" from %i files", domain = "R-RQDA"),
+                                 currentCode2, Nfiles)
+            } else {
+                title <- sprintf(ngettext(Nfiles,
+                                          "%i retrieved codings: \"%s\" from %i file", 
+                                          "%i retrieved codings: \"%s\" from %i files", domain = "R-RQDA"),
+                                 Ncodings, currentCode2, Nfiles)
+            }
             tryCatch(eval(parse(text = sprintf("dispose(.rqda$.codingsOf%s)", 
                 currentCid))), error = function(e) {
             })
@@ -93,7 +100,7 @@ retrieval_by_code <- function (Fid = NULL, order = c("fname", "ftime", "ctime"),
                 anchorcreated <- buffer$createChildAnchor(iter)
                 iter$BackwardChar()
                 anchor <- iter$getChildAnchor()
-                lab <- gtkLabelNew("Back")
+                lab <- gtkLabelNew(gettext("Back", domain = "R-RQDA"))
                 widget <- gtkEventBoxNew()
                 widget$Add(lab)
                 gSignalConnect(widget, "button-press-event", 
