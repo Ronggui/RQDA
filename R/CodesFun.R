@@ -409,7 +409,6 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
           DAT$seltext <- enc(DAT$seltext)
           Exists <- RQDAQuery(sprintf("select * from coding where cid=%s and selfirst=%s and selend=%s and status=1", currentCid, DAT$selfirst, DAT$selend))
           if (nrow(Exists)==0) {
-<<<<<<< HEAD
             success <- is.null(try(RQDAQuery(sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ",
                                                      codingTable, currentCid, DAT$fid, DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner,
                                                      as.character(date()))),silent=TRUE))
@@ -420,15 +419,7 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
             }
           } else {
             gmessage(sprintf("Text segment already coded as \"%s\"",
-                             SelectedCode2), type="warning")
-=======
-          success <- is.null(try(RQDAQuery(sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ", codingTable, currentCid, DAT$fid, DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner, as.character(date()))),silent=TRUE))
-          if (!success) gmessage(gettext("cannot recode this text segment.", domain = "R-RQDA"), type="warning") else{
-            freq <- RQDAQuery(sprintf("select count(cid) as freq from coding where status=1 and cid=%s", currentCid))$freq
-            names(CodeNameWidget) <- sprintf(gettext("Selected code id is %s__%s codings", domain = "R-RQDA"),currentCid, freq)
-          }
->>>>>>> 7b9e4d9326fc8adb20581c20e6369fb347b2094b
-          }
+                             SelectedCode2), type="warning")          }
         }
       }
       RecodeFun
@@ -446,12 +437,8 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
                               buffer$GetIterAtOffset(sO + nB)$iter)
 
         freq <- RQDAQuery(sprintf("select count(cid) as freq from coding where status=1 and cid=%s", currentCid))$freq
-<<<<<<< HEAD
         ## This crashes R:
-        ## names(CodeNameWidget) <- sprintf("Selected code id is %s__%s codings",currentCid, freq)
-=======
-        names(CodeNameWidget) <- sprintf(gettext("Selected code id is %s__%s codings", domain = "R-RQDA"),currentCid, freq)
->>>>>>> 7b9e4d9326fc8adb20581c20e6369fb347b2094b
+        ## names(CodeNameWidget) <- sprintf(gettext("Selected code id is %s__%s codings", domain = "R-RQDA"),currentCid, freq)
       }
       UnmarkFun
       } ## end of ComputeUnMarkFun
