@@ -453,7 +453,7 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
         ## buffer$InsertWithTagsByName(iter, metaData,"x-large","red")
 
         sOffset <- iter$GetOffset()
-        nBytes <- nchar(paste(metaData, x[['seltext']]), type = "bytes") + 8
+        nBytes <- nchar(paste(metaData, x[['seltext']]), type = "chars") + 8
 
         buffer$InsertWithTagsByName(iter, metaData,"red")
         iter$ForwardChar()
