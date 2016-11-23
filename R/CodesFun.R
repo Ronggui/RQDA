@@ -362,6 +362,12 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
           textView <- .rqda$.openfile_gui@widget@widget
           buffer <- textView$GetBuffer()
           mark1 <- gtkTextBufferGetMark(buffer,sprintf("%s.1",rowid))
+          if(is.null(mark1)){
+            ## The coding was deleted by pressing the Unmark button
+            ## in the Condings view widget
+            gmessage("Coding not found.", type="warning")
+            return(invisible(NULL))
+          }
           gtkTextViewScrollToMark(textView,mark1,0)
           iter1 <- buffer$GetIterAtMark(mark1)$iter
           idx1 <- gtkTextIterGetOffset(iter1)
@@ -382,36 +388,64 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
           SelectedCode2 <- enc(SelectedCode, encoding="UTF-8")
           currentCid <-  dbGetQuery(.rqda$qdacon, sprintf("select id from freecode where name='%s'",SelectedCode2))$id
           DAT <- RQDAQuery(sprintf("select * from coding where rowid=%s", rowid))
+
+          ## DAT will be empty if the user has Unmarked the coding and clicked
+          ## on the "Clean project" button.
+          if(length(DAT$cid) == 0){
+            gmessage("Coding not found.", type="warning")
+            return(invisible(NULL))
+          }
+
           DAT$seltext <- enc(DAT$seltext)
           Exists <- RQDAQuery(sprintf("select * from coding where cid=%s and selfirst=%s and selend=%s and status=1", currentCid, DAT$selfirst, DAT$selend))
           if (nrow(Exists)==0) {
-          success <- is.null(try(RQDAQuery(sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ", codingTable, currentCid, DAT$fid, DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner, as.character(date()))),silent=TRUE))
-          if (!success) gmessage("cannot recode this text segment.", type="warning") else{
-            freq <- RQDAQuery(sprintf("select count(cid) as freq from coding where status=1 and cid=%s", currentCid))$freq
-            names(CodeNameWidget) <- sprintf("Selected code id is %s__%s codings",currentCid, freq)
-          }
+            success <- is.null(try(RQDAQuery(sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ",
+                                                     codingTable, currentCid, DAT$fid, DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner,
+                                                     as.character(date()))),silent=TRUE))
+            if (success){
+              gmessage(sprintf("Code \"%s\" applied to this text segment.\n", SelectedCode2))
+            } else {
+              gmessage("Cannot recode this text segment.", type="warning")
+            }
+          } else {
+            gmessage(sprintf("Text segment already coded as \"%s\"",
+                             SelectedCode2), type="warning")
           }
         }
       }
       RecodeFun
     } ## end of ComputeRecodeFun
 
-    ComputeUnMarkFun <- function(rowid){
-      RecodeFun <- function(widget, event, ...){
+    ComputeUnMarkFun <- function(rowid, sO, nB){
+      UnmarkFun <- function(widget, event, ...){
         RQDAQuery(sprintf("update %s set status=-1 where rowid=%s", .rqda$codingTable, rowid))
+
+        # Better than striking through the text would be to reload the Codings
+        # View widget and put the cursor at the same position because the
+        # "Back", "Recode" and "Unmark" buttons would be recomputed.
+        buffer$ApplyTagByName("strkthrgh",
+                              buffer$GetIterAtOffset(sO)$iter,
+                              buffer$GetIterAtOffset(sO + nB)$iter)
+
         freq <- RQDAQuery(sprintf("select count(cid) as freq from coding where status=1 and cid=%s", currentCid))$freq
-        names(CodeNameWidget) <- sprintf("Selected code id is %s__%s codings",currentCid, freq)
+        ## This crashes R:
+        ## names(CodeNameWidget) <- sprintf("Selected code id is %s__%s codings",currentCid, freq)
       }
-      RecodeFun
+      UnmarkFun
       } ## end of ComputeUnMarkFun
 
       buffer <- .retreivalgui@widget@widget$GetBuffer()
       buffer$createTag("red", foreground = "red")
+      buffer$createTag("strkthrgh", strikethrough = TRUE)
       iter <- buffer$getIterAtOffset(0)$iter
 
       apply(retrieval,1, function(x){
         metaData <- sprintf("%s [%i:%i]",x[['fname']],as.numeric(x[['selfirst']]),as.numeric(x[['selend']]))
         ## buffer$InsertWithTagsByName(iter, metaData,"x-large","red")
+
+        sOffset <- iter$GetOffset()
+        nBytes <- nchar(paste(metaData, x[['seltext']]), type = "bytes") + 8
+
         buffer$InsertWithTagsByName(iter, metaData,"red")
         iter$ForwardChar()
         buffer$Insert(iter, "\n")
@@ -444,7 +478,7 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
         widget_unmark <- gtkEventBoxNew()
         widget_unmark$Add(lab_unmark)
         gSignalConnect(widget_unmark, "button-press-event",
-                       ComputeUnMarkFun(as.numeric(x[["rowid"]])))
+                       ComputeUnMarkFun(as.numeric(x[["rowid"]]), sOffset, nBytes))
         .retreivalgui@widget@widget$addChildAtAnchor(widget_unmark, anchor_unmark)
         widget$showAll()
         iter$ForwardChar()
