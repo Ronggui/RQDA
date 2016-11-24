@@ -375,7 +375,7 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
           if(is.null(mark1)){
             ## The coding was deleted by pressing the Unmark button
             ## in the Condings view widget
-            gmessage("Coding not found.", type="warning")
+            gmessage(gettext("Coding not found."), type="warning")
             return(invisible(NULL))
           }
           gtkTextViewScrollToMark(textView,mark1,0)
@@ -402,7 +402,7 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
           ## DAT will be empty if the user has Unmarked the coding and clicked
           ## on the "Clean project" button.
           if(length(DAT$cid) == 0){
-            gmessage("Coding not found.", type="warning")
+            gmessage(gettext("Coding not found."), type="warning")
             return(invisible(NULL))
           }
 
@@ -413,12 +413,12 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
                                                      codingTable, currentCid, DAT$fid, DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner,
                                                      as.character(date()))),silent=TRUE))
             if (success){
-              gmessage(sprintf("Code \"%s\" applied to this text segment.\n", SelectedCode2))
+              gmessage(sprintf(gettext("Code \"%s\" applied to this text segment.\n"), SelectedCode2))
             } else {
-              gmessage("Cannot recode this text segment.", type="warning")
+              gmessage(gettext("Cannot recode this text segment."), type="warning")
             }
           } else {
-            gmessage(sprintf("Text segment already coded as \"%s\"",
+            gmessage(sprintf(gettext("Text segment already coded as \"%s\""),
                              SelectedCode2), type="warning")          }
         }
       }
