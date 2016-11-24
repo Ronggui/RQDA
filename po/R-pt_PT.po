@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: RQDA\n"
 "Report-Msgid-Bugs-To: https://github.com/Ronggui/RQDA/issues\n"
-"POT-Creation-Date: 2016-11-14 09:53\n"
-"PO-Revision-Date: 2016-11-14 09:54-0300\n"
+"POT-Creation-Date: 2016-11-24 05:44\n"
+"PO-Revision-Date: 2016-11-24 05:51-0300\n"
 "Last-Translator: Jakson Aquino <jalvesaq@gmail.com>\n"
 "Language-Team: pt <pt@li.org>\n"
 "Language: pt_PT\n"
@@ -301,17 +301,26 @@ msgstr "Guardar Comentário da Codificação"
 msgid "No Coding associated with the selected code."
 msgstr "Nenhuma codificação associada ao código seleccionado."
 
-msgid "cannot recode this text segment."
-msgstr "não é possível recodificar este segmento de texto."
+msgid "Coding not found."
+msgstr "Codificação não encontrada."
 
-msgid "Selected code id is %s__%s codings"
-msgstr "ID do Código Seleccionado %s__%s codificações"
+msgid "Code \"%s\" applied to this text segment."
+msgstr "Código \"%s\" aplicado a este segmento de texto."
+
+msgid "Cannot recode this text segment."
+msgstr "Não é possível recodificar este segmento de texto."
+
+msgid "Text segment already coded as \"%s\""
+msgstr "Segmento de texto já codificado como \"%s\""
 
 msgid "Recode"
 msgstr "Recodificar"
 
 msgid "No Coding associated with the '%s'."
 msgstr "Nenhuma codificação associada com o '%s'."
+
+msgid "Selected code id is %s__%s codings"
+msgstr "ID do Código Seleccionado %s__%s codificações"
 
 msgid "[Annotation]"
 msgstr "[Anotação]"
@@ -946,7 +955,7 @@ msgid "No Information is collected."
 msgstr "Nenhuma Informação colectada."
 
 msgid "%i retrieved file(s)."
-msgstr "%i retrieved file(s)."
+msgstr "%i ficheiros(s) recuperados."
 
 msgid "Select before Click OK."
 msgstr "Seleccione antes de clicar OK."
@@ -1038,5 +1047,3 @@ msgid_plural "memos"
 msgstr[0] "comentário"
 msgstr[1] "comentários"
 
-#~ msgid "Edit Seleted File"
-#~ msgstr "Editar Ficheiro Seleccionado"
