@@ -304,9 +304,9 @@ print.summaryCodings <- function(x,...){
 
 
 searchFiles <- SearchFiles <- function(pattern,content=FALSE,Fid=NULL,Widget=NULL,is.UTF8=FALSE){
-##SearchFiles("file like '%新民晚报%'")
-##SearchFiles("name like '%物权法%'")
-##SearchFiles("file like '%新民晚报%'",Widget=.rqda$.fnames_rqda)
+##SearchFiles("file like '%Xin Min Wan Bao%'")
+##SearchFiles("name like '%Wu Quan Fa%'")
+##SearchFiles("file like '%Xin Min Wan Bao%'", Widget=.rqda$.fnames_rqda)
     if ( is_projOpen() ) {
         if(!is.UTF8){ pattern <- iconv(pattern,to="UTF-8")}
         Encoding(pattern) <- "unknown"

@@ -2,3 +2,5 @@
 .Rhistory
 po/*.po~
 inst/po/
+
+*.history
