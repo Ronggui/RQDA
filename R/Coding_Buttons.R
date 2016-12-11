@@ -485,8 +485,8 @@ GetCodesNamesWidgetMenu <- function()
       cid <- RQDAQuery("select id from freecode where status=1 and id in (select cid from treecode where status=1)")
       if (nrow(cid)!=0) {
         cid <- cid[[1]]
-        CodeNamesWidgetUpdate(CodeNamesWidget=.rqda$.codes_rqda,CodeId=cid,sortByTime=FALSE)
-      } else gmessage(gettext("All codes are assigned to code category.", domain = "R-RQDA"),container=TRUE)
+        CodeNamesWidgetUpdate(CodeNamesWidget=.rqda$.codes_rqda, CodeId=cid, sortByTime=FALSE)
+      } else gmessage(gettext("All codes are assigned to code category.", domain = "R-RQDA"), container=TRUE)
     }
   }
   CodesNamesWidgetMenu[[gettext("Show Codes Without Code Category", domain = "R-RQDA")]]$handler <- function(h, ...) {
@@ -558,7 +558,8 @@ GetCodesNamesWidgetMenu <- function()
     freq <- RQDAQuery("select count(cid) as freq, freecode.name, freecode.status from freecode left join coding on cid=freecode.id group by freecode.name order by freq desc")
     if (nrow(freq)>0){
       Encoding(freq$name) <- "UTF-8"
-      freq <- subset(freq, status==1)
+      #freq <- subset(freq, status==1)
+      freq <- freq[freq$status==1, ]
       CodeNamesWidget=.rqda$.codes_rqda
       CodeNamesWidget[] <- freq$name
     }
@@ -567,7 +568,8 @@ GetCodesNamesWidgetMenu <- function()
     freq <- RQDAQuery("select count(cid) as freq, freecode.name, freecode.status from freecode left join coding on cid=freecode.id group by freecode.name order by freq asc")
     if (nrow(freq)>0){
       Encoding(freq$name) <- "UTF-8"
-      freq <- subset(freq, status==1)
+      #freq <- subset(freq, status==1)
+      freq <- freq[freq$status==1, ]
       CodeNamesWidget=.rqda$.codes_rqda
       CodeNamesWidget[] <- freq$name
     }
