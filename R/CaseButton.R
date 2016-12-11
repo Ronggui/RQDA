@@ -204,7 +204,7 @@ GetCaseNamesWidgetMenu <- function()
 {
   CaseNamesWidgetMenu <- list()
   CaseNamesWidgetMenu[[gettext("Add File(s)", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       SelectedCase <- svalue(.rqda$.CasesNamesWidget)
       SelectedCase <- enc(SelectedCase,"UTF-8")
       caseid <- dbGetQuery(.rqda$qdacon,sprintf("select id from cases where status=1 and name='%s'",SelectedCase))[,1]
@@ -313,12 +313,12 @@ GetFileofCaseWidgetMenu <- function()
 {
   FileofCaseWidgetMenu <- list() ## not used yet.
   FileofCaseWidgetMenu[[gettext("Add To File Category ...", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       AddToFileCategory(Widget=.rqda$.FileofCase,updateWidget=FALSE)
     }
   }
   FileofCaseWidgetMenu[[gettext("Drop Selected File(s)", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       FileOfCat <- svalue(.rqda$.FileofCase)
       if ((NumofSelected <- length(FileOfCat)) ==0) {
         gmessage(gettext("Please select the Files you want to delete.", domain = "R-RQDA"),con=TRUE)} else
@@ -378,7 +378,7 @@ GetFileofCaseWidgetMenu <- function()
         }
   }}}
   FileofCaseWidgetMenu[[gettext("Search Files within Selected Case", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       pattern <- ifelse(is.null(.rqda$lastsearch),"file like '%%'",.rqda$lastsearch)
       pattern <- ginput(gettext("Please input a search pattern.", domain = "R-RQDA"),text=pattern)
       if (!is.na(pattern)){
@@ -408,7 +408,7 @@ GetFileofCaseWidgetMenu <- function()
     }
   }
   FileofCaseWidgetMenu[[gettext("Show Selected File Property", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       ShowFileProperty(Fid=GetFileId("case","selected"))
     }
   }

@@ -201,13 +201,13 @@ GetFileCatWidgetMenu <- function()
 {
   FileCatWidgetMenu <- list()
   FileCatWidgetMenu[[gettext("Memo", domain = "R-RQDA")]]$handler <- function(h,...){
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       MemoWidget(gettext("File Category", domain = "R-RQDA"),.rqda$.FileCatWidget,"filecat")
       ## see CodeCatButton.R  for definition of MemoWidget
     }
   }
   FileCatWidgetMenu[[gettext("Delete all files of selected category", domain = "R-RQDA")]]$handler <- function(h,...){
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       fid <- GetFileId("file")
       if (length(fid)>0){
         dbGetQuery(.rqda$qdacon, sprintf("update source set status=0 where id in (%s)",paste(shQuote(fid),collapse=",")))
@@ -220,7 +220,7 @@ GetFileCatWidgetMenu <- function()
   }
   FileCatWidgetMenu[[gettext("Sort by created time", domain = "R-RQDA")]]$handler <- function(h,...)
   {
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       UpdateTableWidget(Widget=.rqda$.FileCatWidget,FromdbTable="filecat")
     }
   }
@@ -233,18 +233,18 @@ GetFileofCatWidgetMenu <- function()
 {
   FileofCatWidgetMenu <- list()
   FileofCatWidgetMenu[[gettext("Add To Case ...", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       AddFileToCaselinkage(Widget=.rqda$.FileofCat)
       UpdateFileofCaseWidget()
     }
   }
   FileofCatWidgetMenu[[gettext("Add To File Category ...", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       AddToFileCategory(Widget=.rqda$.FileofCat,updateWidget=FALSE)
     }
   }
   FileofCatWidgetMenu[[gettext("Move To File Category ...", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       fcatname <- svalue(.rqda$.FileCatWidget) ## should select one only
       fcatid <- dbGetQuery(.rqda$qdacon,sprintf("select catid from filecat where name='%s'",
                                                 enc(fcatname)))$catid
@@ -258,7 +258,7 @@ GetFileofCatWidgetMenu <- function()
     }}
   }
   FileofCatWidgetMenu[[gettext("File Memo", domain = "R-RQDA")]]$handler <- function(h,...){
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       MemoWidget(gettext("File", domain = "R-RQDA"),.rqda$.FileofCat,"source")
     }
   }
@@ -270,7 +270,7 @@ GetFileofCatWidgetMenu <- function()
   }
   FileofCatWidgetMenu[[gettext("Search Files Within Category", domain = "R-RQDA")]]$handler <- function(h,...)
   {
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       fid <- GetFileId(condition="filecategory",type="all")
       pattern <- ifelse(is.null(.rqda$lastsearch),"file like '%%'",.rqda$lastsearch)
       pattern <- ginput(gettext("Please input a search pattern.", domain = "R-RQDA"),text=pattern)
@@ -279,12 +279,12 @@ GetFileofCatWidgetMenu <- function()
         tryCatch(SearchFiles(sprintf("(%s) and id in (%s)",pattern,paste(shQuote(fid),collapse=",")),
                              Widget=".FileofCat",is.UTF8=TRUE),
                  error=function(e) gmessage(gettext("Error~~~.", domain = "R-RQDA")),con=TRUE)
-        assign("lastsearch",pattern,env=.rqda)
+        assign("lastsearch",pattern,envir =.rqda)
       }
     }
   }
   FileofCatWidgetMenu[[gettext("Delete selected File(s)", domain = "R-RQDA")]]$handler <- function(h,...){
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       SelectedFile <- svalue(.rqda$.FileofCat)
       Encoding(SelectedFile) <- "UTF-8"
       for (i in SelectedFile){
@@ -301,7 +301,7 @@ GetFileofCatWidgetMenu <- function()
     }
   }
   FileofCatWidgetMenu[[gettext("Rename selected File", domain = "R-RQDA")]]$handler <- function(h,...){
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       selectedFN <- svalue(.rqda$.FileofCat)
       if (length(selectedFN)==0){
         gmessage(gettext("Select a file first.", domain = "R-RQDA"),icon="error",con=TRUE)
@@ -318,38 +318,38 @@ GetFileofCatWidgetMenu <- function()
         }
   }}}
   ## FileofCatWidgetMenu[[gettext("Show ...", domain = "R-RQDA")]][[gettext("Show Uncoded Files Only Sorted By Imported Time", domain = "R-RQDA")]]$handler <- function(h,...){
-  ##  if (is_projOpen(env=.rqda,conName="qdacon")) {
+  ##  if (is_projOpen(envir =.rqda,conName="qdacon")) {
   ##    fid <- GetFileId(condition="filecategory",type="uncoded")
   ##    FileNameWidgetUpdate(FileNamesWidget=.rqda$.FileofCat,FileId=fid)
   ##  }
   ## }
   ## FileofCatWidgetMenu[[gettext("Show ...", domain = "R-RQDA")]][[gettext("Show Coded Files Only Sorted By Imported Time", domain = "R-RQDA")]]$handler <- function(h,...){
-  ##   if (is_projOpen(env=.rqda,conName="qdacon")) {
+  ##   if (is_projOpen(envir =.rqda,conName="qdacon")) {
   ##     fid <- GetFileId(condition="filecategory",type="coded")
   ##     FileNameWidgetUpdate(FileNamesWidget=.rqda$.FileofCat,FileId=fid)
   ##   }
   ## }
   FileofCatWidgetMenu[[gettext("Show ...", domain = "R-RQDA")]][[gettext("Show All By Imported Time", domain = "R-RQDA")]]$handler <- function(h,...)
   {
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       fid <- GetFileId(condition="filecategory",type="all")
       FileNameWidgetUpdate(FileNamesWidget=.rqda$.FileofCat,FileId=fid)
     }
   }
   FileofCatWidgetMenu[[gettext("Show ...", domain = "R-RQDA")]][[gettext("Show Coded Files Sorted by Imported time", domain = "R-RQDA")]]$handler <- function(h,...){
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       FileNameWidgetUpdate(FileNamesWidget=.rqda$.FileofCat,FileId=GetFileId(condition="filecat",type="coded"))
     }
   }
   FileofCatWidgetMenu[[gettext("Show ...", domain = "R-RQDA")]][[gettext("Show Uncoded Files Sorted by Imported time", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       ## UncodedFileNamesUpdate(FileNamesWidget = .rqda$.fnames_rqda)
       FileNameWidgetUpdate(FileNamesWidget=.rqda$.FileofCat,FileId=GetFileId(condition="filecat",type="uncoded"))
       ## By default, the file names in the widget will be sorted.
     }
   }
   FileofCatWidgetMenu[[gettext("Show Selected File Property", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       ShowFileProperty(Fid=GetFileId("filecat","selected"))
     }
   }

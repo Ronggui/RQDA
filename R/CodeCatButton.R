@@ -330,7 +330,7 @@ GetCodeofCatWidgetMenu <- function()
     }
   }
   CodeofCatWidgetMenu[[gettext("Code Memo", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       MemoWidget(gettext("Code", domain = "R-RQDA"),.rqda$.CodeofCat,"freecode")
     }
   }

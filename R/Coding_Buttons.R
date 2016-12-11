@@ -434,17 +434,17 @@ GetCodesNamesWidgetMenu <- function()
     AddToCodeCategory()
   }
   CodesNamesWidgetMenu[[gettext("All Code Memos", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       print(getMemos())
     }
   }
   CodesNamesWidgetMenu[[gettext("All Annotations", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       print(getAnnos())
     }
   }
   CodesNamesWidgetMenu[[gettext("Code Memo", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       MemoWidget(gettext("code", domain = "R-RQDA"),.rqda$.codes_rqda,"freecode")
     }
   }
@@ -453,7 +453,7 @@ GetCodesNamesWidgetMenu <- function()
     print.codingsByOne(ct)
   }
   CodesNamesWidgetMenu[[gettext("Export Codings as HTML", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       path=gfile(type="save",text = gettext("Type a name for the exported codings and click OK.", domain = "R-RQDA"))
       if (!is.na(path)){
         Encoding(path) <- "UTF-8"
@@ -464,7 +464,7 @@ GetCodesNamesWidgetMenu <- function()
   CodesNamesWidgetMenu[[gettext("Highlight All Codings", domain = "R-RQDA")]]$handler <- function(h, ...) {HL_AllCodings()}
   CodesNamesWidgetMenu[[gettext("Highlight Codings with Memo", domain = "R-RQDA")]]$handler <- function(h, ...) {HL_CodingWithMemo()}
   CodesNamesWidgetMenu[[gettext("Merge Selected with...", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       Selected1 <- svalue(.rqda$.codes_rqda)
       cid1 <- dbGetQuery(.rqda$qdacon,sprintf("select id from freecode where name='%s'",Selected1))[1,1]
       Selected2 <- gselect.list(as.character(.rqda$.codes_rqda[]), x=getOption("widgetCoordinate")[1])
@@ -481,7 +481,7 @@ GetCodesNamesWidgetMenu <- function()
     CodeWithoutCoding(condition=.rqda$TOR)
   }
   CodesNamesWidgetMenu[[gettext("Show Codes With Code Category", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       cid <- RQDAQuery("select id from freecode where status=1 and id in (select cid from treecode where status=1)")
       if (nrow(cid)!=0) {
         cid <- cid[[1]]
@@ -490,7 +490,7 @@ GetCodesNamesWidgetMenu <- function()
     }
   }
   CodesNamesWidgetMenu[[gettext("Show Codes Without Code Category", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       cid <- RQDAQuery("select id from freecode where status=1 and id not in (select cid from treecode where status=1)")
       if (nrow(cid)!=0) {
         cid <- cid[[1]]
@@ -499,7 +499,7 @@ GetCodesNamesWidgetMenu <- function()
     }
   }
   CodesNamesWidgetMenu[[gettext("Show Codes With Memo", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       cid <- dbGetQuery(.rqda$qdacon,"select id from freecode where memo is not null and memo != ''")
       if (nrow(cid)!=0) {
         cid <- cid[[1]]
@@ -508,7 +508,7 @@ GetCodesNamesWidgetMenu <- function()
     }
   }
   CodesNamesWidgetMenu[[gettext("Show Codes Without Memo", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       cid <- dbGetQuery(.rqda$qdacon,"select id from freecode where memo is null or memo = ''")
       if (nrow(cid)!=0) {
         cid <- cid[[1]]
@@ -534,7 +534,7 @@ GetCodesNamesWidgetMenu <- function()
   }
 
   CodesNamesWidgetMenu[[gettext("Set Coding Mark Color", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       Selected <- svalue(.rqda$.codes_rqda)
       Selected <- enc(Selected,"UTF-8")
       codeInfo <- dbGetQuery(.rqda$qdacon,sprintf("select id,color from freecode where name='%s'",Selected))[1,]
@@ -550,7 +550,7 @@ GetCodesNamesWidgetMenu <- function()
   }
 
   CodesNamesWidgetMenu[[gettext("Sort: By Created Time", domain = "R-RQDA")]]$handler <- function(h, ...) {
-    if (is_projOpen(env = .rqda, conName = "qdacon", message = FALSE)) {
+    if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
       CodeNamesUpdate(sortByTime=TRUE)
     }
   }

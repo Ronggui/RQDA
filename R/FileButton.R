@@ -319,7 +319,7 @@ GetFileNamesWidgetMenu <- function()
     }
   }
   FileNamesWidgetMenu[[gettext("Show ...", domain = "R-RQDA")]][[gettext("Show Coded Files Sorted by Imported time", domain = "R-RQDA")]]$handler <- function(h,...){
-    if (is_projOpen(env=.rqda,conName="qdacon")) {
+    if (is_projOpen(envir =.rqda,conName="qdacon")) {
       FileNameWidgetUpdate(FileNamesWidget=.rqda$.fnames_rqda,FileId=GetFileId(condition="unconditional",type="coded"))
     }
   }
