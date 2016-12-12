@@ -111,10 +111,13 @@ MarkCodeFun <- function(codeListWidget=".codes_rqda",codingTable="coding"){
             if (nrow(Exist1)==0){
               rowid <- NextRowId(codingTable)
               ## success <- dbWriteTable(.rqda$qdacon,codingTable,DAT,row.name=FALSE,append=TRUE)
-              success <- is.null(try(RQDAQuery(sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ",
-                                               codingTable,DAT$cid, DAT$fid,DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner, as.character(date()))),silent=TRUE))
+              success <- try(dbExecute(.rqda$qdacon, sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ",
+                                               codingTable,DAT$cid, DAT$fid,DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner, as.character(date()))),silent=TRUE) > 0
               if (success){
-                markRange(widget=.rqda$.openfile_gui,from=ans$start,to=ans$end,rowid=rowid,addButton=TRUE,buttonLabel=SelectedCode,buttonCol=codeCol,codingTable=codingTable)} else{gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))}
+                markRange(widget=.rqda$.openfile_gui,from=ans$start,to=ans$end,rowid=rowid,addButton=TRUE,buttonLabel=SelectedCode,buttonCol=codeCol,codingTable=codingTable)}
+                else{
+                gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
+                }
             } else {
               Exist <- Exist1[,c("selfirst","selend","rowid")]
               Relations <- apply(Exist,1,FUN=function(x) relation(x[c("selfirst","selend")],c(ans$start,ans$end)))
@@ -127,8 +130,8 @@ MarkCodeFun <- function(codeListWidget=".codes_rqda",codingTable="coding"){
                 if (all(Exist$Relation=="proximity")){
 		    rowid <- NextRowId(codingTable)
 		    ## success <- dbWriteTable(.rqda$qdacon,codingTable,DAT,row.name=FALSE,append=TRUE)
-		    success <- is.null(try(RQDAQuery(sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ",
-						    codingTable,DAT$cid, DAT$fid, DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner, as.character(date()))),silent=TRUE))
+		    success <- try(dbExecute(.rqda$qdacon, sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ",
+						    codingTable,DAT$cid, DAT$fid, DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner, as.character(date()))),silent=TRUE) > 0
 		    if (success){
 			markRange(widget=.rqda$.openfile_gui,from=ans$start,to=ans$end,rowid=rowid,addButton=TRUE,
 				  buttonLabel=SelectedCode,buttonCol=codeCol,codingTable=codingTable)
@@ -159,7 +162,7 @@ MarkCodeFun <- function(codeListWidget=".codes_rqda",codingTable="coding"){
                     tt <- svalue(W)
                     Encoding(tt) <- "UTF-8"
                     DAT <- data.frame(cid=currentCid,fid=currentFid,seltext=substr(tt,Sel[1]+1,Sel[2]),selfirst=Sel[1],selend=Sel[2],status=1,owner=.rqda$owner,date=date(),memo=memo,stringsAsFactors=FALSE)
-                    
+
                     # JS Test for coherency!
                     #sourcetext <- dbGetQuery(con,sprintf("select substr(file,%s,%s) from source where name='%s'",Sel[1]+1,Sel[2]-Sel[1],SelectedFile))[,1]
                     #seltext = substr(tt,Sel[1]+1,Sel[2])
@@ -169,7 +172,7 @@ MarkCodeFun <- function(codeListWidget=".codes_rqda",codingTable="coding"){
                     #  print(sprintf("Selection <%s>", seltext))
                     #  gmessage(gettext("CONSISTENCY ERROR 2 - See console for details", domain = "R-RQDA"))
                     #}
-                    
+
                     DAT$seltext <- enc(DAT$seltext)
                     rowid <- NextRowId(codingTable)
                     ## success <- dbWriteTable(.rqda$qdacon,codingTable,DAT,row.name=FALSE,append=TRUE)
