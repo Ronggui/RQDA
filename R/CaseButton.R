@@ -97,7 +97,7 @@ MarkCaseFun <- function(){
                           owner=.rqda$owner,date=date(),memo="")
         if (nrow(ExistLinkage)==0){
           ## if there are no relevant caselinkage, write the caselinkage table
-          success <- dbWriteTable(.rqda$qdacon,"caselinkage",DAT,row.name=FALSE,append=TRUE)
+          success <- dbWriteTable(.rqda$qdacon,"caselinkage",DAT,row.names=FALSE,append=TRUE)
           if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
         } else {
           Relations <- apply(ExistLinkage,1,FUN=function(x) relation(x[c("selfirst","selend")],c(ans$start,ans$end)))
@@ -108,7 +108,7 @@ MarkCaseFun <- function(){
             ExistLinkage$Start <- sapply(Relations,FUN=function(x)x$UnionIndex[1])
             ExistLinkage$End <- sapply(Relations,FUN=function(x)x$UnionIndex[2])
             if (all(ExistLinkage$Relation=="proximity")){
-              success <- dbWriteTable(.rqda$qdacon,"caselinkage",DAT,row.name=FALSE,append=TRUE)
+              success <- dbWriteTable(.rqda$qdacon,"caselinkage",DAT,row.names=FALSE,append=TRUE)
               if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
             } else {
               del1 <- ExistLinkage$WhichMin==2 & ExistLinkage$Relation =="inclusion"; del1[is.na(del1)] <- FALSE
@@ -124,7 +124,7 @@ MarkCaseFun <- function(){
               DAT <- data.frame(cid=currentCid,fid=currentFid,
                                 selfirst=Sel[1],selend=Sel[2],status=1,
                                 owner=.rqda$owner,date=date(),memo=memo)
-              success <- dbWriteTable(.rqda$qdacon,"caselinkage",DAT,row.name=FALSE,append=TRUE)
+              success <- dbWriteTable(.rqda$qdacon,"caselinkage",DAT,row.names=FALSE,append=TRUE)
               if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
             }
             }

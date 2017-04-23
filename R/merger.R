@@ -1,7 +1,7 @@
 mergeCodes <- function(cid1,cid2){ ## cid1 and cid2 are two code IDs.
   mergeHelperFUN <- function(From,Exist){ ## from and exist are data frame of codings.
     if (nrow(Exist)==0){## just write to the new code if there is no coding related to that code.
-      success <- dbWriteTable(.rqda$qdacon,"coding",From,row.name=FALSE,append=TRUE)
+      success <- dbWriteTable(.rqda$qdacon,"coding",From,row.names=FALSE,append=TRUE)
       if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
     } else {
       Relations <- apply(Exist[c("selfirst","selend")],1,FUN=function(x) relation(x,c(From$selfirst,From$selend)))
@@ -17,7 +17,7 @@ mergeCodes <- function(cid1,cid2){ ## cid1 and cid2 are two code IDs.
         if (all(Exist$Relation=="proximity")){ ## if there are no overlap in any kind, just write to database
             dis <- sapply(Relations,function(x) x$Distance)
             if (all(dis>0)) {
-                success <- dbWriteTable(.rqda$qdacon,"coding",From,row.name=FALSE,append=TRUE)
+                success <- dbWriteTable(.rqda$qdacon,"coding",From,row.names=FALSE,append=TRUE)
                 if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
             } else {
                 idx0 <- which(dis==0)
@@ -49,7 +49,7 @@ mergeCodes <- function(cid1,cid2){ ## cid1 and cid2 are two code IDs.
             DAT <- data.frame(cid=From$cid,fid=From$fid,seltext=substr(tt,Sel[1],Sel[2]),
                               selfirst=Sel[1],selend=Sel[2],status=1,
                               owner=.rqda$owner,date=date(),memo=memo) ## The new coding to table.
-            success <- dbWriteTable(.rqda$qdacon,"coding",DAT,row.name=FALSE,append=TRUE)
+            success <- dbWriteTable(.rqda$qdacon,"coding",DAT,row.names=FALSE,append=TRUE)
             if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
           }
         }
