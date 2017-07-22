@@ -1,3 +1,6 @@
+RQDA 0.3-0
+* comdifications for RSQLite 2.0.
+
 RQDA 0.2-8
 * improvement of Profile matrix.
 * Facilitator of recoding coded text segment into a new code.
