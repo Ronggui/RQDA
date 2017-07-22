@@ -13,5 +13,5 @@ Additional_repositories: http://r-forge.r-project.org/
 License: BSD_3_clause + file LICENSE
 LazyLoad: yes
 SystemRequirements: Java (>= 1.6) for rjpod
-URL: http://rqda.r-forge.r-project.org/,https://github.com/Ronggui/RQDA
+URL: http://rqda.r-forge.r-project.org/, https://github.com/Ronggui/RQDA
 NeedsCompilation: no
