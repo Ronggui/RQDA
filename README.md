@@ -58,3 +58,15 @@ install.packages('RQDA', type='binary')
 ```R
 library(RQDA) 
 ```
+
+## How to change the font sizes of RQDA interface
+This can be achived by modifying ~/gtkrc-2.0 (create on if not exists), for instance:
+```
+style "user-font" {
+    font_name = "Lucida Grande 14"
+}
+widget_class "*" style "user-font"
+
+gtk-font-name="Lucida Grande 14"
+gtk-enable-mnemonics = 0
+```
