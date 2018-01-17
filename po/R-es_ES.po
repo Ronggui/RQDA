@@ -1,0 +1,1051 @@
+# Spanish messages for RQDA 0.2-5
+# This file is distributed under the same licence as the RQDA package.
+# Francisco J. Miguel Quesada <Miguel.Quesada@uab.cat>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: RQDA\n"
+"Report-Msgid-Bugs-To: https://github.com/Ronggui/RQDA/issues\n"
+"POT-Creation-Date: 2016-11-24 05:44\n"
+"PO-Revision-Date: 2018-01-16 09:19-0100\n"
+"Last-Translator: Francisco Miguel <Miguel.Quesada@uab.cat>\n"
+"Language-Team: Spanish <es@tp.org.es>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Please, report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Add a new file to selected case"
+msgstr "Añadir un fichero nuevo al caso seleccionado"
+
+msgid "Enter the title"
+msgstr "Introducir el título"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Attribute of:"
+msgstr "Atributo de:"
+
+msgid "Save and Close"
+msgstr "Guardar y Cerrar"
+
+msgid "add attribute in Attrs Table first."
+msgstr "añadir primero el atributo en la Tabla de Atributos."
+
+msgid "ADD"
+msgstr "Añadir"
+
+msgid "Enter new Attr Name."
+msgstr "Introducir un nuevo Nombre de Atributo."
+
+msgid "Attribute should NOT contain '."
+msgstr "Atributos NO deben contener '."
+
+msgid "This is a reserved keyword."
+msgstr "Esta es una palabra-clave reservada."
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Really delete the Attribute?"
+msgstr "¿Realmente quieres eliminar el Atributo?"
+
+msgid "Rename"
+msgstr "Renombrar"
+
+msgid "Enter new attribute name."
+msgstr "Introducir un nuevo nombre de atributo."
+
+msgid "Name duplicated. Please use another name."
+msgstr "Nombre duplicado. Por favor, utiliza otro."
+
+msgid "Memo"
+msgstr "Memo"
+
+msgid "Attributes"
+msgstr "Atributos"
+
+msgid "'subset' must evaluate to logical"
+msgstr "'subset' debe ser avaluado como 'logical'"
+
+msgid "Class"
+msgstr "Clase"
+
+msgid ""
+"Set class of selected attribute.\n"
+"It can be 'numeric' or 'character'."
+msgstr ""
+"Configura la classe de atributo seleccionado.\n"
+"Puede ser 'numeric' o 'character'."
+
+msgid "Type of attribute"
+msgstr "Tipo de atributo"
+
+msgid "some files are not in the rqda project."
+msgstr "algunos ficheros no estan en el proyecto rqda."
+
+msgid "some attributes are in not the rqda project."
+msgstr "algunos atributos no estan en el proyecto rqda."
+
+msgid "cid should be length-1 integer vector."
+msgstr "cid debería ser un vector de números interos de longitud 1"
+
+msgid "No Codings."
+msgstr "Sin Citas."
+
+msgid "Back"
+msgstr "Atrás"
+
+msgid "Enter new Case Name."
+msgstr "Introducir un nuevo Nombre de Caso"
+
+msgid "Really delete the Case?"
+msgstr "¿Realmente quieres eliminar el Caso?"
+
+msgid "Enter new Case name."
+msgstr "Introducir un nuevo nombre de Caso."
+
+msgid "Mark"
+msgstr "Marcar"
+
+msgid "Fail to write to database."
+msgstr "Fallo al escribir en la base de dados."
+
+msgid "Unmark"
+msgstr "Desmarcar"
+
+msgid "Select a case first."
+msgstr "Selecciona primero un caso."
+
+msgid "Attribute"
+msgstr "Atributo"
+
+msgid "Add File(s)"
+msgstr "Añadir Fichero(s)"
+
+msgid "All files are linked with this case."
+msgstr "Todos los ficheros estan vinculados a este caso."
+
+msgid "Add New File to Selected Case"
+msgstr "Añadir nuevo fichero al caso seleccionado"
+
+msgid "Case Memo"
+msgstr "Memo de Caso"
+
+msgid "Case"
+msgstr "Caso"
+
+msgid "Show Cases with Memo Only"
+msgstr "Mostrar sólo los Casos con Memo"
+
+msgid "Add/modify Attributes..."
+msgstr "Añadir/modificar los Atributos..."
+
+msgid "View Attributes"
+msgstr "Ver Atributos"
+
+msgid "Export Case Attributes"
+msgstr "Exportar Atributos de Caso"
+
+msgid "Sort All by Created Time"
+msgstr "Ordenar todo por fecha de creación"
+
+msgid "Web Search"
+msgstr "Buscar en Internet"
+
+msgid "Add To File Category ..."
+msgstr "Añadir a una Categoría de Fichero"
+
+msgid "Drop Selected File(s)"
+msgstr "Eliminar Fichero(s) Seleccionado(s)"
+
+msgid "Please select the Files you want to delete."
+msgstr "Por favor, selecciona los Ficheros que quieres eliminar."
+
+msgid "Delete %i file(s) from this category. Are you sure?"
+msgstr "Se eliminaran %i ficheros(s) de esta categoría. ¿Lo confirmas?"
+
+msgid "Delete Selected File(s)"
+msgstr "Eliminar Ficheros(s) Seleccionado(s)"
+
+msgid "Edit Selected File"
+msgstr "Editar el Fichero Seleccionado"
+
+msgid "File Memo"
+msgstr "Memo de Fichero"
+
+msgid "File"
+msgstr "Fichero"
+
+msgid "Rename selected File"
+msgstr "Renombar el Fichero Seleccionado"
+
+msgid "Select a file first."
+msgstr "Selecciona primero un fichero."
+
+msgid "Enter new file name."
+msgstr "Introducir nuevo nombre de fichero."
+
+msgid "Search Files within Selected Case"
+msgstr "Buscar ficheros en el caso seleccionado"
+
+msgid "Please input a search pattern."
+msgstr "Por favor, introduce un patrón de búqueda."
+
+msgid "Error~~~."
+msgstr "Error~~~."
+
+msgid "Show ..."
+msgstr "Mostrar ..."
+
+msgid "Show All by Sorted by Imported Time"
+msgstr "Mostrar todo ordenado por fecha de importación"
+
+msgid "Show Coded Files Only (sorted)"
+msgstr "Mostrar sólo los Ficheros Codificados (ordenados)"
+
+msgid "Show Uncoded Files Only (sorted)"
+msgstr "Mostrar sólo los Ficheros sin Codificar (ordenados)"
+
+msgid "Show Selected File Property"
+msgstr "Mostrar las propriedades del fichero seleccionado"
+
+msgid "Fail to write to database for case with id %i"
+msgstr "Fallo al escribir en la base de dados para el caso con ID %i"
+
+msgid "Enter new Code Category."
+msgstr "Introducir una nueva Categoría de Código."
+
+msgid "Really delete the Code Category?"
+msgstr "¿Realmente quieres eliminar la Categoría de Código?"
+
+msgid "The Category Name is not unique."
+msgstr "El nombre de la Categoría ya existe."
+
+msgid "Select a Code Category first."
+msgstr "Selecciona primero una Categoría de Código."
+
+msgid "Enter new Category name."
+msgstr "Introduce un nuevo Nombre de Categoría."
+
+msgid "Add To"
+msgstr "Añadir a"
+
+msgid "No free codes yet."
+msgstr "No hay códigos libres todavía."
+
+msgid "Add code(s) to the selected code category."
+msgstr "Añadir código(s) a la categoría de código seleccionada."
+
+msgid "Drop From"
+msgstr "Eliminar de"
+
+msgid "Please select the Codes you want to delete."
+msgstr "Por favor, selecciona los Códigos que deseas eliminar."
+
+msgid "Delete %i code(s) from this category. Are you sure?"
+msgstr "Eliminar %i código(s) de esta categoría. ¿Lo confirmas?"
+
+msgid "Drop selected code(s) from code category."
+msgstr "Eliminar código(s) seleccionados de la Categoría de Códigos."
+
+msgid "Code Category"
+msgstr "Categoría de Códigos"
+
+msgid "Add New Code to Selected Category"
+msgstr "Añadir un Nuevo Código a la Categoría seleccionada"
+
+msgid "Enter new code."
+msgstr "Introducir un nuevo código."
+
+msgid "Select a code category first."
+msgstr "Seleccionar primero una categoría de código."
+
+msgid "Failed to assign code category"
+msgstr "Fallo al asignar categoría de código"
+
+msgid "Codings of selected category"
+msgstr "Citas de la categoría seleccionadas"
+
+msgid "Plot Selected Code Categories"
+msgstr "Graficar las Categorías de Códigos seleccionadas"
+
+msgid "Plot Selected Code Categories with d3"
+msgstr "Graficar las Categorías de Códigos seleccionadas en 3D"
+
+msgid "Sort by created time"
+msgstr "Ordenar por fecha de creación"
+
+msgid "Rename Selected Code"
+msgstr "Renombrar el Código Seleccionado"
+
+msgid "Select a code first."
+msgstr "Seleccionar primero un código."
+
+msgid "Enter new code name."
+msgstr "Introduce un nuevo código."
+
+msgid "Code Memo"
+msgstr "Memo de Código"
+
+msgid "Code"
+msgstr "Código"
+
+msgid "Cannot update Code List in the Widget. Project is closed already."
+msgstr "Imposible actualizar la lista de códigos en pantalla.\n"
+"El proyecto ya está cerrado."
+
+msgid "Save Coding Memo"
+msgstr "Guardar el Memo de cita"
+
+msgid "No Coding associated with the selected code."
+msgstr "Ninguna Cita asociada con el código seleccionado."
+
+msgid "Coding not found."
+msgstr "Cita no encontrada."
+
+msgid "Code \"%s\" applied to this text segment."
+msgstr "Código \"%s\" aplicado a este segmento de texto."
+
+msgid "Cannot recode this text segment."
+msgstr "No es posible recodificar este segmento de texto."
+
+msgid "Text segment already coded as \"%s\""
+msgstr "Segmento de texto ya codificado como \"%s\""
+
+msgid "Recode"
+msgstr "Recodificar"
+
+msgid "No Coding associated with the '%s'."
+msgstr "Ninguna Cita asociada con el '%s'."
+
+msgid "Selected code id is %s__%s codings"
+msgstr "ID del Código Seleccionado: %s__%s citas"
+
+msgid "[Annotation]"
+msgstr "[Nota]"
+
+msgid "Save Annotation"
+msgstr "Guardar Nota"
+
+msgid "Open a file first!"
+msgstr "Abrir primero un fichero!"
+
+msgid "Add Code Category First."
+msgstr "Añadir primero una Categoría de Código."
+
+msgid "Fail to write to code category of %s"
+msgstr "Fallo al escribir en la categoría de código de %s"
+
+msgid "Add"
+msgstr "Añadir"
+
+msgid "Really delete the code?"
+msgstr "Eliminar realmente el código?"
+
+msgid "No codings associated with this code."
+msgstr "Ninguna cita asociada a este código."
+
+msgid "Retrieve codings of the selected code."
+msgstr "Recuperar citas para el código seleccionado."
+
+msgid "Open a file first."
+msgstr "Abrir primero un fichero."
+
+msgid "Fail to write to data base."
+msgstr "Fallo al escribir en la base de dados."
+
+msgid "Select a code and one of its codings exactly first."
+msgstr "Selecciona primero un código y una de sus citas."
+
+msgid "C-Memo"
+msgstr "Memo-C"
+
+msgid "code"
+msgstr "código"
+
+msgid "Memo for selected code."
+msgstr "Memo para el código seleccionado."
+
+msgid "C2Memo"
+msgstr "Memo-C2"
+
+msgid "[Coding Memo]"
+msgstr "[Memo de cita]"
+
+msgid "select a code first."
+msgstr "selecciona primero un código."
+
+msgid "Select the exact CODING AND the corresponding CODE first."
+msgstr "Selecciona primero la CITA exacta y el correspondente CÓDIGO."
+
+msgid "Memo for a Coding."
+msgstr "Memo para una Cita."
+
+msgid "Add Anno"
+msgstr "Añadir Nota"
+
+msgid ""
+"Add new annotation to the open file\n"
+"at position of cursor."
+msgstr ""
+"Añade una nueva nota al fichero abierto\n"
+"en la posición del cursor."
+
+msgid "Add To Code Category..."
+msgstr "Añadir a la Categoría de Código..."
+
+msgid "All Code Memos"
+msgstr "Todos los Memos de Código"
+
+msgid "All Annotations"
+msgstr "Todas las Notas"
+
+msgid "Codings of Multiple Codes"
+msgstr "Citas de Múltiples Códigos"
+
+msgid "Export Codings as HTML"
+msgstr "Exportar las Citas como HTML"
+
+msgid "Type a name for the exported codings and click OK."
+msgstr "Introduce un nombre para las citas exportadas y clica OK."
+
+msgid "Highlight All Codings"
+msgstr "Destacar Todas las Citas"
+
+msgid "Highlight Codings with Memo"
+msgstr "Destacar las Citas con Memos"
+
+msgid "Merge Selected with..."
+msgstr "Unir lo Seleccionado con..."
+
+msgid "Show Codes With Codings"
+msgstr "Mostrar los Códigos con Citas"
+
+msgid "Show Codes Without Codings"
+msgstr "Mostrar los Códigos sin Citas"
+
+msgid "Show Codes With Code Category"
+msgstr "Mostrar los Códigos con Categoría de Código"
+
+msgid "All codes are assigned to code category."
+msgstr "Todos los códigos estan asignados a una Categoría de Código."
+
+msgid "Show Codes Without Code Category"
+msgstr "Mostrar Códigos sin Categoría de Código"
+
+msgid "Show Codes With Memo"
+msgstr "Mostrar Códigos con Memo"
+
+msgid "No Code with memo."
+msgstr "Ningún Código tiene Memo."
+
+msgid "Show Codes Without Memo"
+msgstr "Mostrar Códigos sin Memo"
+
+msgid "Show Codes With Selected File"
+msgstr "Mostrar Códigos con Fichero Seleccionado"
+
+msgid "Set Coding Mark Color"
+msgstr "Configurar el Color de la Marca de Cita"
+
+msgid "Sort: By Created Time"
+msgstr "Ordenar: Por Fecha de Creación"
+
+msgid "Sort: Most to Least Frequently Used"
+msgstr "Ordenar: De Más a Menos frequentemente usado"
+
+msgid "Sort: Least to Most Frequently Used"
+msgstr "Ordenar: De Menos a Más frequentemente usado"
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "New"
+msgstr "Nuevo"
+
+msgid "Open"
+msgstr "Abrir"
+
+msgid "Save To Project"
+msgstr "Guardar en el Proyecto"
+
+msgid "Save and close"
+msgstr "Guardar y Cerrar"
+
+msgid "Add New File ..."
+msgstr "Añadir Nuevo Fichero ..."
+
+msgid "Add To Case ..."
+msgstr "Añadir al Caso"
+
+msgid "Add/modify Attributes of The Open File..."
+msgstr "Añadir/modificar Atributos del fichero abierto"
+
+msgid "Codings of selected file(s)"
+msgstr "Citas del(los) fichero(s) seleccionado(s)"
+
+msgid "No coded file is selected."
+msgstr "Ningún fichero codificado está seleccionado."
+
+msgid "Export File Attributes"
+msgstr "Exportar Atributos del Fichero"
+
+msgid "Export Coded file as HTML"
+msgstr "Exportar fichero codificado como HTML"
+
+msgid "File Annotations"
+msgstr "Notas del Fichero"
+
+msgid "Import PDF Highlights via rjpod (selector)"
+msgstr "Importar realces de PDF via rjpod (selector)"
+
+msgid "Import PDF Highlights via rjpod (file path)"
+msgstr "Importar realces de PDF via rjpod (ruta de fichero)"
+
+msgid "Enter a pdf file path"
+msgstr "Introducir una ruta de fichero pdf"
+
+msgid "Open Selected File"
+msgstr "Abrir el Fichero Seleccionado"
+
+msgid "Open Previous Coded File"
+msgstr "Abrir el Fichero codificado anterior"
+
+msgid "Search for a Word"
+msgstr "Buscar una palabra"
+
+msgid "Search all files ..."
+msgstr "Buscar en todos los ficheros ..."
+
+msgid "Show All Sorted By Imported Time"
+msgstr "Muestra Todo ordenado por fecha de importación"
+
+msgid "Show Coded Files Sorted by Imported time"
+msgstr "Muestra ficheros codificados ordenados por fecha de importación"
+
+msgid "Show Uncoded Files Sorted by Imported time"
+msgstr "Muestra ficheros sin codificar ordenados por fecha de importación"
+
+msgid "Show Files With Annotation"
+msgstr "Mostrar ficheros con Notas"
+
+msgid "No file with memo."
+msgstr "No hay ficheros con Memo."
+
+msgid "Show Files Without Annotation"
+msgstr "Mostrar ficheros sin Notas"
+
+msgid "All files have annotation."
+msgstr "Todos los ficheros tienen anotaciones"
+
+msgid "Show Files With Memo"
+msgstr "Mostrar ficheros con Memo"
+
+msgid "Show Files Without Memo"
+msgstr "Mostrar ficheros sin Memo"
+
+msgid "No file is found."
+msgstr "Ningún fichero encontrado."
+
+msgid "Show Files Without File Category"
+msgstr "Mostrar Ficheros sin Categoría de Fichero"
+
+msgid "All are linked with file category."
+msgstr "Todos están vinculados con categoría de fichero."
+
+msgid "Show Files With No Case"
+msgstr "Mostrar ficheros sin casos"
+
+msgid "All are linked with cases."
+msgstr "Todos estan vinculados con casos."
+
+msgid "Enter new File Category."
+msgstr "Introducir una nueva Categoría de Fichero."
+
+msgid "Really delete the File Category?"
+msgstr "¿Realmente quieres eliminar la Categoría de Fichero?"
+
+msgid "File Category"
+msgstr "Categoría de Fichero"
+
+msgid "Memo of file category."
+msgstr "Memo de categoría de fichero."
+
+msgid "AddTo"
+msgstr "Añadir A"
+
+msgid "No files Yet."
+msgstr "Ningún fichero aún."
+
+msgid "Add file(s) to the selected file category."
+msgstr "Añadir fichero(s) a la categoría de fichero seleccionada."
+
+msgid "DropFrom"
+msgstr "Borrar De"
+
+msgid "Drop selected file(s) from file category."
+msgstr "Borrar el(los) fichero(s) seleccionados de la categoría."
+
+msgid "Delete all files of selected category"
+msgstr "Eliminar todos los ficheros de la categoría seleccionada"
+
+msgid "Move To File Category ..."
+msgstr "Mover a la Categoría de Fichero ..."
+
+msgid "Search Files Within Category"
+msgstr "Buscar Ficheros en la Categoría"
+
+msgid "Delete selected File(s)"
+msgstr "Eliminar el(los) Ficheros(s) Seleccionado(s)"
+
+msgid "Show All By Imported Time"
+msgstr "Mostrar Todo por Fecha de Importación"
+
+msgid "A file with the same name exists in the database!"
+msgstr "Un fichero con el mismo nombre ya existe en la base de dados!"
+
+msgid "Save File"
+msgstr "Guardar Fichero"
+
+msgid "Open a project first."
+msgstr "Abrir primero um proyecto."
+
+msgid "Save memo"
+msgstr "Guardar Memo"
+
+msgid "select one file category only."
+msgstr "selecciona sólo una categoría de fichero."
+
+msgid "more than one file categories are selected"
+msgstr "está seleccionada más de una categoría de fichero"
+
+msgid "Add File Category first."
+msgstr "Añadir primero una Categoría de Fichero."
+
+msgid "Fail to write to file category of %s"
+msgstr "Fallo al escribir la categoría de fichero de %s"
+
+msgid "Reach the end."
+msgstr "Se ha llegado al final."
+
+msgid "Search next"
+msgstr "Buscar siguiente"
+
+msgid "Restart"
+msgstr "Reiniciar"
+
+msgid "Really delete the journal?"
+msgstr "¿Realmente quieres eliminar la entrada del diario?"
+
+msgid "Enter new journal name."
+msgstr "Introduce un nuevo nombre de entrada del diario."
+
+msgid "Save Journal"
+msgstr "Guardar Diario"
+
+msgid "Select first."
+msgstr "Selecciona primero."
+
+msgid "The Journal has been changed. Close anyway?"
+msgstr "El Diario fué modificado. ¿Quieres realmente cerrarlo?"
+
+msgid "Profile Matrix - %s"
+msgstr "Matriz de perfil - %s"
+
+msgid "New Project"
+msgstr "Nuevo Proyecto"
+
+msgid "Type a name for the new project and click OK."
+msgstr "Introduce un nombre para el proyecto y clic en OK."
+
+msgid "Open Project"
+msgstr "Abrir Proyecto"
+
+msgid "Select a *.rqda file and click OK."
+msgstr "Selecciona un fichero *.rqda y clic en OK."
+
+msgid "Opening ..."
+msgstr "Abriendo ..."
+
+msgid "Closing ..."
+msgstr "Cerrando ..."
+
+msgid "No project is open."
+msgstr "Ningún proyecto está abierto."
+
+msgid "Files"
+msgstr "Ficheros"
+
+msgid "Codes List"
+msgstr "Lista de Códigos"
+
+msgid "Codes of This Category"
+msgstr "Códigos de Esta Categoría"
+
+msgid "Cases"
+msgstr "Casos"
+
+msgid "Files of This Case"
+msgstr "Ficheros de Este Caso"
+
+msgid "Files of This Category"
+msgstr "Ficheros de Esta Categoría"
+
+msgid "Close Project"
+msgstr "Cerrar Proyecto"
+
+msgid "Backup Project"
+msgstr "Copia de seguridad del Proyecto"
+
+msgid "Project Memo"
+msgstr "Memo del Proyecto"
+
+msgid "Clean Project"
+msgstr "Limpar Proyecto"
+
+msgid "Close All Codings"
+msgstr "Cerrar todas las Citas"
+
+msgid "No write permission."
+msgstr "Sin permiso de escritura."
+
+msgid "Overwrite existing project?"
+msgstr "¿Sobrescribir un proyecto existente?"
+
+msgid "You have no write permission to overwrite it."
+msgstr "No tienes permiso de escritura para sobrescribirlo"
+
+msgid ""
+"You don't have write access to the *.rqda file. You can only read the "
+"project."
+msgstr ""
+"No tienes permiso de escritura para el fichero *.rqda. Sólo puedes "
+"leer el proyecto"
+
+msgid "You don't have read access to the *.rqda file. Fail to open."
+msgstr ""
+"No tienes permiso de lectura para el fichero *.rqda. Fallo al abrirlo."
+
+msgid "Closing project failed."
+msgstr "Fallo al cerrar el proyecto."
+
+msgid "No Project is Open."
+msgstr "Ningún Proyecto Abierto."
+
+msgid "Succeeded!"
+msgstr "Hecho!"
+
+msgid "Fail to back up the project."
+msgstr "Fallo al hacer copia de seguridad del proyecto."
+
+msgid "The memo has bee change. Close anyway?"
+msgstr "El Memo fué modificado. ¿Quieres realmente cerrar?"
+
+msgid "Settings"
+msgstr "Configurar"
+
+msgid "Name of Coder"
+msgstr "Nombre de quien Codifica"
+
+msgid "File Encoding"
+msgstr "Encoding del Fichero"
+
+msgid "Color for Coding"
+msgstr "Color para las Citas"
+
+msgid "Color for Case"
+msgstr "Color para el Caso"
+
+msgid "Current coding table"
+msgstr "Tabla de citas actual"
+
+msgid "Byte Order Mark"
+msgstr "Marca de Orden de Bytes (BOM)"
+
+msgid "Show File Property"
+msgstr "Mostrar Propiedades del Fichero"
+
+msgid "Type of Retrieval"
+msgstr "Tipo de Recuperación"
+
+msgid "unconditional"
+msgstr "incondicional"
+
+msgid "case"
+msgstr "caso"
+
+msgid "filecategory"
+msgstr "categoría de fichero"
+
+msgid "both"
+msgstr "ambos"
+
+msgid "Click to set font"
+msgstr "Clic para configurar la fuente"
+
+msgid "Set fonts for memo widgets."
+msgstr "Configurar fuente para pantallas de Memo."
+
+msgid "Default"
+msgstr "Por Defecto"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Change color."
+msgstr "Cambiar color."
+
+msgid "Select Color"
+msgstr "Seleccionar Color"
+
+msgid "Changing color"
+msgstr "Cambiando color"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Are you sure to clean the coding table?"
+msgstr "¿Realmente quieres limpar la tabla de citas?"
+
+msgid "One code has empty coding."
+msgstr "Un código tiene una cita vacía."
+
+msgid "Each line represents one relation only"
+msgstr "Cada linea representa una sola relación"
+
+msgid "index1 and index2 must be vector."
+msgstr "index1 e index2 deben ser vectores."
+
+msgid "index1 or index2 should not have any NA."
+msgstr "index1 o index2 no deben tener ningún NA."
+
+msgid "No coding in this project."
+msgstr "Ninguna cita en este proyecto."
+
+msgid "Codes without codings dropped."
+msgstr "Borrados los Códigos sin citas."
+
+msgid "The codeList should be a vector of length 2 or greater"
+msgstr "Una lista de códigos debe ser un vector de tamaño 2 o mayor."
+
+msgid "RQDA has been launched."
+msgstr "RQDA fué iniciado."
+
+msgid "RQDA: Qualitative Data Analysis"
+msgstr "RQDA: Análisis de Datos Cualitativos con R"
+
+msgid "Project"
+msgstr "Proyecto"
+
+msgid "Save Project As"
+msgstr "Guardar Proyecto como"
+
+msgid "Path of current project:"
+msgstr "Ruta para el proyecto actual:"
+
+msgid "Author: <ronggui.huang@gmail.com>"
+msgstr "Autor: <ronggui.huang@gmail.com>"
+
+msgid "Help: click to join rqda-help mailing list"
+msgstr "Ayuda: clica para unirte a la lista de correo-e RQDA-HELP"
+
+msgid "License: BSD"
+msgstr "Licencia: BSD"
+
+msgid "Version:"
+msgstr "Versión:"
+
+msgid "Year:"
+msgstr "Año:"
+
+msgid "Please cite this package."
+msgstr "Por favor, cita este paquete."
+
+msgid "About"
+msgstr "Sobre"
+
+msgid "Codes"
+msgstr "Códigos"
+
+msgid "Anno"
+msgstr "Nota"
+
+msgid "Coding"
+msgstr "Cita"
+
+msgid ""
+"Code\n"
+"Categories"
+msgstr ""
+"Categorías\n"
+"de Códigos"
+
+msgid "Please click Update"
+msgstr "Por favor, clica Actualizar"
+
+msgid "UnMark"
+msgstr "Desmarca"
+
+msgid "Unlink"
+msgstr "Desvincula"
+
+msgid "Link"
+msgstr "Vincula"
+
+msgid "Profile"
+msgstr "Perfil"
+
+msgid ""
+"File\n"
+"Categories"
+msgstr ""
+"Categorías\n"
+"de Ficheros"
+
+msgid "Journals"
+msgstr "Diario"
+
+msgid ""
+"Really EXIT?\n"
+"\n"
+"You can use RQDA() to start this program again."
+msgstr ""
+"¿Realmente quieres SALIR?\n"
+"\n"
+"Puedes usar 'RQDA()' para iniciar este programa de nuevo."
+
+msgid "Selected File id is %s"
+msgstr "ID del Fichero Seleccionado es %s"
+
+msgid "No coding associated with this code."
+msgstr "Ninguna cita asociada a este código."
+
+msgid "Selected case id is %i__%i files"
+msgstr "ID del caso seleccionado es %i__%i ficheros"
+
+msgid "Selected category id is %s"
+msgstr "ID de la Categoría seleccionada es %s"
+
+msgid "Selected file id is %s"
+msgstr "ID del fichero seleccionado es %s"
+
+msgid "Save Project As ..."
+msgstr "Guardar Proyecto como ..."
+
+msgid "Type a new file name and click OK."
+msgstr "Introduce un nuevo nombre para el fichero y clica OK."
+
+msgid "Failed to save the project to the new location."
+msgstr "Fallo al guardar el proyecto en la nueva localización."
+
+msgid "The new name is duplicated. Please use another new name."
+msgstr "El nuevo nombre está duplicado. Por favor, escoje otro nombre."
+
+msgid "The memo has been changed. Close anyway?"
+msgstr "El memo fué modificado. ¿Realmente quieres cerrar?"
+
+msgid "%s Memo:%s"
+msgstr "Memo de %s: %s"
+
+msgid "Save Memo"
+msgstr "Guardar Memo"
+
+msgid "No Information is collected."
+msgstr "Ninguna Información se ha recopilado."
+
+msgid "%i retrieved file(s)."
+msgstr "%i fichero(s) recuperados."
+
+msgid "Select before Click OK."
+msgstr "Selecciona antes de clicar OK."
+
+msgid "File Category is %s"
+msgstr "La Categoría del Fichero es %s"
+
+msgid ""
+"File ID is %i \n"
+" %s \n"
+"Case is %s"
+msgstr ""
+"ID del fichero es %i \n"
+" %s \n"
+"Caso es %s"
+
+msgid "Please select one file only."
+msgstr "Por favor, selecciona sólo un fichero."
+
+msgid "File Property"
+msgstr "Propiedades del Fichero"
+
+msgid "No project is opened."
+msgstr "No hay abierto ningún proyecto."
+
+msgid "The codeList should be a vector of length 2 or greater."
+msgstr "Una lista de códigos debe ser un vector de tamaño 2 o mayor."
+
+msgid "Use 'RQDA()' to start the programme."
+msgstr "Usa 'RQDA()' para iniciar el programa."
+
+msgid "1 coding from %i file"
+msgid_plural "1 coding from %i files"
+msgstr[0] "1 cita de %i fichero"
+msgstr[1] "1 cita de %i ficheros"
+
+msgid "%i codings from %i file"
+msgid_plural "%i codings from %i files"
+msgstr[0] "%i citas de %i fichero"
+msgstr[1] "%i citas de %i ficheros"
+
+msgid "1 retrieved coding: \"%s\" from %i file"
+msgid_plural "1 retrieved coding: \"%s\" from %i files"
+msgstr[0] "1 cita recuperada: \"%s\" de %i fichero"
+msgstr[1] "1 cita recuperada: \"%s\" de %i ficheros"
+
+msgid "%i retrieved codings: \"%s\" from %i file"
+msgid_plural "%i retrieved codings: \"%s\" from %i files"
+msgstr[0] "%i citas recuperadas: \"%s\" de %i fichero"
+msgstr[1] "%i citas recuperadas: \"%s\" de %i ficheros"
+
+msgid "%i Coding of <a id='%s'>\"%s\"</a> from %s file."
+msgid_plural "%i Coding of <a id='%s'>\"%s\"</a> from %s files."
+msgstr[0] "%i Cita de <a id='%s'>\"%s\"</a> en %s fichero."
+msgstr[1] "%i Cita de <a id='%s'>\"%s\"</a> en %s ficheros."
+
+msgid "%i Codings of <a id='%s'>\"%s\"</a> from %s file."
+msgid_plural "%i Codings of <a id='%s'>\"%s\"</a> from %s files."
+msgstr[0] "%i Citas de <a id='%s'>\"%s\"</a> en %s fichero."
+msgstr[1] "%i Citas de <a id='%s'>\"%s\"</a> en %s ficheros."
+
+msgid "Annotation"
+msgid_plural "Annotations"
+msgstr[0] "Nota"
+msgstr[1] "Notas"
+
+msgid "Really delete the file?"
+msgid_plural "Really delete the files?"
+msgstr[0] "¿Realmente quieres eliminar el fichero?"
+msgstr[1] "¿Realmente quieres eliminar los ficheros?"
+
+msgid "1 retrieved coding from %i file"
+msgid_plural "1 retrieved coding from %i files"
+msgstr[0] "1 cita recuperada de %i fichero"
+msgstr[1] "1 cita recuperada de %i ficheros"
+
+msgid "%i retrieved codings from %i file"
+msgid_plural "%i retrieved codings from %i files"
+msgstr[0] "%i citas recuperadas de %i fichero"
+msgstr[1] "%i citas recuperadas de %i ficheros"
+
+msgid "annotation"
+msgid_plural "annotations"
+msgstr[0] "nota"
+msgstr[1] "notas"
+
+msgid "memo"
+msgid_plural "memos"
+msgstr[0] "Memo"
+msgstr[1] "Memos"
+

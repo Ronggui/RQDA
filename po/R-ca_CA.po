@@ -1,0 +1,1051 @@
+# Catalan messages for RQDA 0.2-5
+# This file is distributed under the same licence as the RQDA package.
+# Francisco J. Miguel Quesada <Miguel.Quesada@uab.cat>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: RQDA\n"
+"Report-Msgid-Bugs-To: https://github.com/Ronggui/RQDA/issues\n"
+"POT-Creation-Date: 2016-11-24 05:44\n"
+"PO-Revision-Date: 2018-01-16 23:07-0100\n"
+"Last-Translator: Francisco Miguel <Miguel.Quesada@uab.cat>\n"
+"Language-Team: Catalan <ca@tp.org.es>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Bugs: Please, report translation errors to the Language-Team address.\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Add a new file to selected case"
+msgstr "Afegir un arxiu nou al cas seleccionat"
+
+msgid "Enter the title"
+msgstr "Introduir el títol"
+
+msgid "Save"
+msgstr "Desa"
+
+msgid "Attribute of:"
+msgstr "Atribut de:"
+
+msgid "Save and Close"
+msgstr "Desa i Tanca"
+
+msgid "add attribute in Attrs Table first."
+msgstr "afegir abans l'atribut a la Taula d'Atributs."
+
+msgid "ADD"
+msgstr "Afegir"
+
+msgid "Enter new Attr Name."
+msgstr "Introduir un nou Nom d'Atribut."
+
+msgid "Attribute should NOT contain '."
+msgstr "L'Atribut NO ha de contenir '."
+
+msgid "This is a reserved keyword."
+msgstr "Aquesta es una paraula-clau reservada."
+
+msgid "Delete"
+msgstr "Suprimeix"
+
+msgid "Really delete the Attribute?"
+msgstr "Realment vols suprimir l'Atribut?"
+
+msgid "Rename"
+msgstr "Renomenar"
+
+msgid "Enter new attribute name."
+msgstr "Introduir un nou nom d'atribut."
+
+msgid "Name duplicated. Please use another name."
+msgstr "Nom duplicat. Si et plau, utilitza un altre."
+
+msgid "Memo"
+msgstr "Memo"
+
+msgid "Attributes"
+msgstr "Atributs"
+
+msgid "'subset' must evaluate to logical"
+msgstr "'subset' ha de ser avaluat com a 'logical'"
+
+msgid "Class"
+msgstr "Classe"
+
+msgid ""
+"Set class of selected attribute.\n"
+"It can be 'numeric' or 'character'."
+msgstr ""
+"Configura la classe de l'atribut seleccionat.\n"
+"Pot ser 'numeric' o 'character'."
+
+msgid "Type of attribute"
+msgstr "Tipus d'atribut"
+
+msgid "some files are not in the rqda project."
+msgstr "algunos arxius no son al projecte rqda."
+
+msgid "some attributes are in not the rqda project."
+msgstr "alguns atributs no son al projecte rqda."
+
+msgid "cid should be length-1 integer vector."
+msgstr "cid hauria de ser un vector de nombres enters de longitut 1"
+
+msgid "No Codings."
+msgstr "Sense Citacions."
+
+msgid "Back"
+msgstr "Endarrere"
+
+msgid "Enter new Case Name."
+msgstr "Introduir un nou Nom de Cas"
+
+msgid "Really delete the Case?"
+msgstr "Realment vols suprimir el Cas?"
+
+msgid "Enter new Case name."
+msgstr "Introduir un nou nom de Cas."
+
+msgid "Mark"
+msgstr "Marcar"
+
+msgid "Fail to write to database."
+msgstr "No s'ha pogut escriure a la base de dades."
+
+msgid "Unmark"
+msgstr "Desmarcar"
+
+msgid "Select a case first."
+msgstr "Selecciona abans un cas."
+
+msgid "Attribute"
+msgstr "Atribut"
+
+msgid "Add File(s)"
+msgstr "Afegir Arxiu(s)"
+
+msgid "All files are linked with this case."
+msgstr "Tots els arxius estan vinculats a aquest cas."
+
+msgid "Add New File to Selected Case"
+msgstr "Afegir nou arxiu al cas seleccionat"
+
+msgid "Case Memo"
+msgstr "Memo de Cas"
+
+msgid "Case"
+msgstr "Cas"
+
+msgid "Show Cases with Memo Only"
+msgstr "Veure només els Casos amb Memo"
+
+msgid "Add/modify Attributes..."
+msgstr "Afegir/modificar els Atributs..."
+
+msgid "View Attributes"
+msgstr "Veure Atributs"
+
+msgid "Export Case Attributes"
+msgstr "Exportar Atributs de Cas"
+
+msgid "Sort All by Created Time"
+msgstr "Ordenar tot per data de creació"
+
+msgid "Web Search"
+msgstr "Cerca a Internet"
+
+msgid "Add To File Category ..."
+msgstr "Afegir a una Categoria d'Arxiu"
+
+msgid "Drop Selected File(s)"
+msgstr "Suprimeix Arxiu(s) Seleccionat(s)"
+
+msgid "Please select the Files you want to delete."
+msgstr "Si et plau, selecciona els Arxius que vols suprimir."
+
+msgid "Delete %i file(s) from this category. Are you sure?"
+msgstr "Es suprimiran %i arxius(s) de aquesta categoría. Ho confirmes?"
+
+msgid "Delete Selected File(s)"
+msgstr "Suprimeix Arxius(s) Seleccionat(s)"
+
+msgid "Edit Selected File"
+msgstr "Editar l'Arxiu Seleccionat"
+
+msgid "File Memo"
+msgstr "Memo d'Arxiu"
+
+msgid "File"
+msgstr "Arxiu"
+
+msgid "Rename selected File"
+msgstr "Renomenar l'Arxiu Seleccionat"
+
+msgid "Select a file first."
+msgstr "Selecciona abans un arxiu."
+
+msgid "Enter new file name."
+msgstr "Introduir un nou nom d'arxiu."
+
+msgid "Search Files within Selected Case"
+msgstr "Cercar arxius dins del Cas Seleccionat"
+
+msgid "Please input a search pattern."
+msgstr "Si et plau, introdueix un patró de cerca."
+
+msgid "Error~~~."
+msgstr "Error~~~."
+
+msgid "Show ..."
+msgstr "Veure ..."
+
+msgid "Show All by Sorted by Imported Time"
+msgstr "Veure tot ordenat per data d'importació"
+
+msgid "Show Coded Files Only (sorted)"
+msgstr "Veure només els Arxius Codificats (ordenats)"
+
+msgid "Show Uncoded Files Only (sorted)"
+msgstr "Veure només els Arxius sense Codificar (ordenats)"
+
+msgid "Show Selected File Property"
+msgstr "Veure les proprietats de l'arxiu seleccionat"
+
+msgid "Fail to write to database for case with id %i"
+msgstr "No s'ha pogut escriure a la base de dades pel cas amb ID %i"
+
+msgid "Enter new Code Category."
+msgstr "Introduir una nova Categoria de Codi."
+
+msgid "Really delete the Code Category?"
+msgstr "Realment vols suprimir la Categoria de Codi?"
+
+msgid "The Category Name is not unique."
+msgstr "El nom de la Categoria ja existeix."
+
+msgid "Select a Code Category first."
+msgstr "Selecciona abans una Categoria de Codi."
+
+msgid "Enter new Category name."
+msgstr "Introdueix un nou Nom de Categoría."
+
+msgid "Add To"
+msgstr "Afegir a"
+
+msgid "No free codes yet."
+msgstr "No hi ha codis libres encara."
+
+msgid "Add code(s) to the selected code category."
+msgstr "Afegir codi(s) a la categoria de codi seleccionada."
+
+msgid "Drop From"
+msgstr "Suprimeix de"
+
+msgid "Please select the Codes you want to delete."
+msgstr "Si et plau, selecciona els Codis que vulguis suprimir."
+
+msgid "Delete %i code(s) from this category. Are you sure?"
+msgstr "Suprimeix %i codi(s) d'aquesta categoría. Ho confirmes?"
+
+msgid "Drop selected code(s) from code category."
+msgstr "Suprimeix el(s) codi(s) seleccionat(s) de la Categoria de Codis."
+
+msgid "Code Category"
+msgstr "Categoria de Codis"
+
+msgid "Add New Code to Selected Category"
+msgstr "Afegir un Nou Codi a la Categoria seleccionada"
+
+msgid "Enter new code."
+msgstr "Introduir un nou codi."
+
+msgid "Select a code category first."
+msgstr "Seleccionar abans una categoria de codi."
+
+msgid "Failed to assign code category"
+msgstr "No s'ha pogut assignar categoria de codi"
+
+msgid "Codings of selected category"
+msgstr "Citacions de la categoria seleccionada"
+
+msgid "Plot Selected Code Categories"
+msgstr "Gràfic de les Categories de Codis seleccionades"
+
+msgid "Plot Selected Code Categories with d3"
+msgstr "Gràfic en 3D de les Categories de Codis seleccionades"
+
+msgid "Sort by created time"
+msgstr "Ordenar per data de creació"
+
+msgid "Rename Selected Code"
+msgstr "Renomenar el Codi Seleccionat"
+
+msgid "Select a code first."
+msgstr "Seleccionar abans un codi."
+
+msgid "Enter new code name."
+msgstr "Introdueix un nou codi."
+
+msgid "Code Memo"
+msgstr "Memo de Codi"
+
+msgid "Code"
+msgstr "Código"
+
+msgid "Cannot update Code List in the Widget. Project is closed already."
+msgstr "Imposible actualizar la llista de codis en pantalla.\n"
+"El projecte ja está tancat."
+
+msgid "Save Coding Memo"
+msgstr "Desa el Memo de Citació"
+
+msgid "No Coding associated with the selected code."
+msgstr "Cap Citació  ja  al codi seleccionat."
+
+msgid "Coding not found."
+msgstr "Citació no trobada."
+
+msgid "Code \"%s\" applied to this text segment."
+msgstr "Codi \"%s\" aplicat a aquest segment de text."
+
+msgid "Cannot recode this text segment."
+msgstr "No es posible recodificar aquest segment de text."
+
+msgid "Text segment already coded as \"%s\""
+msgstr "Segment de text ja codificat com a \"%s\""
+
+msgid "Recode"
+msgstr "Recodificar"
+
+msgid "No Coding associated with the '%s'."
+msgstr "Cap Citació asociada amb el '%s'."
+
+msgid "Selected code id is %s__%s codings"
+msgstr "ID del Codi Seleccionat: %s__%s citacions"
+
+msgid "[Annotation]"
+msgstr "[Nota]"
+
+msgid "Save Annotation"
+msgstr "Desa Nota"
+
+msgid "Open a file first!"
+msgstr "Obrir abans un arxiu!"
+
+msgid "Add Code Category First."
+msgstr "Afegir abans una Categoria de Codi."
+
+msgid "Fail to write to code category of %s"
+msgstr "No s'ha pogut escriure a la categoria de codi de %s"
+
+msgid "Add"
+msgstr "Afegir"
+
+msgid "Really delete the code?"
+msgstr "Suprimir realmente el codi?"
+
+msgid "No codings associated with this code."
+msgstr "Cap citació asociada a aquest codi."
+
+msgid "Retrieve codings of the selected code."
+msgstr "Recuperar citacions per al codi seleccionat."
+
+msgid "Open a file first."
+msgstr "Obrir abans un arxiu."
+
+msgid "Fail to write to data base."
+msgstr "No s'ha pogut escriure a la base de dades."
+
+msgid "Select a code and one of its codings exactly first."
+msgstr "Selecciona abans un codi i una de les seves citacions."
+
+msgid "C-Memo"
+msgstr "Memo-C"
+
+msgid "code"
+msgstr "codi"
+
+msgid "Memo for selected code."
+msgstr "Memo pel codi seleccionat."
+
+msgid "C2Memo"
+msgstr "Memo-C2"
+
+msgid "[Coding Memo]"
+msgstr "[Memo de citació]"
+
+msgid "select a code first."
+msgstr "selecciona abans un codi."
+
+msgid "Select the exact CODING AND the corresponding CODE first."
+msgstr "Selecciona abans la CITACIÓ exacta i el corresponent CODI."
+
+msgid "Memo for a Coding."
+msgstr "Memo per a una Citació."
+
+msgid "Add Anno"
+msgstr "Afegir Nota"
+
+msgid ""
+"Add new annotation to the open file\n"
+"at position of cursor."
+msgstr ""
+"Afegeix una nova nota a l'arxiu obert\n"
+"en la posició del cursor."
+
+msgid "Add To Code Category..."
+msgstr "Afegir a la Categoria de Codi..."
+
+msgid "All Code Memos"
+msgstr "Tots els Memos de Codi"
+
+msgid "All Annotations"
+msgstr "Totes les Notes"
+
+msgid "Codings of Multiple Codes"
+msgstr "Citacions de Múltiples Codis"
+
+msgid "Export Codings as HTML"
+msgstr "Exportar les Citacions com a HTML"
+
+msgid "Type a name for the exported codings and click OK."
+msgstr "Introdueix un nom per a les citacions exportades i clica OK."
+
+msgid "Highlight All Codings"
+msgstr "Destacar Totes les Citacions"
+
+msgid "Highlight Codings with Memo"
+msgstr "Destacar les Citacions amb Memos"
+
+msgid "Merge Selected with..."
+msgstr "Ajuntar alló Seleccionat amb..."
+
+msgid "Show Codes With Codings"
+msgstr "Veure els Codis amb Citacions"
+
+msgid "Show Codes Without Codings"
+msgstr "Veure els Codis sense Citacions"
+
+msgid "Show Codes With Code Category"
+msgstr "Veure els Codis amb Categoria de Codi"
+
+msgid "All codes are assigned to code category."
+msgstr "Tots els codis estan asignats a una Categoria de Codi."
+
+msgid "Show Codes Without Code Category"
+msgstr "Veure Codis sense Categoria de Codi"
+
+msgid "Show Codes With Memo"
+msgstr "Veure Codis amb Memo"
+
+msgid "No Code with memo."
+msgstr "Cap Codi amb Memo."
+
+msgid "Show Codes Without Memo"
+msgstr "Veure Codis sense Memo"
+
+msgid "Show Codes With Selected File"
+msgstr "Veure Codis amb Arxiu Seleccionat"
+
+msgid "Set Coding Mark Color"
+msgstr "Configurar el Color de la Marca de Citació"
+
+msgid "Sort: By Created Time"
+msgstr "Ordenar: Per Data de Creació"
+
+msgid "Sort: Most to Least Frequently Used"
+msgstr "Ordenar: De Més a Menys frequentment utilitzat"
+
+msgid "Sort: Least to Most Frequently Used"
+msgstr "Ordenar: De Menos a Más frequentemente usado"
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "New"
+msgstr "Nou"
+
+msgid "Open"
+msgstr "Obrir"
+
+msgid "Save To Project"
+msgstr "Desa al Projecte"
+
+msgid "Save and close"
+msgstr "Desa i Tanca"
+
+msgid "Add New File ..."
+msgstr "Afegir Nou Arxiu ..."
+
+msgid "Add To Case ..."
+msgstr "Afegir al Cas"
+
+msgid "Add/modify Attributes of The Open File..."
+msgstr "Afegir/modificar Atributs de l'Arxiu Obert"
+
+msgid "Codings of selected file(s)"
+msgstr "Citacions del(s) arxiu(s) seleccionat(s)"
+
+msgid "No coded file is selected."
+msgstr "Cap arxiu codificat esta seleccionat."
+
+msgid "Export File Attributes"
+msgstr "Exportar Atributs de l'Arxiu"
+
+msgid "Export Coded file as HTML"
+msgstr "Exportar arxiu codificat com a HTML"
+
+msgid "File Annotations"
+msgstr "Notes del Arxiu"
+
+msgid "Import PDF Highlights via rjpod (selector)"
+msgstr "Importar destacats de PDF via rjpod (selector)"
+
+msgid "Import PDF Highlights via rjpod (file path)"
+msgstr "Importar destacats de PDF via rjpod (ruta d'arxiu)"
+
+msgid "Enter a pdf file path"
+msgstr "Introduir una ruta d'arxiu pdf"
+
+msgid "Open Selected File"
+msgstr "Obrir l'Arxiu Seleccionat"
+
+msgid "Open Previous Coded File"
+msgstr "Obrir l'Arxiu codificat anterior"
+
+msgid "Search for a Word"
+msgstr "Cercar una paraula"
+
+msgid "Search all files ..."
+msgstr "Cercar en tots els arxius ..."
+
+msgid "Show All Sorted By Imported Time"
+msgstr "Veure Tot ordenat per data d'importació"
+
+msgid "Show Coded Files Sorted by Imported time"
+msgstr "Veure arxius codificats ordenats per data d'importació"
+
+msgid "Show Uncoded Files Sorted by Imported time"
+msgstr "Veure arxius sense codificar ordenats per data d'importació"
+
+msgid "Show Files With Annotation"
+msgstr "Veure arxius amb Notes"
+
+msgid "No file with memo."
+msgstr "No hi ha arxius amb Memo."
+
+msgid "Show Files Without Annotation"
+msgstr "Veure arxius sense Notes"
+
+msgid "All files have annotation."
+msgstr "Tots els arxius tenen anotacions"
+
+msgid "Show Files With Memo"
+msgstr "Veure arxius amb Memo"
+
+msgid "Show Files Without Memo"
+msgstr "Veure arxius sense Memo"
+
+msgid "No file is found."
+msgstr "Cap arxiu trobat."
+
+msgid "Show Files Without File Category"
+msgstr "Veure Arxius sense Categoria d'Arxiu"
+
+msgid "All are linked with file category."
+msgstr "Tots están vinculats amb categoria d'arxiu."
+
+msgid "Show Files With No Case"
+msgstr "Veure arxius sense cas"
+
+msgid "All are linked with cases."
+msgstr "Tots estan vinculats amb cassos."
+
+msgid "Enter new File Category."
+msgstr "Introduir una nova Categoria d'Arxiu."
+
+msgid "Really delete the File Category?"
+msgstr "Realment vols suprimir la Categoria d'Arxiu?"
+
+msgid "File Category"
+msgstr "Categoria d'Arxiu"
+
+msgid "Memo of file category."
+msgstr "Memo de categoria d'arxiu."
+
+msgid "AddTo"
+msgstr "Afegir A"
+
+msgid "No files Yet."
+msgstr "Cap arxiu encara."
+
+msgid "Add file(s) to the selected file category."
+msgstr "Afegir arxiu(s) a la categoria d'arxiu seleccionada."
+
+msgid "DropFrom"
+msgstr "Esborrar De"
+
+msgid "Drop selected file(s) from file category."
+msgstr "Esborrar el(los) arxiu(s) seleccionats de la categoría."
+
+msgid "Delete all files of selected category"
+msgstr "Suprimeix tots els arxius de la categoria seleccionada"
+
+msgid "Move To File Category ..."
+msgstr "Moure a la Categoria d'Arxiu ..."
+
+msgid "Search Files Within Category"
+msgstr "Cercar Arxius dins la Categoria"
+
+msgid "Delete selected File(s)"
+msgstr "Suprimeix el(s) Arxiu(s) Seleccionat(s)"
+
+msgid "Show All By Imported Time"
+msgstr "Veure Tot per Data d'Importació"
+
+msgid "A file with the same name exists in the database!"
+msgstr "Un arxiu amb el mateix nom ja existeix a la base de dades!"
+
+msgid "Save File"
+msgstr "Desa Arxiu"
+
+msgid "Open a project first."
+msgstr "Obrir abans um projecte."
+
+msgid "Save memo"
+msgstr "Desa Memo"
+
+msgid "select one file category only."
+msgstr "selecciona només una categoria d'arxiu."
+
+msgid "more than one file categories are selected"
+msgstr "está seleccionada més d'una categoria d'arxiu"
+
+msgid "Add File Category first."
+msgstr "Afegir abans una Categoria d'Arxiu."
+
+msgid "Fail to write to file category of %s"
+msgstr "No s'ha pogut escriure la categoria d'arxiu de %s"
+
+msgid "Reach the end."
+msgstr "S'ha arribat al final."
+
+msgid "Search next"
+msgstr "Cercar següent"
+
+msgid "Restart"
+msgstr "Reiniciar"
+
+msgid "Really delete the journal?"
+msgstr "Realment vols suprimir la entrada del diari?"
+
+msgid "Enter new journal name."
+msgstr "Introdueix un nou nom d'entrada del diari."
+
+msgid "Save Journal"
+msgstr "Desa el Diari"
+
+msgid "Select first."
+msgstr "Selecciona abans."
+
+msgid "The Journal has been changed. Close anyway?"
+msgstr "El Diari ha estat modificat. Realment vols tancar-lo?"
+
+msgid "Profile Matrix - %s"
+msgstr "Matriu de perfil - %s"
+
+msgid "New Project"
+msgstr "Nou Projecte"
+
+msgid "Type a name for the new project and click OK."
+msgstr "Introdueix un nom pel projecte i clic en OK."
+
+msgid "Open Project"
+msgstr "Obrir Projecte"
+
+msgid "Select a *.rqda file and click OK."
+msgstr "Selecciona un arxiu *.rqda i clic en OK."
+
+msgid "Opening ..."
+msgstr "Obrint ..."
+
+msgid "Closing ..."
+msgstr "Tancant ..."
+
+msgid "No project is open."
+msgstr "Cap projecte està obert."
+
+msgid "Files"
+msgstr "Arxius"
+
+msgid "Codes List"
+msgstr "Llistat de Codis"
+
+msgid "Codes of This Category"
+msgstr "Codis d'Aquesta Categoria"
+
+msgid "Cases"
+msgstr "Casos"
+
+msgid "Files of This Case"
+msgstr "Arxius d'Aquest Cas"
+
+msgid "Files of This Category"
+msgstr "Arxius d'Aquesta Categoria"
+
+msgid "Close Project"
+msgstr "Tanca Projecte"
+
+msgid "Backup Project"
+msgstr "Copia de seguretat del Projecte"
+
+msgid "Project Memo"
+msgstr "Memo del Projecte"
+
+msgid "Clean Project"
+msgstr "Netejar Projecte"
+
+msgid "Close All Codings"
+msgstr "Tanca totes les Citacions"
+
+msgid "No write permission."
+msgstr "Sense permis d'escriptura."
+
+msgid "Overwrite existing project?"
+msgstr "Sobrescriure un projecte existent?"
+
+msgid "You have no write permission to overwrite it."
+msgstr "No tens permis d'escriptura per a sobrescriure-ho"
+
+msgid ""
+"You don't have write access to the *.rqda file. You can only read the "
+"project."
+msgstr ""
+"No tens permis d'escriptura per l'arxiu *.rqda."
+"Només pots llegir el projecte"
+
+msgid "You don't have read access to the *.rqda file. Fail to open."
+msgstr ""
+"No tens permis de lectura per l'arxiu *.rqda. No s'ha pogut obrir."
+
+msgid "Closing project failed."
+msgstr "No s'ha pogut tancar el projecte."
+
+msgid "No Project is Open."
+msgstr "Cap Projecte Obert."
+
+msgid "Succeeded!"
+msgstr "Fet!"
+
+msgid "Fail to back up the project."
+msgstr "No s'ha pogut fer copia de seguretat del projecte."
+
+msgid "The memo has bee change. Close anyway?"
+msgstr "El Memo ha estat modificat. Realment vols tancar?"
+
+msgid "Settings"
+msgstr "Configurar"
+
+msgid "Name of Coder"
+msgstr "Nom de qui Codifica"
+
+msgid "File Encoding"
+msgstr "Encoding de l'Arxiu"
+
+msgid "Color for Coding"
+msgstr "Color per a les Citacions"
+
+msgid "Color for Case"
+msgstr "Color pel Cas"
+
+msgid "Current coding table"
+msgstr "Taula de citacions actual"
+
+msgid "Byte Order Mark"
+msgstr "Marca d'Ordre de Bytes (BOM)"
+
+msgid "Show File Property"
+msgstr "Veure Propietats de l'Arxiu"
+
+msgid "Type of Retrieval"
+msgstr "Tipus de Recuperació"
+
+msgid "unconditional"
+msgstr "incondicional"
+
+msgid "case"
+msgstr "cas"
+
+msgid "filecategory"
+msgstr "categoría d'arxiu"
+
+msgid "both"
+msgstr "tot dos"
+
+msgid "Click to set font"
+msgstr "Clic per a configurar la font"
+
+msgid "Set fonts for memo widgets."
+msgstr "Configurar font per a pantalles de Memo."
+
+msgid "Default"
+msgstr "Per Defecte"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Change color."
+msgstr "Canviar color."
+
+msgid "Select Color"
+msgstr "Seleccionar Color"
+
+msgid "Changing color"
+msgstr "Canviant color"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Are you sure to clean the coding table?"
+msgstr "Realment vols netejar la taula de citacions?"
+
+msgid "One code has empty coding."
+msgstr "Un codi te una citació buida."
+
+msgid "Each line represents one relation only"
+msgstr "Cada línia representa una sola relació"
+
+msgid "index1 and index2 must be vector."
+msgstr "index1 i index2 han de ser vectors."
+
+msgid "index1 or index2 should not have any NA."
+msgstr "index1 o index2 no han de tenir cap NA."
+
+msgid "No coding in this project."
+msgstr "Cap citació en aquest projecte."
+
+msgid "Codes without codings dropped."
+msgstr "Esborrats els Codis sense citacions."
+
+msgid "The codeList should be a vector of length 2 or greater"
+msgstr "Una llista de codis ha de ser un vector de llargada 2 o major."
+
+msgid "RQDA has been launched."
+msgstr "RQDA s'ha iniciat."
+
+msgid "RQDA: Qualitative Data Analysis"
+msgstr "RQDA: Anàlisi de Dades Qualitatives amb R"
+
+msgid "Project"
+msgstr "Projecte"
+
+msgid "Save Project As"
+msgstr "Desa el Projecte com a"
+
+msgid "Path of current project:"
+msgstr "Ruta pel projecte actual:"
+
+msgid "Author: <ronggui.huang@gmail.com>"
+msgstr "Autor: <ronggui.huang@gmail.com>"
+
+msgid "Help: click to join rqda-help mailing list"
+msgstr "Ajuda: clic per a unir-te a la llista de correo-e RQDA-HELP"
+
+msgid "License: BSD"
+msgstr "Licencia: BSD"
+
+msgid "Version:"
+msgstr "Versió:"
+
+msgid "Year:"
+msgstr "Any:"
+
+msgid "Please cite this package."
+msgstr "Si et plau, referencia aquest paquet."
+
+msgid "About"
+msgstr "A sobre"
+
+msgid "Codes"
+msgstr "Codis"
+
+msgid "Anno"
+msgstr "Nota"
+
+msgid "Coding"
+msgstr "Citació"
+
+msgid ""
+"Code\n"
+"Categories"
+msgstr ""
+"Categories\n"
+"de Codis"
+
+msgid "Please click Update"
+msgstr "Si et plau, clica Actualitzar"
+
+msgid "UnMark"
+msgstr "Desmarca"
+
+msgid "Unlink"
+msgstr "Desvincula"
+
+msgid "Link"
+msgstr "Vincula"
+
+msgid "Profile"
+msgstr "Perfil"
+
+msgid ""
+"File\n"
+"Categories"
+msgstr ""
+"Categories\n"
+"d'Arxius"
+
+msgid "Journals"
+msgstr "Diaris"
+
+msgid ""
+"Really EXIT?\n"
+"\n"
+"You can use RQDA() to start this program again."
+msgstr ""
+"Realment vols SORTIR?\n"
+"\n"
+"Pots utilitzar 'RQDA()' per iniciar aquest programa de nou."
+
+msgid "Selected File id is %s"
+msgstr "ID de l'Arxiu Seleccionat es %s"
+
+msgid "No coding associated with this code."
+msgstr "Cap citació associada a aquest codi."
+
+msgid "Selected case id is %i__%i files"
+msgstr "ID del cas seleccionat es %i__%i arxius"
+
+msgid "Selected category id is %s"
+msgstr "ID de la Categoria seleccionada es %s"
+
+msgid "Selected file id is %s"
+msgstr "ID de l'arxiu seleccionat es %s"
+
+msgid "Save Project As ..."
+msgstr "Desa Projecte com a ..."
+
+msgid "Type a new file name and click OK."
+msgstr "Introdueix un nou nom per l'arxiu i clica OK."
+
+msgid "Failed to save the project to the new location."
+msgstr "No s'ha pogut desar el projecte a la nova localización."
+
+msgid "The new name is duplicated. Please use another new name."
+msgstr "El nou nom està duplicat. Si et plau, tria un altre nom."
+
+msgid "The memo has been changed. Close anyway?"
+msgstr "El memo ha estat modificat. Realment vols tancar?"
+
+msgid "%s Memo:%s"
+msgstr "Memo de %s: %s"
+
+msgid "Save Memo"
+msgstr "Desa Memo"
+
+msgid "No Information is collected."
+msgstr "Cap Informació se ha recopilat."
+
+msgid "%i retrieved file(s)."
+msgstr "%i arxiu(s) recuperats."
+
+msgid "Select before Click OK."
+msgstr "Selecciona abans de clicar OK."
+
+msgid "File Category is %s"
+msgstr "La Categoria de l'Arxiu es %s"
+
+msgid ""
+"File ID is %i \n"
+" %s \n"
+"Case is %s"
+msgstr ""
+"ID de l'arxiu es %i \n"
+" %s \n"
+"Cas es %s"
+
+msgid "Please select one file only."
+msgstr "Si et plau, selecciona només un arxiu."
+
+msgid "File Property"
+msgstr "Proprietats de l'Arxiu"
+
+msgid "No project is opened."
+msgstr "No hi ha obert cap projecte."
+
+msgid "The codeList should be a vector of length 2 or greater."
+msgstr "Una llista de codis ha de ser un vector d'amplada 2 o major."
+
+msgid "Use 'RQDA()' to start the programme."
+msgstr "Utilitza 'RQDA()' per iniciar el programa."
+
+msgid "1 coding from %i file"
+msgid_plural "1 coding from %i files"
+msgstr[0] "1 citació de %i arxiu"
+msgstr[1] "1 citació de %i arxius"
+
+msgid "%i codings from %i file"
+msgid_plural "%i codings from %i files"
+msgstr[0] "%i citacions de %i arxiu"
+msgstr[1] "%i citacions de %i arxius"
+
+msgid "1 retrieved coding: \"%s\" from %i file"
+msgid_plural "1 retrieved coding: \"%s\" from %i files"
+msgstr[0] "1 citació recuperada: \"%s\" de %i arxiu"
+msgstr[1] "1 citació recuperada: \"%s\" de %i arxius"
+
+msgid "%i retrieved codings: \"%s\" from %i file"
+msgid_plural "%i retrieved codings: \"%s\" from %i files"
+msgstr[0] "%i citacions recuperades: \"%s\" de %i arxiu"
+msgstr[1] "%i citacions recuperades: \"%s\" de %i arxius"
+
+msgid "%i Coding of <a id='%s'>\"%s\"</a> from %s file."
+msgid_plural "%i Coding of <a id='%s'>\"%s\"</a> from %s files."
+msgstr[0] "%i Citació de <a id='%s'>\"%s\"</a> a %s arxiu."
+msgstr[1] "%i Citació de <a id='%s'>\"%s\"</a> a %s arxius."
+
+msgid "%i Codings of <a id='%s'>\"%s\"</a> from %s file."
+msgid_plural "%i Codings of <a id='%s'>\"%s\"</a> from %s files."
+msgstr[0] "%i Citacions de <a id='%s'>\"%s\"</a> a %s arxiu."
+msgstr[1] "%i Citacions de <a id='%s'>\"%s\"</a> a %s arxius."
+
+msgid "Annotation"
+msgid_plural "Annotations"
+msgstr[0] "Nota"
+msgstr[1] "Notes"
+
+msgid "Really delete the file?"
+msgid_plural "Really delete the files?"
+msgstr[0] "Realment vols suprimir l'arxiu?"
+msgstr[1] "Realment vols suprimir els arxius?"
+
+msgid "1 retrieved coding from %i file"
+msgid_plural "1 retrieved coding from %i files"
+msgstr[0] "1 citació recuperada de %i arxiu"
+msgstr[1] "1 citació recuperada de %i arxius"
+
+msgid "%i retrieved codings from %i file"
+msgid_plural "%i retrieved codings from %i files"
+msgstr[0] "%i citacions recuperades de %i arxiu"
+msgstr[1] "%i citacions recuperades de %i arxius"
+
+msgid "annotation"
+msgid_plural "annotations"
+msgstr[0] "nota"
+msgstr[1] "notas"
+
+msgid "memo"
+msgid_plural "memos"
+msgstr[0] "Memo"
+msgstr[1] "Memos"
+
