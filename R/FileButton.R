@@ -46,7 +46,7 @@ DeleteFileButton <- function(label=gettext("Delete", domain = "R-RQDA"), contain
                 dbGetQuery(.rqda$qdacon, sprintf("update coding set status=0 where fid=%i",fid))
                 ## set the status of the related case/f-cat to 0
                 }
-                  ##FileNamesUpdate()
+                  FileNamesUpdate()
                   UpdateWidget(".fnames_rqda",from=SelectedFile,to=NULL)
               }
           },
@@ -95,7 +95,7 @@ File_RenameButton <- function(label=gettext("Rename", domain = "R-RQDA"), contai
           ## Newfilename <- iconv(codename,from="UTF-8") ## now use UTF-8 for SQLite data set.
           ## update the name in source table by a function
           rename(selectedFN,NewFileName,"source")
-          ## FileNamesUpdate()
+          FileNamesUpdate()
           UpdateWidget(".fnames_rqda",from=selectedFN,to=NewFileName) ## speed it up by bypassing access the database.
           ## (name is the only field should be modifed, as other table use fid rather than name)
         }
@@ -314,7 +314,7 @@ GetFileNamesWidgetMenu <- function()
   }
   FileNamesWidgetMenu[[gettext("Show ...", domain = "R-RQDA")]][[gettext("Show All Sorted By Imported Time", domain = "R-RQDA")]]$handler <- function(h, ...) {
     if (is_projOpen(envir = .rqda, conName = "qdacon", message = FALSE)) {
-      ##FileNamesUpdate(FileNamesWidget=.rqda$.fnames_rqda)
+      FileNamesUpdate(FileNamesWidget=.rqda$.fnames_rqda)
       FileNameWidgetUpdate(FileNamesWidget=.rqda$.fnames_rqda,FileId=GetFileId(condition="unconditional",type="all"))
     }
   }
