@@ -24,9 +24,9 @@ options, with default value c(550,700). You can change it by
 options("widgetSize"=c(x,y)), where x and y are integers specifying width and height.
 }
 \author{
-  Huang Ronggui
+  Ronggui Huang
   
-  Maintainer: Huang <ronggui.huang@gmail.com>
+  Maintainer: Ronggui Huang <ronggui.huang@gmail.com>
 }
 
 \references{
@@ -35,6 +35,8 @@ methods and practice." Sage Publications.
 
 Lewins, A. & Silver, C.2007. Using Software in Qualitative Research : A
 Step-by-Step Guide. Sage Publications.
+
+Kuckartz, Udo. 2014. Qualitative Text Analysis. Sage Publications.
 }
 \keyword{ package }
 \examples{

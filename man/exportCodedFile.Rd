@@ -27,6 +27,6 @@ Ronggui HUANG
 }
 \examples{
 \dontrun{
-exportCodedFile("~/coded file with id of 1.html", fid=1)
+exportCodedFile(file=tempfile(), fid=1)
 }
 }

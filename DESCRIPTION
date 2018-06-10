@@ -1,14 +1,14 @@
 Package: RQDA
 Type: Package
-Title: R-Based Qualitative Data Analysis
+Title: Qualitative Data Analysis
 Version: 0.3-1
-Date: 2018-03-15
-Author: HUANG Ronggui
-Maintainer: HUANG Ronggui <ronggui.huang@gmail.com>
+Date: 2018-03-26
+Author: Ronggui Huang
+Maintainer: Ronggui Huang <ronggui.huang@gmail.com>
 Depends: R (>= 2.8.0), RSQLite(>= 2.0), gWidgetsRGtk2 (>= 0.0-36), DBI(>= 0.4-9)
 Imports: RGtk2 (>= 2.20), igraph, gWidgets (>= 0.0-31), methods
 Enhances: tcltk, rjpod, d3Network
-Description: Current version only supports plain text, but it can import PDF highlights if package 'rjpod' (<https://r-forge.r-project.org/projects/rqda/>) is installed.
+Description: Software for qualitative text analysis (Kuckartz, 2014, <doi:10.4135/9781446288719>). Current version only supports plain text, but it can import PDF highlights if package 'rjpod' (<https://r-forge.r-project.org/projects/rqda/>) is installed.
 Additional_repositories: http://r-forge.r-project.org/
 License: BSD_3_clause + file LICENSE
 LazyLoad: yes

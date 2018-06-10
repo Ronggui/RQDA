@@ -12,6 +12,8 @@ require(devtools)
 devtools::install_github("Ronggui/RQDA")
 ```
 
+
+
 ## Installation for macOS from source package
 
 1. Open a Terminal and run the following command to install xcode: 
@@ -41,6 +43,8 @@ install.packages('RQDA', type='source')
 library(RQDA) 
 ```
 
+
+
 ## Installation for macOS from binary package (if available on CRAN)
 
 1. Go to http://xquartz.macosforge.org/landing/, download and install XQuartz-2.7.7.dmg.
@@ -59,7 +63,21 @@ install.packages('RQDA', type='binary')
 library(RQDA) 
 ```
 
-## How to change the font sizes of RQDA interface
+
+
+## Dockerfile for Debian 8 
+
+[DockerRQDA](https://github.com/FrdVnW/dockerqda) is a project providing a docker image for easily using RQDA under Debian 8.
+
+
+
+
+## Portable Version for Windows Users
+Download from [Dropbox Link](https://www.dropbox.com/s/5zebadz41dep09k/RQDA_0.3_1.rar?dl=0).
+
+
+
+## How to change the font sizes of RQDA interfacea
 This can be achived by modifying ~/gtkrc-2.0 (create on if not exists), for instance:
 ```
 style "user-font" {
