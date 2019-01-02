@@ -23,7 +23,7 @@ devtools::install_github("Ronggui/RQDA")
 
 2. Go to http://xquartz.macosforge.org/landing/, download and install XQuartz-2.7.7.dmg.
 
-3. Go to https://www.macports.org/install.php, download and install macport (Install MacPorts for your version of OS X, e.g Sierra)
+3. Go to https://www.macports.org/install.php, download and install macport (Install MacPorts for your version of OS X, e.g Sierra). If you had a working MacPorts and updated the OS, they you need to migrate a MacPorts installation by following these [instructions](https://trac.macports.org/wiki/Migration). 
 
 4. Open a Terminal and run the following commands:
    ```
