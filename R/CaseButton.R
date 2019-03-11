@@ -92,7 +92,7 @@ MarkCaseFun <- function(){
                                               SelectedFile))[,1]
         ## Query of caselinkage
         ExistLinkage <-  dbGetQuery(con,sprintf("select rowid, selfirst, selend,status from caselinkage where caseid=%i and fid=%i and status=1",currentCid,currentFid))
-        DAT <- data.frame(cid=currentCid,fid=currentFid,
+        DAT <- data.frame(caseid=currentCid,fid=currentFid,
                           selfirst=ans$start,selend=ans$end,status=1,
                           owner=.rqda$owner,date=date(),memo="")
         if (nrow(ExistLinkage)==0){
@@ -121,7 +121,7 @@ MarkCaseFun <- function(){
               memo <- paste(memo,collapse="",sep="")
               dbGetQuery(.rqda$qdacon,sprintf("delete from caselinkage where rowid in (%s)",
                                               paste(ExistLinkage$rowid[del],collapse=",",sep="")))
-              DAT <- data.frame(cid=currentCid,fid=currentFid,
+              DAT <- data.frame(caseid=currentCid,fid=currentFid,
                                 selfirst=Sel[1],selend=Sel[2],status=1,
                                 owner=.rqda$owner,date=date(),memo=memo)
               success <- dbWriteTable(.rqda$qdacon,"caselinkage",DAT,row.name=FALSE,append=TRUE)
