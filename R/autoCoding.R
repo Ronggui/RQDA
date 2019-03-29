@@ -67,11 +67,11 @@ codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...
       
         ## get all separator matches and calculate start and end of each analysis unit
         separator_matches <- gregexpr(sprintf("(%s){1,}", seperator),txt)[[1]]
-        idx1 <- c(0,separator_matches+attr(separator_matches,"match.length")-1)
-        idx2 <- c(separator_matches-1,nchar(txt))
+        unit_start_indexes <- c(0,separator_matches+attr(separator_matches,"match.length")-1)
+        unit_end_indexes <- c(separator_matches-1,nchar(txt))
     
         ## get the matching analysis units
-        residx <- unique(findInterval(pattern_matches,sort(c(idx1,idx2))))
+        residx <- unique(findInterval(pattern_matches,sort(c(unit_start_indexes,unit_end_indexes))))
         idx <- (residx + 1)/2
         
         if (concatenate)
@@ -82,11 +82,11 @@ codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...
         
         ## receive start and end indexes of the matching analysis units
         if (length(removeidx) > 0) {
-          selfirst = idx1[idx[-(removeidx+1)]]
-          selend   = idx2[idx[-removeidx]]
+          selfirst = unit_start_indexes[idx[-(removeidx+1)]]
+          selend   = unit_end_indexes[idx[-removeidx]]
         } else {
-          selfirst = idx1[idx]
-          selend   = idx2[idx]
+          selfirst = unit_start_indexes[idx]
+          selend   = unit_end_indexes[idx]
         }
         
         ## add the codings
