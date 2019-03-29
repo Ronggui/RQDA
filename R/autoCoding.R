@@ -58,32 +58,32 @@ insertCoding <- function(fid, cid, start, end, fulltext) {
 codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...) {
   ## auto coding: when seperator is \n, each paragraph is a analysis unit
   ## by providing approperiate seperator, it allows flexible control on the unit of autocoding
-    txt <- RQDAQuery(sprintf("select file from source where status=1 and id=%s",fid))$file
+    txt <- RQDAQuery(sprintf("select file from source where status=1 and id=%s", fid))$file
     Encoding(txt) <- "UTF-8"
 
     ## find all pattern matches
-    pattern_matches <- gregexpr(pattern,txt, ...)[[1]]
+    pattern_matches <- gregexpr(pattern, txt, ...)[[1]]
     if (length(pattern_matches) > 1 || (pattern_matches != -1)) {
       
         ## get all separator matches and calculate start and end of each analysis unit
-        separator_matches <- gregexpr(sprintf("(%s){1,}", seperator),txt)[[1]]
-        unit_start_indexes <- c(0,separator_matches+attr(separator_matches,"match.length")-1)
-        unit_end_indexes <- c(separator_matches-1,nchar(txt))
+        separator_matches <- gregexpr(sprintf("(%s){1,}", seperator), txt)[[1]]
+        unit_start_indexes <- c(0, separator_matches + attr(separator_matches, "match.length") - 1)
+        unit_end_indexes <- c(separator_matches - 1, nchar(txt))
     
         ## get the matching analysis units
-        residx <- unique(findInterval(pattern_matches,sort(c(unit_start_indexes,unit_end_indexes))))
-        idx <- (residx + 1)/2
+        residx <- unique(findInterval(pattern_matches, sort(c(unit_start_indexes, unit_end_indexes))))
+        idx <- (residx + 1) / 2
         
         if (concatenate)
             ## mark bordering matching analysis units
-            removeidx <- which(diff(idx)==1)
+            removeidx <- which(diff(idx) == 1)
         else
             removeidx <- NULL
         
         ## receive start and end indexes of the matching analysis units
         if (length(removeidx) > 0) {
-          selfirst = unit_start_indexes[idx[-(removeidx+1)]]
-          selend   = unit_end_indexes[idx[-removeidx]]
+          selfirst = unit_start_indexes[idx[ - (removeidx + 1)]]
+          selend   = unit_end_indexes[idx[ - removeidx]]
         } else {
           selfirst = unit_start_indexes[idx]
           selend   = unit_end_indexes[idx]
@@ -91,7 +91,7 @@ codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...
         
         ## add the codings
         for (c in cid)
-          for (i in (1:length(selfirst)))
+          for (i in (1 : length(selfirst)))
             insertCoding (fid=fid, cid=c, start=selfirst[i], end=selend[i], txt)
     }
 }
