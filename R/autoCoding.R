@@ -62,16 +62,16 @@ codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...
     Encoding(txt) <- "UTF-8"
 
     ## find all pattern matches
-    patternmatches <- gregexpr(pattern,txt, ...)[[1]]
-    if (length(patternmatches) > 1 || (patternmatches != -1)) {
+    pattern_matches <- gregexpr(pattern,txt, ...)[[1]]
+    if (length(pattern_matches) > 1 || (pattern_matches != -1)) {
       
         ## get all separator matches and calculate start and end of each analysis unit
-        pidx <- gregexpr(sprintf("(%s){1,}", seperator),txt)
-        idx1 <- c(0,pidx[[1]]+attr(pidx[[1]],"match.length")-1)
-        idx2 <- c(pidx[[1]]-1,nchar(txt))
+        separator_matches <- gregexpr(sprintf("(%s){1,}", seperator),txt)[[1]]
+        idx1 <- c(0,separator_matches+attr(separator_matches,"match.length")-1)
+        idx2 <- c(separator_matches-1,nchar(txt))
     
         ## get the matching analysis units
-        residx <- unique(findInterval(patternmatches,sort(c(idx1,idx2))))
+        residx <- unique(findInterval(pattern_matches,sort(c(idx1,idx2))))
         idx <- (residx + 1)/2
         
         if (concatenate)
