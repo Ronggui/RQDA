@@ -60,17 +60,16 @@ codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...
   ## by providing approperiate seperator, it allows flexible control on the unit of autocoding
     txt <- RQDAQuery(sprintf("select file from source where status=1 and id=%s",fid))$file
     Encoding(txt) <- "UTF-8"
-    
-    ## get all separator matches and calculate start and end of each analysis unit
-    pidx <- gregexpr(sprintf("(%s){1,}", seperator),txt)
-    idx1 <- c(0,pidx[[1]]+attr(pidx[[1]],"match.length")-1)
-    idx2 <- c(pidx[[1]]-1,nchar(txt))
-    
+
     ## find all pattern matches
     sidx <- gregexpr(pattern,txt, ...)[[1]]
-    
-    if (length(sidx) > 1 || (sidx != -1)) {
+    if (length(sidx) > 1 || (sidx != -1)) {    
       
+        ## get all separator matches and calculate start and end of each analysis unit
+        pidx <- gregexpr(sprintf("(%s){1,}", seperator),txt)
+        idx1 <- c(0,pidx[[1]]+attr(pidx[[1]],"match.length")-1)
+        idx2 <- c(pidx[[1]]-1,nchar(txt))
+    
         ## get the matching analysis units
         residx <- unique(findInterval(sidx,sort(c(idx1,idx2))))
         idx <- (residx + 1)/2
