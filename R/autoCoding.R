@@ -84,7 +84,7 @@ codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...
         ## receive start and end indexes of the matching analysis units
         if (length(removeidx) > 0) {
           selfirst = idx1[idx[-(removeidx+1)]]
-          elend   = idx2[idx[-removeidx]]
+          selend   = idx2[idx[-removeidx]]
         } else {
           selfirst = idx1[idx]
           selend   = idx2[idx]
