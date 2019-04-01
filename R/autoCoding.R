@@ -66,33 +66,55 @@ codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...
     if (length(pattern_matches) > 1 || (pattern_matches != -1)) {
       
         ## get all separator matches and calculate start and end of each analysis unit
-        separator_matches <- gregexpr(sprintf("(%s){1,}", seperator), txt)[[1]]
+        separator_matches  <- gregexpr(sprintf("(%s){1,}", seperator), txt)[[1]]
         unit_start_indexes <- c(0, separator_matches + attr(separator_matches, "match.length") - 1)
-        unit_end_indexes <- c(separator_matches - 1, nchar(txt))
+        unit_end_indexes   <- c(separator_matches - 1, nchar(txt))
     
         ## get the matching analysis units
-        residx <- unique(findInterval(pattern_matches, sort(c(unit_start_indexes, unit_end_indexes))))
-        idx <- (residx + 1) / 2
+        unit_start_reference <- findInterval(pattern_matches, unit_start_indexes)
+        unit_end_reference   <- findInterval(pattern_matches + attr(pattern_matches, "match.length"), unit_end_indexes)
         
-        if (concatenate)
-            ## mark bordering matching analysis units
-            removeidx <- which(diff(idx) == 1)
-        else
-            removeidx <- NULL
-        
-        ## receive start and end indexes of the matching analysis units
-        if (length(removeidx) > 0) {
-          selfirst = unit_start_indexes[idx[ - (removeidx + 1)]]
-          selend   = unit_end_indexes[idx[ - removeidx]]
+        if(concatenate){
+            ## get a logical array with true values for start references that we need to skip
+            unit_start_reference <- c(sort(unit_start_reference), NA)
+            unit_end_reference   <- c(NA, sort(unit_end_reference))
+            bordering <- unit_start_reference - unit_end_reference <= 1
+      
+            ## receive start and end indexes of the matching analysis unit
+            for(i in (1 : length(bordering))){
+                current_end = i
+                
+                if(is.na(bordering[i]) || !bordering[i]){
+                  
+                    ## if this is the first pattern match:
+                    if(!exists("current_start"))
+                        current_start = i
+                    
+                    else{
+                        ## if exists append, otherwise create:
+                        if(exists("match_start_index"))
+                        {
+                            match_start_index <- c(match_start_index, unit_start_indexes[unit_start_reference[current_start]])
+                            match_end_index   <- c(match_end_index, unit_end_indexes[unit_end_reference[current_end]])
+                        }else {
+                            match_start_index <- c(unit_start_indexes[unit_start_reference[current_start]])
+                            match_end_index   <- c(unit_end_indexes[unit_end_reference[current_end]])
+                        }
+                        current_start = i
+                    }
+                }
+            }
         } else {
-          selfirst = unit_start_indexes[idx]
-          selend   = unit_end_indexes[idx]
+            ## if we do not concatenate, things are easier
+            ## receive start and end indexes of the matching analysis units
+            match_start_index <- unit_start_indexes[unit_start_reference]
+            match_end_index   <- unit_end_indexes[unit_end_reference]
         }
         
         ## add the codings
         for (c in cid)
-          for (i in (1 : length(selfirst)))
-            insertCoding (fid=fid, cid=c, start=selfirst[i], end=selend[i], txt)
+            for (i in (1 : length(match_start_index)))
+                insertCoding (fid=fid, cid=c, start=match_start_index[i], end=match_end_index[i], txt)
     }
 }
 
