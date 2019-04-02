@@ -72,7 +72,7 @@ codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...
     
         ## get the matching analysis units
         unit_start_reference <- findInterval(pattern_matches, unit_start_indexes)
-        unit_end_reference   <- findInterval(pattern_matches + attr(pattern_matches, "match.length"), unit_end_indexes)
+        unit_end_reference   <- findInterval(pattern_matches + attr(pattern_matches, "match.length"), unit_start_indexes, left.open = TRUE)
         
         if(concatenate){
             ## get a logical array with true values for start references that we need to skip
