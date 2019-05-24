@@ -18,7 +18,7 @@ devtools::install_github("Ronggui/RQDA")
 
 1. Install Xocde from App store, launch Xcode and follow the instruction to install all the components. In addition, open a Terminal and run the following command to install xcode: 
    ```
-   sudo xcode-select —-install
+   $ sudo xcode-select —-install
    ```
 
 2. Go to http://xquartz.macosforge.org/landing/, download and install XQuartz-2.7.7.dmg.
@@ -27,20 +27,24 @@ devtools::install_github("Ronggui/RQDA")
 
 4. Open a Terminal and run the following commands:
    ```
-   sudo port install pkgconfig
-   sudo port install gtk2
+   $ sudo port install pkgconfig
+   $ sudo port install gtk2
    ```
 
 5. Download and install the binary version of R.
 
-6. If the above step is successful, launch R and install RQDA from within R:
+6. If the above step is successful, launch terminal to invoke R and install RQDA from within R:
+
+```terminal
+$ R
+```
 ```R
-install.packages('RQDA', type='source')
+> install.packages('RQDA', type='source')
 ```
 
 7. If all steps are successful, then we can launch RQDA by the following R command:
 ```R
-library(RQDA) 
+> library(RQDA) 
 ```
 
 
@@ -55,12 +59,12 @@ library(RQDA)
 
 4. Launch R and install RQDA from within R:
 ```R
-install.packages('RQDA', type='binary')
+> install.packages('RQDA', type='binary')
 ```
 
 5. If all steps are successful, then we can launch RQDA by the following R command:
 ```R
-library(RQDA) 
+> library(RQDA) 
 ```
 
 
