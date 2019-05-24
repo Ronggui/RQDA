@@ -16,9 +16,9 @@ devtools::install_github("Ronggui/RQDA")
 
 ## Installation for macOS from source package
 
-1. Open a Terminal and run the following command to install xcode: 
+1. Install Xocde from App store, launch Xcode and follow the instruction to install all the components. In addition, open a Terminal and run the following command to install xcode: 
    ```
-   sudo xcode-select —install
+   sudo xcode-select —-install
    ```
 
 2. Go to http://xquartz.macosforge.org/landing/, download and install XQuartz-2.7.7.dmg.
