@@ -79,10 +79,15 @@ $ R
 ## Portable Version for Windows Users
 Download from [Dropbox Link](https://www.dropbox.com/s/5zebadz41dep09k/RQDA_0.3_1.rar?dl=0).
 
+Download from [Baidu Cloud](https://pan.baidu.com/s/1nwsRPFAKjjdbv6nMyOsctA).
+
 
 
 ## How to change the font sizes of RQDA interfacea
-This can be achived by modifying ~/gtkrc-2.0 (create on if not exists), for instance:
+1. There is a font setting interface in the Settings Tab.
+
+2. This can be achived by modifying ~/gtkrc-2.0 (create on if not exists), for instance:
+
 ```
 style "user-font" {
     font_name = "Lucida Grande 14"
