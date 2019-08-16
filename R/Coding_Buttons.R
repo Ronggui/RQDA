@@ -110,7 +110,7 @@ MarkCodeFun <- function(codeListWidget=".codes_rqda",codingTable="coding"){
             DAT$seltext <- enc(DAT$seltext)
             if (nrow(Exist1)==0){
               rowid <- NextRowId(codingTable)
-              ## success <- dbWriteTable(.rqda$qdacon,codingTable,DAT,row.name=FALSE,append=TRUE)
+              ## success <- dbWriteTable(.rqda$qdacon,codingTable,DAT,row.names=FALSE,append=TRUE)
               success <- try(dbExecute(.rqda$qdacon, sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ",
                                                codingTable,DAT$cid, DAT$fid,DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner, as.character(date()))),silent=TRUE) > 0
               if (success){
@@ -129,7 +129,7 @@ MarkCodeFun <- function(codeListWidget=".codes_rqda",codingTable="coding"){
                 Exist$End <- sapply(Relations,FUN=function(x)x$UnionIndex[2])
                 if (all(Exist$Relation=="proximity")){
 		    rowid <- NextRowId(codingTable)
-		    ## success <- dbWriteTable(.rqda$qdacon,codingTable,DAT,row.name=FALSE,append=TRUE)
+		    ## success <- dbWriteTable(.rqda$qdacon,codingTable,DAT,row.names=FALSE,append=TRUE)
 		    success <- try(dbExecute(.rqda$qdacon, sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date) values (%s, %s, '%s', %s, %s, %s, '%s', '%s') ",
 						    codingTable,DAT$cid, DAT$fid, DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner, as.character(date()))),silent=TRUE) > 0
 		    if (success){
@@ -175,7 +175,7 @@ MarkCodeFun <- function(codeListWidget=".codes_rqda",codingTable="coding"){
 
                     DAT$seltext <- enc(DAT$seltext)
                     rowid <- NextRowId(codingTable)
-                    ## success <- dbWriteTable(.rqda$qdacon,codingTable,DAT,row.name=FALSE,append=TRUE)
+                    ## success <- dbWriteTable(.rqda$qdacon,codingTable,DAT,row.names=FALSE,append=TRUE)
                     success <- is.null(try(RQDAQuery(sprintf("insert into %s (cid,fid, seltext, selfirst, selend, status, owner, date, memo) values (%s, %s, '%s', %s, %s, %s, '%s', '%s','%s') ",
                                                    codingTable,DAT$cid, DAT$fid,DAT$seltext, DAT$selfirst, DAT$selend, 1, .rqda$owner, as.character(date()), DAT$memo)),silent=TRUE))
                     if (success){
@@ -646,7 +646,7 @@ GetCodesNamesWidgetMenu <- function()
 ##           DAT <- data.frame(cid=currentCid,fid=currentFid,seltext=ans$text,selfirst=ans$start,selend=ans$end,status=1,
 ##                             owner=.rqda$owner,date=date(),memo=NA)
 ##           if (nrow(Exist)==0){
-##             success <- dbWriteTable(.rqda$qdacon,"coding",DAT,row.name=FALSE,append=TRUE)
+##             success <- dbWriteTable(.rqda$qdacon,"coding",DAT,row.names=FALSE,append=TRUE)
 ##             if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
 ##         } else {
 ##           Relations <- apply(Exist,1,FUN=function(x) relation(x[c("selfirst","selend")],c(ans$start,ans$end)))
@@ -657,7 +657,7 @@ GetCodesNamesWidgetMenu <- function()
 ##             Exist$Start <- sapply(Relations,FUN=function(x)x$UnionIndex[1])
 ##             Exist$End <- sapply(Relations,FUN=function(x)x$UnionIndex[2])
 ##             if (all(Exist$Relation=="proximity")){
-##               success <- dbWriteTable(.rqda$qdacon,"coding",DAT,row.name=FALSE,append=TRUE)
+##               success <- dbWriteTable(.rqda$qdacon,"coding",DAT,row.names=FALSE,append=TRUE)
 ##               if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
 ##               ## if there are no overlap in any kind, just write to database; otherwise, pass to else{}.
 ##             } else {
@@ -679,7 +679,7 @@ GetCodesNamesWidgetMenu <- function()
 ##                 DAT <- data.frame(cid=currentCid,fid=currentFid,seltext=substr(tt,Sel[1],Sel[2]),
 ##                                   selfirst=Sel[1],selend=Sel[2],status=1,
 ##                                   owner=.rqda$owner,date=date(),memo=memo)
-##                 success <- dbWriteTable(.rqda$qdacon,"coding",DAT,row.name=FALSE,append=TRUE)
+##                 success <- dbWriteTable(.rqda$qdacon,"coding",DAT,row.names=FALSE,append=TRUE)
 ##                 if (!success) gmessage(gettext("Fail to write to database.", domain = "R-RQDA"))
 ##               }
 ##             }

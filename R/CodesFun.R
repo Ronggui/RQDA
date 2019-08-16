@@ -356,7 +356,7 @@ retrieval <- function(Fid=NULL,order=c("fname","ftime","ctime"),CodeNameWidget=.
     ## .retreivalgui <- gtext(container=.gw)
       for (i in fid){
         FileName <- dbGetQuery(.rqda$qdacon,sprintf("select name from source where status=1 and id=%i",i))[['name']]
-        if (!is.null(FileName)){
+        if (length(FileName) != 0){
           Encoding(FileName) <- "UTF-8"
           retrieval$fname[retrieval$fid==i] <- FileName
         } else {
@@ -833,7 +833,7 @@ AddToCodeCategory <- function (Widget = .rqda$.codes_rqda, updateWidget = TRUE)
                             catid = CodeCatid, date = date(), dateM = date(),
                             memo = "", status = 1, owner=.rqda$owner)
           success <- dbWriteTable(.rqda$qdacon, "treecode",
-                                  DAT, row.name = FALSE, append = TRUE)
+                                  DAT, row.names = FALSE, append = TRUE)
           if (success && updateWidget) {
             UpdateCodeofCatWidget()
           }

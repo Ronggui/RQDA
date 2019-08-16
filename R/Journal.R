@@ -90,7 +90,7 @@ AddNewJournalFun <- function(){
             ans <- dbGetQuery(.rqda$qdacon,sprintf("insert into journal (name, journal,date,owner, status)
                              values ('%s', '%s', '%s', '%s', %i)",
                                                    enc(title), content, date(),.rqda$owner,1))
-            if (is.null(ans)) {
+            if (nrow(ans) == 0) {
                 dispose(.rqda$.AddNewJournalWidget)
                 ##gmessage(gettext("Succeed.", domain = "R-RQDA"),container=TRUE)
             }

@@ -31,7 +31,7 @@ AddNewFileFunOfCase <- function ()
             nextid <- ifelse(is.na(maxid), 0 + 1, maxid + 1)
             ans <- dbGetQuery(.rqda$qdacon, sprintf("insert into source (name, file, id, status,date,owner ) values ('%s', '%s',%i, %i, '%s', '%s')",
                                                     Ftitle, content, nextid, 1, date(), .rqda$owner))
-            if (is.null(ans)) {
+            if (nrow(ans) == 0) {
                 svalue(textW) <- ""
                 FileNamesUpdate()
                 enabled(button$AddNewFilBC) <- FALSE

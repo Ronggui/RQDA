@@ -152,7 +152,7 @@ AddNewFileFun <- function(){
         ans <- dbGetQuery(.rqda$qdacon,sprintf("insert into source (name, file, id, status,date,owner )
                              values ('%s', '%s',%i, %i, '%s', '%s')",
                                                Ftitle,content, nextid, 1,date(),.rqda$owner))
-        if (is.null(ans)){
+        if (nrow(ans) == 0){
           svalue(textW) <- "" ## clear the content.
           FileNamesUpdate()
           enabled(button$AddNewFilB) <- FALSE
