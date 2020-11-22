@@ -47,15 +47,15 @@ retrieval_by_code <- function (Fid = NULL, order = c("fname", "ftime", "ctime"),
                 20, getOption("widgetSize")[1])), height = min(c(wnh[2], 
                 getOption("widgetSize")[2])))
             mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
-            .gw@widget@widget$SetIconFromFile(mainIcon)
+            .gw$widget$SetIconFromFile(mainIcon)
             assign(sprintf(".codingsOf%s", currentCid), .gw, 
                 envir = .rqda)
             .retreivalgui <- gtext(container = .gw)
             font <- pangoFontDescriptionFromString(.rqda$font)
-            gtkWidgetModifyFont(.retreivalgui@widget@widget, 
+            gtkWidgetModifyFont(.retreivalgui$widget, 
                 font)
-            .retreivalgui@widget@widget$SetPixelsBelowLines(5)
-            .retreivalgui@widget@widget$SetPixelsInsideWrap(5)
+            .retreivalgui$widget$SetPixelsBelowLines(5)
+            .retreivalgui$widget$SetPixelsInsideWrap(5)
             for (i in fid) {
                 FileName <- dbGetQuery(.rqda$qdacon, sprintf("select name from source where status=1 and id=%i", 
                   i))[["name"]]
@@ -74,7 +74,7 @@ retrieval_by_code <- function (Fid = NULL, order = c("fname", "ftime", "ctime"),
             ComputeCallbackFun <- function(FileName, rowid) {
                 CallBackFUN <- function(widget, event, ...) {
                   ViewFileFunHelper(FileName, hightlight = FALSE)
-                  textView <- .rqda$.openfile_gui@widget@widget
+                  textView <- .rqda$.openfile_gui$widget
                   buffer <- textView$GetBuffer()
                   mark1 <- gtkTextBufferGetMark(buffer, sprintf("%s.1", 
                     rowid))
@@ -90,7 +90,7 @@ retrieval_by_code <- function (Fid = NULL, order = c("fname", "ftime", "ctime"),
                 }
                 CallBackFUN
             }
-            buffer <- .retreivalgui@widget@widget$GetBuffer()
+            buffer <- .retreivalgui$widget$GetBuffer()
             buffer$createTag("red", foreground = "red")
             iter <- buffer$getIterAtOffset(0)$iter
             apply(retrieval, 1, function(x) {
@@ -105,7 +105,7 @@ retrieval_by_code <- function (Fid = NULL, order = c("fname", "ftime", "ctime"),
                 widget$Add(lab)
                 gSignalConnect(widget, "button-press-event", 
                   ComputeCallbackFun(x[["fname"]], as.numeric(x[["rowid"]])))
-                .retreivalgui@widget@widget$addChildAtAnchor(widget, 
+                .retreivalgui$widget$addChildAtAnchor(widget, 
                   anchor)
                 widget$showAll()
                 iter$ForwardChar()

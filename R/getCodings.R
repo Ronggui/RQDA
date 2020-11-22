@@ -55,12 +55,12 @@ getCodingsFromFiles <- function(Fid, order=c("fname","ftime","ctime"), codingTab
                        height = min(c(wnh[2],getOption("widgetSize")[2]))
                        )
         mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
-        .gw@widget@widget$SetIconFromFile(mainIcon)
+        .gw$widget$SetIconFromFile(mainIcon)
         .retreivalgui <- gtext(container=.gw)
         font <- pangoFontDescriptionFromString(.rqda$font)
-        gtkWidgetModifyFont(.retreivalgui@widget@widget,font)
-        .retreivalgui@widget@widget$SetPixelsBelowLines(5) ## set the spacing
-        .retreivalgui@widget@widget$SetPixelsInsideWrap(5) ## so the text looks more confortable.
+        gtkWidgetModifyFont(.retreivalgui$widget,font)
+        .retreivalgui$widget$SetPixelsBelowLines(5) ## set the spacing
+        .retreivalgui$widget$SetPixelsInsideWrap(5) ## so the text looks more confortable.
         for (i in fid){
             FileName <- dbGetQuery(.rqda$qdacon,sprintf("select name from source where status=1 and id=%i",i))[['name']]
             if (!is.null(FileName)){
@@ -76,7 +76,7 @@ getCodingsFromFiles <- function(Fid, order=c("fname","ftime","ctime"), codingTab
         ComputeCallbackFun <- function(FileName,rowid){
             CallBackFUN <- function(widget,event,...){
                 ViewFileFunHelper(FileName,hightlight=FALSE)
-                textView <- .rqda$.openfile_gui@widget@widget
+                textView <- .rqda$.openfile_gui$widget
                 buffer <- textView$GetBuffer()
                 mark1 <- gtkTextBufferGetMark(buffer,sprintf("%s.1",rowid))
                 gtkTextViewScrollToMark(textView,mark1,0)
@@ -91,7 +91,7 @@ getCodingsFromFiles <- function(Fid, order=c("fname","ftime","ctime"), codingTab
             CallBackFUN
         } ## end of ComputeCallbackFun
 
-        buffer <- .retreivalgui@widget@widget$GetBuffer()
+        buffer <- .retreivalgui$widget$GetBuffer()
         buffer$createTag("red", foreground = "red")
         iter <- buffer$getIterAtOffset(0)$iter
 
@@ -107,7 +107,7 @@ getCodingsFromFiles <- function(Fid, order=c("fname","ftime","ctime"), codingTab
             widget$Add(lab)
             gSignalConnect(widget, "button-press-event",
                            ComputeCallbackFun(x[["fname"]],as.numeric(x[["rowid"]])))
-            .retreivalgui@widget@widget$addChildAtAnchor(widget, anchor)
+            .retreivalgui$widget$addChildAtAnchor(widget, anchor)
             widget$showAll()
             iter$ForwardChar()
             buffer$insert(iter, "\n")

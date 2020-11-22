@@ -15,7 +15,7 @@ AddNewFileFunOfCase <- function ()
     gw <- gwindow(title = gettext("Add a new file to selected case", domain = "R-RQDA"), parent = getOption("widgetCoordinate"),
                   width = getOption("widgetSize")[1], height = getOption("widgetSize")[2])
     mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
-    gw@widget@widget$SetIconFromFile(mainIcon)
+    gw$widget$SetIconFromFile(mainIcon)
     gp <- gpanedgroup(horizontal = FALSE, container=gw)
 
     saveFileFun <- function() {
@@ -55,7 +55,7 @@ AddNewFileFunOfCase <- function ()
     gl[1, 1] <- AddNewFilBC
     tmp <- gtext(container = gp)
     font <- pangoFontDescriptionFromString(.rqda$font)
-    gtkWidgetModifyFont(tmp@widget@widget, font)
+    gtkWidgetModifyFont(tmp$widget, font)
     assign(".AddNewFileWidgetW", tmp, envir = .rqda)
     textW <- get(".AddNewFileWidgetW", envir = .rqda)
     addHandlerKeystroke(.rqda$.AddNewFileWidgetW, handler = function(h, ...) {

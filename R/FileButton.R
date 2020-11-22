@@ -11,7 +11,7 @@ ImportFileButton <- function(label=gettext("Import", domain = "R-RQDA"), contain
     }
           )
   assign("ImpFilB",ImpFilB,envir=button)
-  gtkWidgetSetSensitive(button$ImpFilB@widget@widget,FALSE)
+  gtkWidgetSetSensitive(button$ImpFilB$widget,FALSE)
 }
 
 NewFileButton <- function(label=gettext("New", domain = "R-RQDA"), container,...)
@@ -53,7 +53,7 @@ DeleteFileButton <- function(label=gettext("Delete", domain = "R-RQDA"), contain
           action=list(envir=.rqda,conName="qdacon")
           )
   assign("DelFilB",DelFilB,envir=button)
-  gtkWidgetSetSensitive(button$DelFilB@widget@widget,FALSE)
+  gtkWidgetSetSensitive(button$DelFilB$widget,FALSE)
 }
 
 ViewFileButton <-  function(label=gettext("Open", domain = "R-RQDA"), container,...)
@@ -64,7 +64,7 @@ ViewFileButton <-  function(label=gettext("Open", domain = "R-RQDA"), container,
           }
           )
   assign("VieFilB",VieFilB,envir=button)
-  gtkWidgetSetSensitive(button$VieFilB@widget@widget,FALSE)
+  gtkWidgetSetSensitive(button$VieFilB$widget,FALSE)
 }
 
 
@@ -75,7 +75,7 @@ File_MemoButton <- function(label=gettext("Memo", domain = "R-RQDA"), container=
   }
           )
   assign("FilMemB",FilMemB,envir=button)
-  gtkWidgetSetSensitive(button$FilMemB@widget@widget,FALSE)
+  gtkWidgetSetSensitive(button$FilMemB$widget,FALSE)
 }
 
 File_RenameButton <- function(label=gettext("Rename", domain = "R-RQDA"), container=.rqda$.files_button,FileWidget=.rqda$.fnames_rqda,...)
@@ -104,7 +104,7 @@ File_RenameButton <- function(label=gettext("Rename", domain = "R-RQDA"), contai
           )
   FilRenB
   assign("FilRenB",FilRenB,envir=button)
-  gtkWidgetSetSensitive(button$FilRenB@widget@widget,FALSE)
+  gtkWidgetSetSensitive(button$FilRenB$widget,FALSE)
 }
 
 FileAttribute_Button <- function(label=gettext("Attribute", domain = "R-RQDA"),container=.rqda$.files_button,FileWidget=.rqda$.fnames_rqda,...)
@@ -134,7 +134,7 @@ AddNewFileFun <- function(){
                   width = getOption("widgetSize")[1],
                   height = getOption("widgetSize")[2])
     mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
-    gw@widget@widget$SetIconFromFile(mainIcon)
+    gw$widget$SetIconFromFile(mainIcon)
     assign(".AddNewFileWidget",gw,envir=.rqda)
     assign(".AddNewFileWidget2",gpanedgroup(horizontal = FALSE, container=get(".AddNewFileWidget",envir=.rqda)),envir=.rqda)
     saveFileFun <- function() {
@@ -179,7 +179,7 @@ AddNewFileFun <- function(){
     gl[1,2] <- AddNewFilB2
     tmp <- gtext(container=get(".AddNewFileWidget2",envir=.rqda))
     font <- pangoFontDescriptionFromString(.rqda$font)
-    gtkWidgetModifyFont(tmp@widget@widget,font) ## set the default fontsize
+    gtkWidgetModifyFont(tmp$widget,font) ## set the default fontsize
     assign(".AddNewFileWidgetW",tmp,envir=.rqda)
     textW <- get(".AddNewFileWidgetW",envir=.rqda)
     addHandlerKeystroke(.rqda$.AddNewFileWidgetW,handler=function(h,...){
@@ -263,7 +263,7 @@ GetFileNamesWidgetMenu <- function()
   }}}
 
   ## a=gtext("this is a test for search a.",container=T)
-  ## b<-a@widget@widget$GetBuffer()
+  ## b<-a$widget$GetBuffer()
   ## b$GetIterAtOffset(0)
   ## i0=b$GetIterAtOffset(0)
   ## s0=i0$iter$ForwardSearch("a","GTK_TEXT_SEARCH_VISIBLE_ONLY")

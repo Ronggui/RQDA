@@ -242,7 +242,7 @@ ProjectMemoWidget <- function(){
   if (is_projOpen(envir=.rqda,"qdacon")) {
     ## use enviroment, so you can refer to the same object easily, this is the beauty of environment
     ## if project is open, then continue
-    tryCatch(dispose(.rqda$.projmemo),error=function(e) {})
+    tryCatch(dispose(.rqda$.projmemo), error=function(e) {})
     ## Close the open project memo first, then open a new one
     ## .projmemo is the container of .projmemocontent,widget for the content of memo
     wnh <- size(.rqda$.root_rqdagui) ## size of the main window
@@ -251,7 +251,7 @@ ProjectMemoWidget <- function(){
                 height = min(c(wnh[2],getOption("widgetSize")[2]))
                  )
     mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
-    gw@widget@widget$SetIconFromFile(mainIcon)
+    gw$widget$SetIconFromFile(mainIcon)
     assign(".projmemo", gw, envir=.rqda)
     .projmemo <- get(".projmemo",.rqda)
     .projmemo2 <- gpanedgroup(horizontal = FALSE, container=.projmemo)
@@ -270,14 +270,14 @@ ProjectMemoWidget <- function(){
   }
             )## end of save memo button
     assign("proj_memoB",proj_memoB,envir=button)
-    tmp <- gtext(container=.projmemo2,font.attr=c(sizes="large"))
-    gSignalConnect(tmp@widget@widget$GetBuffer(), "changed",
+    tmp <- gtext(container=.projmemo2, font.attr=list(size="large"))
+    gSignalConnect(tmp$widget$GetBuffer(), "changed",
                    function(h,...){
                        mbut <- get("proj_memoB",envir=button)
                        enabled(mbut) <- TRUE
                    })##
     font <- pangoFontDescriptionFromString(.rqda$font)
-    gtkWidgetModifyFont(tmp@widget@widget,font)
+    gtkWidgetModifyFont(tmp$widget,font)
     assign(".projmemocontent",tmp,envir=.rqda)
     prvcontent <- dbGetQuery(.rqda$qdacon, "select memo from project")[1,1]
     ## [1,1]turn data.frame to 1-length character. Existing content of memo
@@ -288,8 +288,7 @@ ProjectMemoWidget <- function(){
     }
     W <- .rqda$.projmemocontent
     Encoding(prvcontent) <- "UTF-8"
-    ## add(W,prvcontent,font.attr=c(sizes="large"),do.newline=FALSE)
-    add(W,prvcontent,do.newline=FALSE)
+    insert(W, prvcontent, do.newline=FALSE)
     ## do.newline:do not add a \n (new line) at the beginning
     ## push the previous content to the widget.
     enabled(proj_memoB) <- FALSE

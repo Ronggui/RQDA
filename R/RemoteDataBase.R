@@ -102,14 +102,14 @@
 ##         path <- gsub("\\\\","/",dbGetInfo(.rqda$qdacon)$dbname)
 ##         path <- gsub("/","/ ",path)
 ##         svalue(.rqda$.currentProj) <- gsub("/ ","/",paste(strwrap(path,50),collapse="\n"))
-##         gtkWidgetSetSensitive(button$cloprob@widget@widget,TRUE)
-##         gtkWidgetSetSensitive(button$BacProjB@widget@widget,TRUE)
-##         gtkWidgetSetSensitive(button$proj_memo@widget@widget,TRUE)
-##         gtkWidgetSetSensitive(button$CleProB@widget@widget,TRUE)
-##         gtkWidgetSetSensitive(button$CloAllCodB@widget@widget,TRUE)
-##         gtkWidgetSetSensitive(button$ImpFilB@widget@widget,TRUE)
+##         gtkWidgetSetSensitive(button$cloprob$widget,TRUE)
+##         gtkWidgetSetSensitive(button$BacProjB$widget,TRUE)
+##         gtkWidgetSetSensitive(button$proj_memo$widget,TRUE)
+##         gtkWidgetSetSensitive(button$CleProB$widget,TRUE)
+##         gtkWidgetSetSensitive(button$CloAllCodB$widget,TRUE)
+##         gtkWidgetSetSensitive(button$ImpFilB$widget,TRUE)
 ##         enabled(button$NewFilB) <- TRUE
-##         gtkWidgetSetSensitive(RQDA.rqda$.fnames_rqda@widget@widget,TRUE)
+##         gtkWidgetSetSensitive(RQDA.rqda$.fnames_rqda$widget,TRUE)
 ##         enabled(button$AddJouB) <- TRUE
 ##         enabled(button$AddCodB) <- TRUE
 ##         enabled(button$AddCodCatB) <- TRUE

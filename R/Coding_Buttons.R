@@ -149,7 +149,7 @@ MarkCodeFun <- function(codeListWidget=".codes_rqda",codingTable="coding"){
                     memo <- RQDAQuery(sprintf("select memo from %s where rowid in (%s)", codingTable,paste(Exist$rowid[del],collapse=",",sep="")))$memo
                     memo <- paste(memo,collapse="",sep="")
                     RQDAQuery(sprintf("delete from %s where rowid in (%s)", codingTable,paste(Exist$rowid[del],collapse=",",sep="")))
-                    buffer <- W@widget@widget$GetBuffer()
+                    buffer <- W$widget$GetBuffer()
                     for (i in Exist1$rowid[del]){
                       code <- Exist1[Exist1$rowid==i,"name"]
                       m <- buffer$GetMark(sprintf("%s.1", i))
@@ -315,7 +315,7 @@ CodingMemoButton <- function(label=gettext("C2Memo", domain = "R-RQDA"))
       iter$BackwardChar()
       anchor <- iter$getChildAnchor()
       anchor <- gtkTextIterGetChildAnchor(iter)
-      widget@widget@widget$addChildAtAnchor(label, anchor)
+      widget$widget$addChildAtAnchor(label, anchor)
       return(TRUE)
     }
 
@@ -612,7 +612,7 @@ GetCodesNamesWidgetMenu <- function()
 ##           },
 ##           action=list(widget=".openfile_gui")
 ##           )
-##   gtkTooltips()$setTip(ans@widget@widget,"Highlight all codings of the open file.")
+##   gtkTooltips()$setTip(ans$widget,"Highlight all codings of the open file.")
 ##   return(ans)
 ## }
 
@@ -620,7 +620,7 @@ GetCodesNamesWidgetMenu <- function()
 ## CodingInfoButton <- function(label="C2Info")
 ## {
 ##     ans <- gbutton(label,handler= function(h,...) c2InfoFun())
-##     gtkTooltips()$setTip(ans@widget@widget,"Code lists associated with the selected codings in the open file.")
+##     gtkTooltips()$setTip(ans$widget,"Code lists associated with the selected codings in the open file.")
 ##     return(ans)
 ## }
 ## c2InfoFun() moved to CodesFun.R

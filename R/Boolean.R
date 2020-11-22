@@ -21,7 +21,7 @@ print.codingsByOne <- function (x,...)
     ComputeCallbackFun <- function(FileName,rowid){
         CallBackFUN <- function(widget,event,...){
             ViewFileFunHelper(FileName,hightlight=FALSE)
-            textView <- .rqda$.openfile_gui@widget@widget
+            textView <- .rqda$.openfile_gui$widget
             buffer <- textView$GetBuffer()
             mark1 <- gtkTextBufferGetMark(buffer,sprintf("%s.1",rowid))
             gtkTextViewScrollToMark(textView,mark1,0)
@@ -58,14 +58,14 @@ print.codingsByOne <- function (x,...)
         .gw <- gwindow(title = title, parent = getOption("widgetCoordinate"),
                        width = getOption("widgetSize")[1], height = getOption("widgetSize")[2])
         mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
-        .gw@widget@widget$SetIconFromFile(mainIcon)
+        .gw$widget$SetIconFromFile(mainIcon)
         assign(sprintf(".codingsOf%s","codingsByone"), .gw, envir = .rqda)
         .retreivalgui <- gtext(container = .gw)
         font <- pangoFontDescriptionFromString(.rqda$font)
-        gtkWidgetModifyFont(.retreivalgui@widget@widget,font)
-        .retreivalgui@widget@widget$SetPixelsBelowLines(5)
-        .retreivalgui@widget@widget$SetPixelsInsideWrap(5)
-        buffer <- .retreivalgui@widget@widget$GetBuffer()
+        gtkWidgetModifyFont(.retreivalgui$widget,font)
+        .retreivalgui$widget$SetPixelsBelowLines(5)
+        .retreivalgui$widget$SetPixelsInsideWrap(5)
+        buffer <- .retreivalgui$widget$GetBuffer()
         buffer$createTag("red", foreground = "red")
         iter <- buffer$getIterAtOffset(0)$iter
         apply(x, 1, function(x) {
@@ -79,7 +79,7 @@ print.codingsByOne <- function (x,...)
             widget$Add(lab)
             gSignalConnect(widget, "button-press-event",
                            ComputeCallbackFun(x[["filename"]],as.numeric(x[["rowid"]])))
-            .retreivalgui@widget@widget$addChildAtAnchor(widget, anchor)
+            .retreivalgui$widget$addChildAtAnchor(widget, anchor)
             widget$showAll()
             iter$ForwardChar()
             buffer$insert(iter, "\n")

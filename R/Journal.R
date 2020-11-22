@@ -75,7 +75,7 @@ AddNewJournalFun <- function(){
                       width = getOption("widgetSize")[1], height = getOption("widgetSize")[2]
                            )
         mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
-        gw@widget@widget$SetIconFromFile(mainIcon)
+        gw$widget$SetIconFromFile(mainIcon)
         assign(".AddNewJournalWidget",gw,envir=.rqda)
         assign(".AddNewJournalWidget2",gpanedgroup(horizontal = FALSE, container=get(".AddNewJournalWidget",envir=.rqda)),envir=.rqda)
         gbutton(gettext("Save Journal", domain = "R-RQDA"),container=get(".AddNewJournalWidget2",envir=.rqda),handler=function(h,...){
@@ -100,7 +100,7 @@ AddNewJournalFun <- function(){
                 )## end of save button
         tmp <- gtext(container=get(".AddNewJournalWidget2",envir=.rqda))
         font <- pangoFontDescriptionFromString(.rqda$font)
-        gtkWidgetModifyFont(tmp@widget@widget,font)
+        gtkWidgetModifyFont(tmp$widget,font)
         assign(".AddNewJournalWidgetW", tmp, envir=.rqda)
         textW <- get(".AddNewJournalWidgetW",envir=.rqda)
     }}
@@ -117,7 +117,7 @@ ViewJournalWidget <- function(prefix="Journal",widget=.rqda$.JournalNamesWidget,
                      width = getOption("widgetSize")[1], height = getOption("widgetSize")[2]
                            )
         mainIcon <- system.file("icon", "mainIcon.png", package = "RQDA")
-        gw@widget@widget$SetIconFromFile(mainIcon)
+        gw$widget$SetIconFromFile(mainIcon)
         assign(sprintf(".%smemo",prefix),gw,envir=.rqda)
         assign(sprintf(".%smemo2",prefix),
                gpanedgroup(horizontal = FALSE, container=get(sprintf(".%smemo",prefix),envir=.rqda)),
@@ -134,7 +134,7 @@ ViewJournalWidget <- function(prefix="Journal",widget=.rqda$.JournalNamesWidget,
         enabled(saveJournalButton) <- FALSE
         tmp <- gtext(container=get(sprintf(".%smemo2",prefix),envir=.rqda))
         font <- pangoFontDescriptionFromString(.rqda$font)
-        gtkWidgetModifyFont(tmp@widget@widget,font)## set the default fontsize
+        gtkWidgetModifyFont(tmp$widget,font)## set the default fontsize
         assign(sprintf(".%smemoW",prefix),tmp,envir=.rqda)
         prvcontent <- dbGetQuery(.rqda$qdacon, sprintf("select journal from %s where name='%s'",dbTable,enc(Selected)))[1,1]
         if (is.na(prvcontent)) prvcontent <- ""
