@@ -63,8 +63,6 @@ if (isTRUE(.rqda$isLaunched)) {
   ".files_pan" <- gpanedgroup(container=.nb_rqdagui,horizontal=FALSE,label=gettext("Files\n", domain = "R-RQDA"))
   ".files_button" <- ggroup(container=.files_pan,horizontal=TRUE)
   ".fnames_rqda"<-gtable(character(0),  container=.files_pan, multiple=TRUE)
-  #.fnames_rqda[] <-NULL  # get around of the text argument, need a new way to do this
-  #".fnames_rqda" <- gtable(character(0),container=.files_pan, multiple=TRUE)
   names(.fnames_rqda) <- gettext("Files", domain = "R-RQDA")
   ImportFileButton(gettext("Import", domain = "R-RQDA"),container=.files_button)
   NewFileButton(gettext("New", domain = "R-RQDA"),container=.files_button)

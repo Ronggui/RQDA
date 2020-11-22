@@ -27,12 +27,11 @@ UpdateWidget <- function(widget,from,to=NULL){
       if (length(from) == length(to))
         items[items %in% from] <- to
     }
-    ## eval(parse(text=sprintf(".rqda$%s[] <- items",widget)))
     tryCatch(eval(parse(text = sprintf(".rqda$%s[] <- items", widget))),
              error = function(e) cat("warning msg from the replacement.\n"))
     if (length(idx)>0) {
     path <-gtkTreePathNewFromString(idx)
-    gtkTreeViewScrollToCell(slot(slot(get(widget,envir=.rqda),"widget"),"widget"),
+    gtkTreeViewScrollToCell(get(widget,envir=.rqda)$widget,
                             path,use.align=TRUE,row.align = 0.07)
   }}
 }
@@ -44,7 +43,7 @@ ScrollToItem <- function(widget,item=svalue(widget)){
     idx <- as.character(which(items %in% item) - 1)
     if (length(idx)!=0){
       path <-gtkTreePathNewFromString(idx)
-      gtkTreeViewScrollToCell(slot(slot(widget,"widget"),"widget"), path,use.align=TRUE,row.align = 0.07)
+      gtkTreeViewScrollToCell(widget$widget, path,use.align=TRUE,row.align = 0.07)
     }}}
 
 enc <- function(x,encoding="UTF-8") {
@@ -89,7 +88,7 @@ MemoWidget <- function(prefix,widget,dbTable){
       }
       else {
           CloseYes <- function(currentCode){
-              withinWidget <- svalue(get(sprintf(".%smemoW",prefix),envir=.rqda))
+              withinWidget <- svalue(get(sprintf(".%smemoW", prefix),envir=.rqda))
               InRQDA <- dbGetQuery(.rqda$qdacon, sprintf("select memo from %s where name='%s'",dbTable, enc(currentCode,"UTF-8")))[1, 1]
               if (isTRUE(all.equal(withinWidget,InRQDA))) {
                   return(TRUE) } else {
@@ -138,7 +137,7 @@ MemoWidget <- function(prefix,widget,dbTable){
               if (is.na(prvcontent)) prvcontent <- ""
               Encoding(prvcontent) <- "UTF-8"
               W <- get(sprintf(".%smemoW",prefix),envir=.rqda)
-              add(W,prvcontent,do.newline=FALSE)
+              insert(W, prvcontent, do.newline=FALSE)
               addHandlerUnrealize(get(sprintf(".%smemo",prefix),envir=.rqda),handler <- function(h,...)  {!CloseYes(Selected)})
               gSignalConnect(tmp$widget$GetBuffer(), "changed", function(h,...) {
                   mbut <- get(sprintf("buttonOf.%smemo",prefix),envir=button)
