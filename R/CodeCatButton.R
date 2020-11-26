@@ -1,4 +1,4 @@
-### UpdateTableWidget() and AddTodbTable() are generall version of the previous functions
+### UpdateTableWidget() and AddTodbTable() are general version of the previous functions
 UpdateTableWidget <- function(Widget,FromdbTable,con=.rqda$qdacon,sortByTime=FALSE,decreasing=FALSE,...)
 {
   if (is_projOpen()){
@@ -123,11 +123,11 @@ UpdateCodeofCatWidget <- function(con=.rqda$qdacon,Widget=.rqda$.CodeofCat,sort=
 
 CodeCatAddToButton <- function(label=gettext("Add To", domain = "R-RQDA"),Widget=.rqda$.CodeCatWidget,...)
 {
-    ans <- gbutton(label,handler=function(h,...) {
-        ## SelectedCodeCat and its id (table codecat): svalue()-> Name; sql->catid
+    ans <- gbutton(label, handler=function(h,...) {
+        # SelectedCodeCat and its id (table codecat): svalue()-> Name; sql->catid
         SelectedCodeCat <- svalue(.rqda$.CodeCatWidget)
         catid <- dbGetQuery(.rqda$qdacon,sprintf("select catid from codecat where status=1 and name='%s'",enc(SelectedCodeCat)))[,1]
-        ## CodeList and the id (table freecode): sql -> name and id where status=1
+        # CodeList and the id (table freecode): sql -> name and id where status=1
         freecode <-  dbGetQuery(.rqda$qdacon,"select name, id from freecode where status=1")
         if (nrow(freecode) == 0){
             gmessage(gettext("No free codes yet.", domain = "R-RQDA"),cont=.rqda$.CodeCatWidget)
@@ -136,17 +136,17 @@ CodeCatAddToButton <- function(label=gettext("Add To", domain = "R-RQDA"),Widget
             ## Get CodeList already in the category (table treecode): sql -> cid where catid==catid
             codeofcat <- dbGetQuery(.rqda$qdacon,sprintf("select cid from treecode where status=1 and catid=%i",catid))
             if (nrow(codeofcat)!=0){
-                ## compute those not in the category, then push them to select.list()
+                # compute those not in the category, then push them to select.list()
                 codeoutofcat <- subset(freecode,!(id %in% codeofcat$cid))
             } else  codeoutofcat <- freecode
-            Selected <- gselect.list(codeoutofcat[['name']],multiple=TRUE, x=getOption("widgetCoordinate")[1])
+            Selected <- gselect.list(codeoutofcat[['name']], multiple=TRUE, x=getOption("widgetCoordinate")[1])
             if (length(Selected) >1 || Selected != ""){
-                ## Selected <- iconv(Selected,to="UTF-8")
+                # Selected <- iconv(Selected,to="UTF-8")
                 cid <- codeoutofcat[codeoutofcat$name %in% Selected,"id"]
                 Dat <- data.frame(cid=cid,catid=catid,date=date(),dateM=date(),memo="",status=1,owner=.rqda$owner)
-                ## Push selected codeList to table treecode
+                # Push selected codeList to table treecode
                 dbWriteTable(.rqda$qdacon,"treecode",Dat,row.names=FALSE,append=TRUE)
-                ## update .CodeofCat Widget
+                # update .CodeofCat Widget
                 UpdateCodeofCatWidget()
             }
         }})

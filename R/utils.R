@@ -361,18 +361,18 @@ RunOnSelected <- function(x,multiple=TRUE,expr,enclos=parent.frame(),title=NULL,
 }
 
 
-gselect.list <- function(list,multiple=TRUE,title=NULL,width=200, height=500,...){
+gselect.list <- function(list, multiple=TRUE, title=NULL, width=200, height=500,...){
   ## gtk version of select.list(), revised on 21 Apr. 2010 to fix a bug (crash R with 2.18 or newer libgtk2).
   ## Thanks go to John Verzani for his help.
-  if (is.null(title)) title <- ifelse(multiple,"Select one or more","Select one")
+  if (is.null(title)) title <- ifelse(multiple, "Select one or more","Select one")
   helper <- function(){
       ans<-new.env()
        dlg <- gbasicdialog(title=title,handler=function(h,...){
           value <- svalue(x2)
           assign("selected",value,envir=h$action$env)
-          },action=list(envir=ans))
+          }, action=list(envir=ans))
       x2<-gtable(list,multiple=multiple,container=dlg,expand=TRUE)
-      dlg$widget$Move(size(.rqda$.root_rqdagui)[1],2)
+      dlg$widget$window$Move(size(.rqda$.root_rqdagui)[1], 2)
       size(dlg) <- c(width,height)
       visible(dlg, set=TRUE)
       ans
