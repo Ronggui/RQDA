@@ -9,7 +9,7 @@ AddCaseButton <- function(label=gettext("ADD", domain = "R-RQDA")){
       idx <- as.character(which(.rqda$.CasesNamesWidget[] %in%  CaseName) -1)
       ## note the position, before manipulation of items
       path <-gtkTreePathNewFromString(idx)
-      gtkTreeViewScrollToCell(slot(slot(.rqda$.CasesNamesWidget,"widget"),"widget"),
+      gtkTreeViewScrollToCell(.rqda$.CasesNamesWidget$widget,
                               path,use.align=TRUE,row.align = 0.05)
     }
   }

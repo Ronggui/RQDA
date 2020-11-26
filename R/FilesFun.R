@@ -666,7 +666,6 @@ AddToFileCategory <- function(Widget=.rqda$.fnames_rqda,updateWidget=TRUE){
 
 ## library(RGtk2)
 searchWord <- function(str,widget,from=0,col="green", verbose=FALSE){
-    #tview <- slot(widget,"widget")@widget
     tview <- widget$widget
     buffer <- tview$GetBuffer()
     Iter0 <- buffer$GetIterAtOffset(from)$iter
@@ -728,7 +727,6 @@ viewPlainFile <- function(FileNameWidget=.rqda$.fnames_rqda){
   content <- IDandContent$file
   Encoding(content) <- "UTF-8"
   add(tmp, content)
-  # slot(tmp, "widget")@widget$SetEditable(FALSE)
   tmp$widget$SetEditable(FALSE)
 }}}
 

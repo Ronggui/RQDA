@@ -62,7 +62,6 @@ mark <- function(widget,fore.col=.rqda$fore.col,back.col=NULL,addButton=FALSE,bu
   startN <- index$startN # translate iter pointer to number
   endN <- index$endN
   if (selected != ""){## only when selected text chunk is not "", apply the color scheme.
-    # buffer <- slot(widget,"widget")@widget$GetBuffer()
     buffer <- widget$widget$GetBuffer()
     if(addButton) {
       InsertAnchor(widget,sprintf("%s<",buttonLabel),index=startN,handler=TRUE)
@@ -100,13 +99,11 @@ markRange <- function(widget,from,to,rowid,fore.col=.rqda$fore.col,back.col=NULL
         from <- from + sum(allidx <= from)
         to <- to + sum(allidx <= to)
       }
-      #buffer <- slot(widget,"widget")@widget$GetBuffer()
       buffer <- widget$widget$GetBuffer()
       startIter <- buffer$GetIterAtOffset(from)$iter
       endIter <- buffer$GetIterAtOffset(to)$iter
       buffer$CreateMark(sprintf("%s.1",rowid),where=startIter)
       buffer$CreateMark(sprintf("%s.2",rowid),where=endIter)
-      #buffer <- slot(widget,"widget")@widget$GetBuffer()
       buffer <- widget$widget$GetBuffer()
       if(addButton) {
         InsertAnchor(widget,sprintf("<%s>",buttonLabel),index=from,label.col=buttonCol,
@@ -122,7 +119,6 @@ markRange <- function(widget,from,to,rowid,fore.col=.rqda$fore.col,back.col=NULL
 
 ClearMark <- function(widget,min=0, max, clear.fore.col=TRUE,clear.back.col=FALSE, clear.underline=TRUE){
   ## max position of marked text.
-  # buffer <- slot(widget,"widget")@widget$GetBuffer()
   buffer <- widget$widget$GetBuffer()
   startI <- gtkTextBufferGetIterAtOffset(buffer,min)$iter # translate number back to iter
   endI <-gtkTextBufferGetIterAtOffset(buffer,max)$iter
@@ -135,7 +131,6 @@ HL <- function(W,index,fore.col=.rqda$fore.col,back.col=NULL){
   ## highlight text chuck according to index
   ## W is the gtext widget of the text.
   ## index is a data frame, each row == one text chuck.
-  # buffer <- slot(W,"widget")@widget$GetBuffer()
   buffer <- W$widget$GetBuffer()
     apply(index,1, function(x){
     start <-gtkTextBufferGetIterAtOffset(buffer,x[1])$iter # translate number back to iter
@@ -151,7 +146,7 @@ HL <- function(W,index,fore.col=.rqda$fore.col,back.col=NULL){
 }
 
 sindex <- function(widget=.rqda$.openfile_gui,includeAnchor=TRUE,codingTable="coding"){
-  buffer <- slot(widget,"widget")@widget$GetBuffer()
+  buffer <- widget$widget$GetBuffer()
   bounds = buffer$GetSelectionBounds()
   startI = bounds$start ## start and end iter
   endI = bounds$end
@@ -177,7 +172,6 @@ InsertAnchor <- function(widget,label,index,label.col="gray90",
     labelEvBox <- gtkEventBoxNew()
     if (isTRUE(handler)) labelEvBox$ModifyBg("normal", gdkColorParse(label.col)$color)
     labelEvBox$Add(lab)
-    # buffer <- slot(widget,"widget")@widget$GetBuffer()
     buffer <- widget$widget$GetBuffer()
     if (isTRUE(handler)){
       button_press <-function(widget,event,W, codeName = label){
@@ -249,7 +243,6 @@ InsertAnchor <- function(widget,label,index,label.col="gray90",
 
 
 DeleteButton <- function(widget,label,index,direction=c("backward","forward")){
-  # buffer <- slot(widget,"widget")@widget$GetBuffer()
   buffer <- widget$widget$GetBuffer()
   direction <- match.arg(direction)
   if (direction=="backward") index <- index - 1
@@ -276,7 +269,6 @@ DeleteButton <- function(widget,label,index,direction=c("backward","forward")){
 }
 
 countAnchors <- function(widget=.rqda$.openfile_gui,to,from=0){
-  # buffer <- slot(widget,"widget")@widget$GetBuffer()
   buffer <- widget$widget$GetBuffer()
   iter <- gtkTextBufferGetIterAtOffset(buffer,from)$iter
   ans <- 0
@@ -893,7 +885,7 @@ AddToCodeCategory <- function (Widget = .rqda$.codes_rqda, updateWidget = TRUE)
 ##     label <- gtkEventBoxNew()
 ##     if (isTRUE(handler)) label$ModifyBg("normal", gdkColorParse(label.col)$color)
 ##     label$Add(lab)
-##     buffer <- slot(widget,"widget")@widget$GetBuffer()
+##     buffer <- widget$widget$GetBuffer()
 ##     if (isTRUE(handler)){
 ##       button_press <-function(widget,event,W){
 ##         Iter <- gtkTextBufferGetIterAtChildAnchor(buffer,anchor)$iter

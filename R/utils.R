@@ -36,14 +36,14 @@ UpdateWidget <- function(widget,from,to=NULL){
   }}
 }
 
-ScrollToItem <- function(widget,item=svalue(widget)){
+ScrollToItem <- function(widget, item=svalue(widget)){
   items <- widget[]
   if (length(items)!= 0){
     Encoding(items) <- "UTF-8"
     idx <- as.character(which(items %in% item) - 1)
     if (length(idx)!=0){
       path <-gtkTreePathNewFromString(idx)
-      gtkTreeViewScrollToCell(widget$widget, path,use.align=TRUE,row.align = 0.07)
+      gtkTreeViewScrollToCell(widget$widget, path, use.align=TRUE,row.align = 0.07)
     }}}
 
 enc <- function(x,encoding="UTF-8") {
@@ -78,7 +78,7 @@ OrderByTime <- function(date,decreasing = FALSE)
 ## dd[OrderByTime(dd)]
 
 
-MemoWidget <- function(prefix,widget,dbTable){
+MemoWidget <- function(prefix, widget, dbTable){
   ## prefix of window tile. E.g. "Code" ->  tile of gwindow becomes "Code Memo:"
   ## widget of the F-cat/C-cat list, such as widget=.rqda$.fnames_rqda
   if (is_projOpen(envir=.rqda,"qdacon")) {
@@ -99,14 +99,17 @@ MemoWidget <- function(prefix,widget,dbTable){
                       return(val)
                   }
           } ## helper function
-          IsOpen <- tryCatch(eval(parse(text=sprintf("svalue(.rqda$.%smemoW)",prefix))),error=function(e) simpleError("No opened memo widget."))
-          if (!inherits(IsOpen,"simpleError")){ ## if a widget is open
+          IsExisted <- eval(parse(text=sprintf("exists('.%smemoW', envir=.rqda)", prefix)))
+          IsOpen <- !is.null(eval(parse(text=sprintf("svalue(.rqda$.%smemoW)", prefix))))
+          if (IsExisted && IsOpen){
+            # if a widget is open
               prvSelected <- svalue(get(sprintf(".%smemo",prefix),envir=.rqda)) ## title of the memo widget
               Encoding(prvSelected) <- "UTF-8"
               prvSelected <- sub(sprintf("^%s Memo: ",prefix),"",prvSelected)
               prvSelected <- iconv(prvSelected,to="UTF-8") ## previously selected codename
               IfCont <- CloseYes(currentCode=prvSelected)}
-          if ( inherits(IsOpen,"simpleError") || IfCont){ ## if not open or the same.
+          if (!IsExisted || !IsOpen || IfCont){
+            # not open or the same.
               tryCatch(eval(parse(text=sprintf("dispose(.rqda$.%smemo)",prefix))),error=function(e) {})
               gw <- gwindow(title=sprintf(gettext("%s Memo:%s", domain = "R-RQDA"),prefix,Selected),
                             parent=getOption("widgetCoordinate"),
