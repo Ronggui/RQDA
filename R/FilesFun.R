@@ -363,7 +363,7 @@ EditFileFun <- function(FileNameWidget=.rqda$.fnames_rqda){
                      function(h,...){
                          enabled(button$EdiFilB) <- TRUE
                      })
-      addhandlerunrealize(.rqda$.openfile_gui,handler=function(h,...){
+      addHandlerUnrealize(.rqda$.openfile_gui,handler=function(h,...){
           rm("EdiFilB",envir=button)
           rm(".root_edit",".root_edit2",".openfile_gui",envir=.rqda)
           FALSE

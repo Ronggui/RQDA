@@ -140,7 +140,7 @@ AddNewFileFun <- function(){
     saveFileFun <- function() {
       ## require a title for the file
       Ftitle <- ginput(gettext("Enter the title", domain = "R-RQDA"), icon="info")
-      if (!is.na(Ftitle)) {
+      if (!is_empty(Ftitle)) {
         Ftitle <- enc(Ftitle,"UTF-8")
         if (nrow(dbGetQuery(.rqda$qdacon,sprintf("select name from source where name='%s'",Ftitle)))!=0) {
           Ftitle <- paste("New",Ftitle)
@@ -186,7 +186,7 @@ AddNewFileFun <- function(){
       enabled(button$AddNewFilB) <- TRUE
       enabled(button$AddNewFilB2) <- TRUE
     })
-    addhandlerunrealize(.rqda$.AddNewFileWidgetW,handler=function(h,...){
+    addHandlerUnrealize(.rqda$.AddNewFileWidgetW,handler=function(h,...){
       rm("AddNewFilB",envir=button)
       rm(".AddNewFileWidgetW",".AddNewFileWidget",".AddNewFileWidget2",envir=.rqda)
       FALSE
