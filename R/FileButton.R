@@ -186,7 +186,7 @@ AddNewFileFun <- function(){
       enabled(button$AddNewFilB) <- TRUE
       enabled(button$AddNewFilB2) <- TRUE
     })
-    addhandlerunrealize(.rqda$.AddNewFileWidgetW,handler=function(h,...){
+    addHandlerUnrealize(.rqda$.AddNewFileWidgetW,handler=function(h,...){
       rm("AddNewFilB",envir=button)
       rm(".AddNewFileWidgetW",".AddNewFileWidget",".AddNewFileWidget2",envir=.rqda)
       FALSE

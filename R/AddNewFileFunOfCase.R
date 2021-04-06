@@ -61,7 +61,7 @@ AddNewFileFunOfCase <- function ()
     addHandlerKeystroke(.rqda$.AddNewFileWidgetW, handler = function(h, ...) {
         enabled(button$AddNewFilBC) <- TRUE
     })
-    addhandlerunrealize(.rqda$.AddNewFileWidgetW, handler = function(h, ...) {
+    addHandlerUnrealize(.rqda$.AddNewFileWidgetW, handler = function(h, ...) {
         rm("AddNewFilBC", envir = button)
         rm(".AddNewFileWidgetW", envir = .rqda)
         FALSE
