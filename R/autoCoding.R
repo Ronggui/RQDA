@@ -58,31 +58,63 @@ insertCoding <- function(fid, cid, start, end, fulltext) {
 codingBySearchOneFile <- function(pattern, fid, cid, seperator, concatenate, ...) {
   ## auto coding: when seperator is \n, each paragraph is a analysis unit
   ## by providing approperiate seperator, it allows flexible control on the unit of autocoding
-    txt <- RQDAQuery(sprintf("select file from source where status=1 and id=%s",fid))$file
+    txt <- RQDAQuery(sprintf("select file from source where status=1 and id=%s", fid))$file
     Encoding(txt) <- "UTF-8"
-    pidx <- gregexpr(sprintf("(%s){1,}", seperator),txt)
-    idx1 <- c(0,pidx[[1]]+attr(pidx[[1]],"match.length")-1)
-    idx2 <- c(pidx[[1]]-1,nchar(txt))
-    sidx <- gregexpr(pattern,txt, ...)[[1]]
-    if (length(sidx) > 1 || (sidx != -1)) {
-        residx <- unique(findInterval(sidx,sort(c(idx1,idx2))))
-        idx <- (residx + 1)/2
-        if (concatenate)
-            removeidx <- which(diff(idx)==1)
-        else
-            removeidx <- NULL
+
+    ## find all pattern matches
+    pattern_matches <- gregexpr(pattern, txt, ...)[[1]]
+    if (length(pattern_matches) > 1 || (pattern_matches != -1)) {
+      
+        ## get all separator matches and calculate start and end of each analysis unit
+        separator_matches  <- gregexpr(sprintf("(%s){1,}", seperator), txt)[[1]]
+        unit_start_indexes <- c(0, separator_matches + attr(separator_matches, "match.length") - 1)
+        unit_end_indexes   <- c(separator_matches - 1, nchar(txt))
+    
+        ## get the matching analysis units
+        unit_start_reference <- findInterval(pattern_matches, unit_start_indexes)
+        unit_end_reference   <- findInterval(pattern_matches + attr(pattern_matches, "match.length"), unit_start_indexes, left.open = TRUE)
         
-        if (length(removeidx) > 0) {
-          selfirst = idx1[idx[-(removeidx+1)]]
-          elend   = idx2[idx[-removeidx]]
+        if(concatenate){
+            ## get a logical array with true values for start references that we need to skip
+            unit_start_reference <- c(sort(unit_start_reference), NA)
+            unit_end_reference   <- c(NA, sort(unit_end_reference))
+            bordering <- unit_start_reference - unit_end_reference <= 1
+      
+            ## receive start and end indexes of the matching analysis unit
+            for(i in (1 : length(bordering))){
+                current_end = i
+                
+                if(is.na(bordering[i]) || !bordering[i]){
+                  
+                    ## if this is the first pattern match:
+                    if(!exists("current_start"))
+                        current_start = i
+                    
+                    else{
+                        ## if exists append, otherwise create:
+                        if(exists("match_start_index"))
+                        {
+                            match_start_index <- c(match_start_index, unit_start_indexes[unit_start_reference[current_start]])
+                            match_end_index   <- c(match_end_index, unit_end_indexes[unit_end_reference[current_end]])
+                        }else {
+                            match_start_index <- c(unit_start_indexes[unit_start_reference[current_start]])
+                            match_end_index   <- c(unit_end_indexes[unit_end_reference[current_end]])
+                        }
+                        current_start = i
+                    }
+                }
+            }
         } else {
-          selfirst = idx1[idx]
-          selend   = idx2[idx]
+            ## if we do not concatenate, things are easier
+            ## receive start and end indexes of the matching analysis units
+            match_start_index <- unit_start_indexes[unit_start_reference]
+            match_end_index   <- unit_end_indexes[unit_end_reference]
         }
         
+        ## add the codings
         for (c in cid)
-          for (i in (1:length(selfirst)))
-            insertCoding (fid=fid, cid=c, start=selfirst[i], end=selend[i], txt)
+            for (i in (1 : length(match_start_index)))
+                insertCoding (fid=fid, cid=c, start=match_start_index[i], end=match_end_index[i], txt)
     }
 }
 
