@@ -2,6 +2,12 @@
 
 [RQDA](http://rqda.r-forge.r-project.org/) is computer-aided qualitative data analysis package
 
+
+
+**2021-11-18: RQDA will not be maintained or further developed because the upstream packages are orphined.**
+
+
+
 ## Installation of Devel Version
 
 Assuming you have a working version of current release (and all dependencies).
